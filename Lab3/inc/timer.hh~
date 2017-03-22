@@ -1,0 +1,44 @@
+#ifndef TIMER_HH
+#define TIMER_HH
+
+#include <ctime>
+#include <cmath>
+#include "array.hh"
+
+
+class stoper{
+    private:
+
+        clock_t poczatek;
+        clock_t koniec;
+        
+        double* czasy;
+        double srednia;
+
+        void start(){poczatek=clock();}
+        void stop(){koniec=clock();}
+
+    public:
+        stoper():poczatek(0),koniec(0){
+            srednia=0;
+        }
+
+        void mierz_czas(wykonywalny& Obiekt,int rozmiar_problemu,int ilosc_powtorzen);
+        
+        //metody get
+        double* gCzasy(){return czasy;}
+        double gSrednia(){return srednia;}
+
+};
+
+
+
+
+
+
+
+
+
+
+
+#endif

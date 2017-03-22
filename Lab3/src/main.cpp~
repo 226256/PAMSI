@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+
+#include <ctime>
+
+#include "array.hh"
+#include "wykonywalny.hh"
+#include "timer.hh"
+#include "funkcje.hh"
+
+using namespace std;
+
+
+typedef int T;
+
+
+
+
+
+int main(){
+stoper Miernik;
+//tablica moja;
+
+//Stoper.mierz_czas(Wykonywalny& obiekt,int rozmiar_problemu,int ilosc_powtorzen);
+
+
+
+return 0;
+}
