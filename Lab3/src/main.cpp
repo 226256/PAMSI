@@ -15,17 +15,24 @@ using namespace std;
 typedef int T;
 
 
+/********************************************************/
+/*   wszystkie potrzebne parametry zmienia sie          */
+/*   manualnie w pliku wykonywalny.hh                   */                                                
+/*   ROZMIAR,ROZMIAR_PROBLEMU oraz ILOSC_POWTORZEN      */
+/********************************************************/
 
 
 
 int main(){
-stoper Miernik;
-tablica obiekt(ROZMIAR);
+  stoper Miernik;
+  tablica obiekt(ROZMIAR);
 
-unsigned int problem=ROZMIARPROBLEMU;
-int ilerazy=POWTORZENIA;
+  unsigned int problem=ROZMIARPROBLEMU;
+  int ilerazy=POWTORZENIA;
 
-zawody(Miernik,obiekt,problem,ilerazy);
+  
+  //funkcja ktorej definicja znajduje sie w pliku funkcje.cpp
+  zawody(Miernik,obiekt,problem,ilerazy);
 
 
 
