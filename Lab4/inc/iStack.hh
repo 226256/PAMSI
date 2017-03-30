@@ -5,7 +5,7 @@ class iStack{
 
 public:
     virtual unsigned int size()=0;
-    virtual iStack push(iStack element)=0;
+    virtual iStack push(int element)=0;
     virtual iStack pop()=0;
 
 };
