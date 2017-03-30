@@ -4,9 +4,9 @@
 class iStack{
 
 public:
-    virtual unsigned int size()=0;
-    virtual iStack push(int element)=0;
-    virtual iStack pop()=0;
+    virtual void/*unsigned int*/ size()=0;
+    virtual int push(int element)=0;
+    virtual void pop()=0;
 
 };
 

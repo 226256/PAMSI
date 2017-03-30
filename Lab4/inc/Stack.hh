@@ -14,9 +14,9 @@ class Stack : public iStack{
 
 public:
 
-    virtual unsigned int size(){};
-    virtual iStack push(int element){};
-    virtual iStack pop(){};
+    virtual void/*unsigned int*/ size(){};
+    virtual int/*iStack*/ push(int element){int temp=2; return temp+element;};
+    virtual void/*iStack*/ pop(){};
 
 
 };
