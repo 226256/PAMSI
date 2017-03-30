@@ -1,0 +1,72 @@
+#ifndef ARRAY_HH
+#define ARRAY_HH
+
+#include <iostream>
+#include "wykonywalny.hh"
+
+
+typedef int T;
+
+
+class tablica : public wykonywalny{
+
+    private:
+
+        T* a;
+        unsigned int asize;
+
+        bool more(unsigned int rozmiar);
+        
+
+
+    public:
+  /*
+    tablica():wykonywalny(){
+      this->a=NULL;
+      this->asize=0;
+    }
+
+ 
+
+  virtual ~tablica(){
+     delete [] a;
+     }
+
+  tablica(unsigned int rozmiar):wykonywalny(){
+    T* tab=new T [rozmiar];
+    this->asize=rozmiar;
+    this->a=tab;
+  }
+  */
+  
+        unsigned int sizeofarray(){
+                return asize;
+            }
+
+
+        void saveinarray(unsigned int index,T val);
+        T loadfromarray(unsigned int index);
+
+        bool more1();
+        bool more2n();
+
+
+
+        void wykonaj_algorytm(int& rozmiar_problemu);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
