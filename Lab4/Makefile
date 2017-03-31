@@ -22,3 +22,7 @@ obj/iQueue.o:src/iQueue.cpp inc/iQueue.hh
 obj/Stack.o:src/Stack.cpp inc/Stack.hh 
 	g++ ${CPPFLAGS} -o obj/Stack.o src/Stack.cpp
 
+
+
+obj/iClock.o:src/iClock.cpp inc/Stack.hh
+	g++ ${CPPFLAGS} -o obj/i

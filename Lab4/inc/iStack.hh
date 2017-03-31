@@ -1,12 +1,14 @@
 #ifndef ISTACK_HH
 #define ISTACK_HH
 
+#include "Node.hh"
+
 class iStack{
 
 public:
     virtual void/*unsigned int*/ size()=0;
-    virtual int push(int element)=0;
-    virtual void pop()=0;
+    virtual bool push(Node& element)=0;
+    virtual Node pop()=0;
 
 };
 
