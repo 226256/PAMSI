@@ -8,11 +8,11 @@
 class iList{
 
 public:
-    virtual bool add(int& position)=0;
-    virtual bool rm(int& position)=0;
-    virtual Node* get(int& postition)=0;
+    virtual bool add(unsigned int& position,int value)=0;
+    virtual bool rm(unsigned int& position)=0;
+    virtual Node* get(unsigned int& postition)=0;
     virtual unsigned int size()=0;
-    virtual int find(int& identificator)=0;
+    virtual Node* find(int& identificator)=0;
 };
 
 #endif

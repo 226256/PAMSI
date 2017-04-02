@@ -1,9 +1,15 @@
 #include "Node.hh"
 
+/*
+ * tutaj zbior podstawowych metod
+ * z ktorych mozna korzystac przy pracy na wezlach
+ * np podczas dodawania nowego wezla do listy itp itd
+ */
 
-Node::Node(const int& val){
-    this->element=val;
-    this->next=NULL;
+
+Node::Node(Node* N){
+    this->element=0;
+    this->next=N;
     this->prev=NULL;
 }
 
@@ -39,9 +45,12 @@ int Node::getElem(){
 }
 
 void Node::setNext(Node* N){
-    this->next=N;
+    Node* temp=N;
+    this->next=temp;
+
 }
 
 void Node::setPrev(Node* P){
-    this->prev=P;
+    Node* temp=P;
+    this->prev=temp;
 }

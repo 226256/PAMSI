@@ -11,7 +11,7 @@ class Stack : public iStack{
 public:
 
     virtual void/*unsigned int*/ size(){};
-    virtual bool push(Node& element){bool temp=true;return temp;};
+  //  virtual bool push(Node& element){bool temp=true;return temp;};
     virtual Node pop(){Node temp; return temp;};
 
 

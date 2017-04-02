@@ -11,7 +11,7 @@ class Node{
 public:
     //---konstruktory dla wezla do roznego uzytku
     Node():element(0),next(NULL),prev(NULL){std::cout<<"To ja konstruktor sie nazywam!" << std::endl;} //tworzy wezel pusty
-    Node(const int& value);     //tworzy wezel z sama wartoscia do niczego nie przyporzadkowany
+    Node(Node* N);     //tworzy wezel z sama wartoscia do niczego nie przyporzadkowany
     Node(const int& value,Node* N);     //tworzy wezel do listy jednokierunkowej
     Node(const int& value, Node* N, Node* P);       //tworzy wezel do listy dwukierunkowej
 
