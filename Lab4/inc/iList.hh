@@ -1,12 +1,14 @@
 #ifndef ILIST_HH
 #define ILIST_HH
 
+#include <iostream>
+
 #include "Node.hh"
 
 class iList{
 
 public:
-    virtual bool add(Node* element,int& position)=0;
+    virtual bool add(int& position)=0;
     virtual bool rm(int& position)=0;
     virtual Node* get(int& postition)=0;
     virtual unsigned int size()=0;

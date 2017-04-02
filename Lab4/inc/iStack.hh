@@ -2,6 +2,7 @@
 #define ISTACK_HH
 
 #include "Node.hh"
+#include <iostream>
 
 class iStack{
 

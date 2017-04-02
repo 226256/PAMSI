@@ -5,13 +5,13 @@
 #include "Node.hh"
 
 class Stack : public iStack{
-    Node element;
+    Node* element;
     unsigned int amount;
 
 public:
 
     virtual void/*unsigned int*/ size(){};
-//    virtual bool push(Node& element){bool temp=true; return temp;};
+    virtual bool push(Node& element){bool temp=true;return temp;};
     virtual Node pop(){Node temp; return temp;};
 
 
