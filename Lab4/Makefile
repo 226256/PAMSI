@@ -1,10 +1,10 @@
 
 CPPFLAGS=-c -g -Iinc -Wall -Wextra -pedantic -ggdb
 
-Work: obj/main.o obj/iStack.o obj/iList.o obj/iQueue.o obj/Stack.o obj/Node.o obj/List.o obj/Queue.o
-	g++ -Wall -pedantic -ggdb -o Work obj/main.o obj/iList.o obj/iStack.o obj/iQueue.o obj/Stack.o obj/Node.o obj/List.o obj/Queue.o
+Work: obj/main.o obj/iStack.o obj/iList.o obj/iQueue.o obj/Stack.o obj/Node.o obj/List.o obj/Queue.o obj/iClock.o
+	g++ -Wall -pedantic -ggdb -o Work obj/main.o obj/iList.o obj/iStack.o obj/iQueue.o obj/Stack.o obj/Node.o obj/List.o obj/Queue.o obj/iClock.o
 
-obj/main.o: src/main.cpp inc/iList.hh inc/iStack.hh inc/iQueue.hh inc/Stack.hh inc/Node.hh inc/iClock.hh inc/List.hh inc/Queue.hh
+obj/main.o: src/main.cpp inc/iList.hh inc/iStack.hh inc/iQueue.hh inc/Stack.hh inc/Node.hh inc/iClock.hh inc/List.hh inc/Queue.hh 
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 
 obj/iList.o:src/iStack.cpp inc/iList.hh inc/Node.hh

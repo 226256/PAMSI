@@ -1,6 +1,8 @@
 #include "List.hh"
 
 
+//------------------konstruktor i destruktor-------------
+
 //nie wiem czy sie przyda ale na wszelki wpyadek tworze konstruktor bezparametryczny, nie zaszkodzi a moze pomoc :D
 List::List(){
     head=NULL;
@@ -24,6 +26,8 @@ List::~List(){
     amount=0;
     std::cout << "List destructed" << std::endl;
 }
+
+//----------------------------------------------------------
 
 
 
@@ -151,6 +155,7 @@ Node* List::find(int& identifier){
             } else temp = temp->getNext(); //jesli nie to klinujemy, wrzucamy do naszego tempa, wskaznik nastenego elementu
         } while (temp != NULL); //no i jesli nie bangla to nasz temp zostaje NULL... I rozlega sie smutna muzyka... "Hello darkness my old friend..."
     }
+
     else{//no jesli nie ma w czym szukac to z pustego i salomon nie naleje wiec elo mordo!
         temp=NULL;
         std::cerr << "There is no nodes in your list!" << std::endl;

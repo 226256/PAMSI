@@ -13,7 +13,7 @@
  *
  */
 
-
+//no i wazne jest to ze nie ma szans na uzyskanie z pierwszego elementu informacji o pozostalych
 class Stack : public iStack{
     Node* first;
     unsigned int amount;
