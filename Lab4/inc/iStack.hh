@@ -7,9 +7,9 @@
 class iStack{
 
 public:
-    virtual void/*unsigned int*/ size()=0;
-    virtual bool push(Node& element)=0;
-    virtual Node pop()=0;
+    virtual unsigned int size()=0;
+    virtual bool push(Node* element)=0;
+    virtual Node* pop()=0;
 
 };
 

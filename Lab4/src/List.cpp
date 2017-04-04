@@ -1,13 +1,16 @@
 #include "List.hh"
 
 
-
+//nie wiem czy sie przyda ale na wszelki wpyadek tworze konstruktor bezparametryczny, nie zaszkodzi a moze pomoc :D
 List::List(){
     head=NULL;
     amount=0;
-    std::cout << "Tworzymy liste" << std::endl;
+    std::cout << "List exists" << std::endl;
 }
 
+
+
+//destruktor, musi zniszczyc wszystkie elementy w liscie
 List::~List(){
     Node* temp;
     for(unsigned int i=0;i<this->amount;i++){
@@ -16,9 +19,10 @@ List::~List(){
         head=temp;
     }
 
+    //na koncu zostanie tylko 1 element i jego tez trzeba zniszyc
     delete head;
     amount=0;
-    std::cout << "Niszczymy liste" << std::endl;
+    std::cout << "List destructed" << std::endl;
 }
 
 
@@ -31,13 +35,15 @@ List::~List(){
 Node* List::get(unsigned int& position){
 
     if(position > this->amount){
+        //jesli przypadkiem ktos calkowicie nieodpowiedzialny poda nr pozycji
+        // a takiej pozycji nie bedzie to taki klamczuszek dostanie odpowiednia informacje zwrotna
         std::cerr << "Wrong position, higher than amount of elements in list" << std::endl;
-        return NULL;
+        return NULL;    //No i cos trzeba zwrocic to dostanie fige czyli NULL
     }
     else{
-        Node* temp=this->head;
-        for(unsigned int i=1;i<position;i++){
-            temp=temp->getNext();
+        Node* temp=this->head;  //bierzemy sobie wskazniczek na pierwszy element
+        for(unsigned int i=1;i<position;i++){//a potem idziemy tyle razy ile trzeba
+            temp=temp->getNext(); //za kazdym razem nasz wskaznik na element zamieniamy na wskaznik na nastepny
         }
         return temp;
     }

@@ -8,6 +8,7 @@
 class iList{
 
 public:
+
     virtual bool add(unsigned int& position,int value)=0;
     virtual bool rm(unsigned int& position)=0;
     virtual Node* get(unsigned int& postition)=0;

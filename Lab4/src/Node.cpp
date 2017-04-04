@@ -10,36 +10,37 @@
 Node::Node(Node* N){
     this->element=0;
     this->next=N;
-    this->prev=NULL;
+  //  this->prev=NULL;
 }
 
 Node::Node(const int& val,Node* N){
     this->element=val;
     this->next=N;
-    this->prev=NULL;
+//    this->prev=NULL;
 
 }
 
-Node::Node(const int& val,Node* N,Node* P){
+/*Node::Node(const int& val,Node* N,Node* P){
     this->element=val;
     this->next=N;
     this->prev=P;
 
-}
+}*/
 
 Node::~Node(){
     this->next=NULL;
-    this->prev=NULL;
+  //  this->prev=NULL;
 }
 
 Node* Node::getNext(){
     return next;
 }
 
+/*
 Node* Node::getPrev(){
     return prev;
 }
-
+*/
 int Node::getElem(){
     return element;
 }
@@ -49,8 +50,8 @@ void Node::setNext(Node* N){
     this->next=temp;
 
 }
-
+/*
 void Node::setPrev(Node* P){
     Node* temp=P;
     this->prev=temp;
-}
+}*/
