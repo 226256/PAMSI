@@ -40,14 +40,14 @@ bool Stack::push(Node* element){
         element->setNext(this->first->getNext());   //biore wskaznik pierwszy element w stosie i wkladam go do naszego nowego elementu
         this->first=element;              //no a pierwszym elementem stosu jest teraz nowiutki czysciutki elemencik
         this->amount++;                             //no jeszcze trzeba dodac info o nowym elemencie, tzn ze teraz kupa sie rozrosla i jest o 1 wiecej reczy w niej
-        std::cout << "Element pushed" << std::endl;         //a napisze sobie zeby wiedziec ze dziala i nie wywala sie albo ze robi to czego chce xddd
+//        std::cout << "Element pushed" << std::endl;         //a napisze sobie zeby wiedziec ze dziala i nie wywala sie albo ze robi to czego chce xddd
         element=NULL;
         return true;
     }
     else if(this->amount==0 && element->getNext()==NULL){       //tutaj prosta sprawa, dodam sobie zeby odrozniac czy faktycznie dodalem pierwszys element i stos robi co chce
         this->first=element;        //wskaznik na pierwszy element to od teraz jest wskaznik na nowy
         this->amount++;             //trzeba zwiekszyc ilosc elementow w stosie
-        std::cout << "First element added" << std::endl;        //specjalnie inne zeby widziec ze to PIERWSZY :D nobody expected the spanish incvisition xdd
+//        std::cout << "First element added" << std::endl;        //specjalnie inne zeby widziec ze to PIERWSZY :D nobody expected the spanish incvisition xdd
         element=NULL;
         return true;
     }
@@ -79,8 +79,22 @@ Node* Stack::pop(){
     }
 }
 
+
+
 //tutaj trzeba napisac cala funkcje przeszukujaca stos w poszukiwaniu danego elementu
-void Stack::do_algorithm(const int v){
+//zakladamy ze zawsze znajdzie kiedys tam szukany element bo gdyby nie to nie moznaby takiego czasu zaliczyc do sredniej
+void Stack::do_algorithm(const int v,Node** temp){
+    int w=v;
 
+unsigned int k=0;
+    for(unsigned int i=1;i<this->size();i++) {
+        temp[i] = this->pop();
+        if(temp[i]->getElem()==w){
+            k=i;
+            break;
+        }
+    }
 
+    if(temp[k]==NULL) std::cerr << "Didnt find a value" << std::endl;
+    else if(temp[k]->getElem()==w) std::cout << "Element found!" << std::endl;
 }

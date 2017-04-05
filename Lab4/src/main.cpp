@@ -18,27 +18,25 @@
 using namespace std;
 
 
-int main(){/*
-    Queue mojakolejka;
-    Node* mojwezel=new Node;
-    Node* mojdrugiwezel=new Node;
-    cout << mojwezel << endl;
-    cout <<mojdrugiwezel << endl;
-
-    mojakolejka.enqueue(mojwezel);
-    mojakolejka.enqueue(mojdrugiwezel);
-    Node* pobrany1;
-    Node* pobrany2;
-    Node* pobrany3;
-    pobrany1=mojakolejka.dequeue();
-    pobrany2=mojakolejka.dequeue();
-    pobrany3=mojakolejka.dequeue();
+int main(){
+    List mojalista;
+    iClock stoper;
 
 
-    cout << pobrany1 << endl;
-    cout << pobrany2 << endl;
-    cout << pobrany3 << endl;
-*/
+    unsigned int pos=1;
+    for(int k=0;k<7;k++) {
+        cout <<size_of_problem[k] << " elementow do przeszuania" << endl;
+        for (unsigned int i = 0; i < size_of_problem[k]; i++) {
+            mojalista.add(pos, 0);
+        }
+        pos = mojalista.size();
+        mojalista.add(pos, 1);
+
+
+        working(stoper, mojalista);
+    }
+
+
     return 0;
 }
 

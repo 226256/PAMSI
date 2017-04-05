@@ -15,7 +15,7 @@ List::List(){
 //destruktor, musi zniszczyc wszystkie elementy w liscie
 List::~List(){
     Node* temp;
-    for(unsigned int i=0;i<this->amount;i++){
+    for(unsigned int i=1;i<this->amount;i++){
         temp=this->head->getNext();
         head->~Node();
         head=temp;
@@ -61,6 +61,7 @@ bool List::add(unsigned int &position,int value){
     //jesli ostatni to NULL
     unsigned int firstindex=1;
     if(position <= this->amount && position != firstindex && this->amount!=0) {
+//        std::cout << "probujemy dodawac w srodku" << std::endl;
         unsigned int tempor=position-1;
         Node* prevNew=this->get(tempor);        //robie tymczasowy wskaznik na element przed miejscem gdzie chce wstawic nowy wezel
         Node* nextNew=this->get(position);      //oraz na ten ktory przesune a na jego miejsce wstawie nowy wezel
@@ -71,7 +72,19 @@ bool List::add(unsigned int &position,int value){
         this->amount++; //wiadomo trzeba jeszcze zwiekszyc rozmiar listy
         return true;
     }
-    if(this->amount==0 || position==firstindex){
+    else if(position==(this->amount+1) && this->amount!=0){
+//        std::cout << "probujemy dodawac na koncu" << std::endl;
+        unsigned int tempor=this->amount-1;
+        Node* prelast=this->get(tempor); //dodaje na koncu listy wiec nie mam wskaznika na ostatni element listy musze go uzyskac
+
+        Node* temp=new Node(value,NULL);     //tworze wskaznik na nowy wezel, w konstruktorze wezla od razu wrzucam wwskaznik do elementu na ktory bedzie wskazywac
+        prelast->setNext(temp);                 //no i do tego poprzedniego wskaznik na nowy wezel
+
+        this->amount++; //wiadomo trzeba jeszcze zwiekszyc rozmiar listy
+        return true;
+    }
+    else if(this->amount==0 || position==firstindex){
+//        std::cout << "pbobujemy dodawac pierwszy element" << std::endl;
         /*
          * jesli lista jest pusta albo wrzucam na pierwsze mijsce to pierwszy sposob nie przejdzie
          * bo musimy pobrac wskaznik na poprzedni element a jesli jest pusta lista to to nie przejdzie,
@@ -146,22 +159,14 @@ unsigned int List::size(){
 //oczywiscie poda mi namiary na pierwszego znalezionego po co bedzie szukac dalej
 Node* List::find(int& identifier){
     Node *temp = this->head;      //no to tak, towrzymy sobie wskaznik na element typu wezel
-
-    if(this->amount != 0) { //najpuierw na wszelki wypadek sprawdzimy czy jest w czym szukac xddd
-        do {//wchodzimy do petelki sprawdzajac czy wezel na ktory wskazuje nasz wskaznik ma cos takiego jak identifier
-            if (temp->getElem() == identifier) {    //no jesli tak to impreza!!!
-                // az do odcinki, czyli break jesli cos takiego sie wydarzy i wyskakujemy z petli
-                break;
-            } else temp = temp->getNext(); //jesli nie to klinujemy, wrzucamy do naszego tempa, wskaznik nastenego elementu
-        } while (temp != NULL); //no i jesli nie bangla to nasz temp zostaje NULL... I rozlega sie smutna muzyka... "Hello darkness my old friend..."
+    if(temp!=NULL && temp->getElem()!=identifier){
+        for(unsigned int i=1;i<=this->amount;i++){
+            temp=temp->getNext();
+            if(temp==NULL) break;
+            if(temp->getElem()==identifier) break;
+        }
     }
-
-    else{//no jesli nie ma w czym szukac to z pustego i salomon nie naleje wiec elo mordo!
-        temp=NULL;
-        std::cerr << "There is no nodes in your list!" << std::endl;
-    }
-
-    return temp;    //no i wskaznik na wezel z elementem ktorego szukamy wylatuje w swiat, a niedawno jeszcze byl taki maly :'(
+    return temp;
 }
 
 
@@ -171,4 +176,5 @@ void List::do_algorithm(const int w){
     int v=w;
     Node* temp=find(v);
     if(temp==NULL)std::cerr << "Didn't find" << std::endl;
+    else std::cout << temp <<std::endl;
 }

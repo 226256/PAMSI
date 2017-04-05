@@ -7,7 +7,7 @@
 const unsigned int rep=10;
 
 //no to stworzymy jescze tablice globalna ktora bedzie nam przechowywac rozmiar problemow czyli ilosc elementow ktore musimy przeszukac
-const unsigned int size_of_problem[5]={10,100,1000,10000,100000};
+const unsigned int size_of_problem[8]={10,100,1000,10000,100000,1000000,10000000,100000000};
 
 
 //tutaj sobie zadeklarujemy jakiego elementu bedziemy szukac, w main dodamy sobie tyle wezlow ile jest w size_of_problem wszystkie wyzerujemy a na koncu ustawimy 1
@@ -20,7 +20,7 @@ class Node{
 //    Node* prev;
 public:
     //---konstruktory dla wezla do roznego uzytku
-    Node():element(0),next(NULL)/*,prev(NULL)*/{std::cout<<"To ja konstruktor sie nazywam!" << std::endl;} //tworzy wezel pusty
+    Node():element(0),next(NULL)/*,prev(NULL)*/{} //tworzy wezel pusty
     Node(Node* N);     //tworzy wezel z sama wartoscia do niczego nie przyporzadkowany
     Node(const int& value,Node* N);     //tworzy wezel do listy jednokierunkowej
 //    Node(const int& value, Node* N/*, Node* P*/);       //tworzy wezel do listy dwukierunkowej

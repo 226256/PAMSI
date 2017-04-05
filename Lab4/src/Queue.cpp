@@ -65,7 +65,7 @@ bool Queue::enqueue(Node* element){
         this->last->setNext(element);
         this->last=element;
         this->amount++;
-        std::cout << "New node added to queue" << std::endl;
+//        std::cout << "New node added to queue" << std::endl;
         return true;
     }
 
@@ -120,9 +120,12 @@ void Queue::do_algorithm(const int v){
     Node* temp=this->dequeue();
     while(temp->getElem()!=w || temp!=NULL){
         temp=this->dequeue();
+        this->enqueue(temp);
+        if(temp->getElem()==w || temp==NULL) break;
     }
-    if(temp==NULL) std::cerr<<"Didnt find your element" << std::endl;
 
+    if(temp==NULL) std::cerr<<"Didnt find your element" << std::endl;
+    else if(temp->getElem()==w) std::cout << "element found" << std::endl;
 }
 
 

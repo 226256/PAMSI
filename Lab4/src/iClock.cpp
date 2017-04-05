@@ -33,6 +33,7 @@ void iClock::timekeeping(iQueue& Object){
     double* temp=new double [rep];
     double sum=0;
 
+
     for(unsigned int i=0;i<rep;i++){
         this->start();
         Object.do_algorithm(seeked);
@@ -56,10 +57,17 @@ void iClock::timekeeping(iStack& Object){
     double* temp=new double [rep];
     double sum=0;
 
+    int s=Object.size();
+    Node** pointer=new Node* [s];
+
     for(unsigned int i=0;i<rep;i++){
         this->start();
-        Object.do_algorithm(seeked);
+        Object.do_algorithm(seeked,pointer);
         this->stop();
+
+        for(int j=s;j>0;j--){
+            Object.push(pointer[j]);
+        }
         temp[i]=((this->ending)-(this->beginning))/(double)CLOCKS_PER_SEC;
     }
     this->times=temp;
