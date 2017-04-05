@@ -22,9 +22,9 @@ public:
     Stack();
     ~Stack();
 
-    virtual unsigned int size();        //metoda size() zwraca rozmiar stosu, czyli ilosc elementow w srodku
-    virtual Node* pop();                //metoda pop() wyciaga element ze stosu czyli ustawia first na nastepny w stosie a wskaznik na ten sciagany zwraca
-    virtual bool push(Node* element);   //metoda push() dodaje do stosu nowy element czyli ustawia first na ten nowy element a stary first wklada do wezla,zwraca true
+    unsigned int size();        //metoda size() zwraca rozmiar stosu, czyli ilosc elementow w srodku
+    Node* pop();                //metoda pop() wyciaga element ze stosu czyli ustawia first na nastepny w stosie a wskaznik na ten sciagany zwraca
+    bool push(Node* element);   //metoda push() dodaje do stosu nowy element czyli ustawia first na ten nowy element a stary first wklada do wezla,zwraca true
                                         //zwraca true jesli sie udalo
 
 

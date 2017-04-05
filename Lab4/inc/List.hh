@@ -12,11 +12,11 @@ public:
     List();
     ~List();
 
-    virtual bool add(unsigned int& position,int value);  //wstawia wezel z elementem o wartosci value, na pozycje nr position
-    virtual bool rm(unsigned int& position);                //usuwa wezel nr position z listy
-    virtual Node* get(unsigned int& postition);         //zwraca wskaznik na wezel nr position w liscie
-    virtual unsigned int size();                        //zwraca rozmiar listy
-    virtual Node* find(int& identificator);             //zwraca wskaznik na pierwszy wezel w liscie na ktory natrafi i znajdujje sie tam element o warotsic identificator
+    bool add(unsigned int& position,int value);  //wstawia wezel z elementem o wartosci value, na pozycje nr position
+    bool rm(unsigned int& position);                //usuwa wezel nr position z listy
+    Node* get(unsigned int& postition);         //zwraca wskaznik na wezel nr position w liscie
+    unsigned int size();                        //zwraca rozmiar listy
+    Node* find(int& identificator);             //zwraca wskaznik na pierwszy wezel w liscie na ktory natrafi i znajdujje sie tam element o warotsic identificator
 
 };
 
