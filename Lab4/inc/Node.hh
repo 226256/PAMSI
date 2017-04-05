@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+//w tym naglowku deklarujemy ile razy chcemy powtarzac czynnosc liczenia czasu
+const unsigned int rep=10;
+
+
+
 
 class Node{
     int element;

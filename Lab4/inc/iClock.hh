@@ -5,6 +5,11 @@
 #include <cstdlib>
 #include <ctime>
 
+#include "iList.hh"
+#include "iStack.hh"
+#include "iQueue.hh"
+#include "Node.hh"
+
 class iClock{
     clock_t beginning;      //w moim stoperze zapisuje sie czas poczatku wyscigu
     clock_t ending;         //oraz konca zmagan a czasy poszczegolnych okrazen zapisuje sie do:
@@ -25,14 +30,22 @@ public:
     }
     ~iClock(){}
 
-//-------tutaj beda metody obliczajace czasy i zapisujace wszystko tak jak chce
+//---------------akcesory-----------------------------------------------------
 
+
+    double gMean();
+    double gTimes(unsigned int&);
 
 
 //0---------------------------------------------------------------------------
 
 //-------a tutaj beda metody mierzenia czasu, przeladowania funkcji void timekeeping(Obiekty,....)
 
+    void timekeeping(iList& Object);
+    void timekeeping(iQueue& Object);
+    void timekeeping(iStack& Object);
+
+    void reset();
 
 };
 

@@ -18,6 +18,7 @@ public:
     unsigned int size();                        //zwraca rozmiar listy
     Node* find(int& identificator);             //zwraca wskaznik na pierwszy wezel w liscie na ktory natrafi i znajdujje sie tam element o warotsic identificator
 
+//    void do_algorithm();
 };
 
 #endif

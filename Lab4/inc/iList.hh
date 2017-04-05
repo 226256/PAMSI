@@ -14,6 +14,7 @@ public:
     virtual Node* get(unsigned int& postition)=0;
     virtual unsigned int size()=0;
     virtual Node* find(int& identificator)=0;
+    virtual void do_algorithm()=0;
 };
 
 #endif

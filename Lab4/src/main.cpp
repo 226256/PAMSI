@@ -11,6 +11,9 @@
 #include "Stack.hh"
 #include "List.hh"
 #include "Queue.hh"
+#include "functions.hh"
+
+
 
 using namespace std;
 
@@ -38,3 +41,4 @@ int main(){/*
 */
     return 0;
 }
+
