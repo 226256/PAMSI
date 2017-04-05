@@ -6,7 +6,12 @@
 //w tym naglowku deklarujemy ile razy chcemy powtarzac czynnosc liczenia czasu
 const unsigned int rep=10;
 
+//no to stworzymy jescze tablice globalna ktora bedzie nam przechowywac rozmiar problemow czyli ilosc elementow ktore musimy przeszukac
+const unsigned int size_of_problem[5]={10,100,1000,10000,100000};
 
+
+//tutaj sobie zadeklarujemy jakiego elementu bedziemy szukac, w main dodamy sobie tyle wezlow ile jest w size_of_problem wszystkie wyzerujemy a na koncu ustawimy 1
+const int seeked=1;
 
 
 class Node{

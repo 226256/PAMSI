@@ -163,3 +163,12 @@ Node* List::find(int& identifier){
 
     return temp;    //no i wskaznik na wezel z elementem ktorego szukamy wylatuje w swiat, a niedawno jeszcze byl taki maly :'(
 }
+
+
+
+
+void List::do_algorithm(const int w){
+    int v=w;
+    Node* temp=find(v);
+    if(temp==NULL)std::cerr << "Didn't find" << std::endl;
+}

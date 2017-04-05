@@ -111,3 +111,18 @@ Node* Queue::dequeue(){
 
 
 }
+
+//tutaj trzeba opisac funkcje przszukujaca kolejke w poszukiwaniu elementu
+//czyli tak zabieramy z poczatku i dodajemy na koniec az nie natrafimy na szukany element
+
+void Queue::do_algorithm(const int v){
+    int w=v;
+    Node* temp=this->dequeue();
+    while(temp->getElem()!=w || temp!=NULL){
+        temp=this->dequeue();
+    }
+    if(temp==NULL) std::cerr<<"Didnt find your element" << std::endl;
+
+}
+
+

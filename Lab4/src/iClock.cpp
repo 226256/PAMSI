@@ -11,7 +11,7 @@ void iClock::timekeeping(iList& Object){
 
     for(unsigned int i=0;i<rep;i++){
         this->start();                                  //prosta sprawa tyle razy ile chce powtorzyc zaczynam od nacisniecia startu
-        Object.do_algorithm();                          //w tym momencie rozpoczyna dzialanie algorytm
+        Object.do_algorithm(seeked);                          //w tym momencie rozpoczyna dzialanie algorytm
         this->stop();                                   //jak skonczy zapisujemy czas konca
         temp[i]=((this->ending)-(this->beginning))/(double)CLOCKS_PER_SEC;  //no i do tablicy wrzucamy czas w jakim ten algorytm sie zrobil
     }
@@ -35,7 +35,7 @@ void iClock::timekeeping(iQueue& Object){
 
     for(unsigned int i=0;i<rep;i++){
         this->start();
-        Object.do_algorithm();
+        Object.do_algorithm(seeked);
         this->stop();
         temp[i]=((this->ending)-(this->beginning))/(double)CLOCKS_PER_SEC;
     }
@@ -58,7 +58,7 @@ void iClock::timekeeping(iStack& Object){
 
     for(unsigned int i=0;i<rep;i++){
         this->start();
-        Object.do_algorithm();
+        Object.do_algorithm(seeked);
         this->stop();
         temp[i]=((this->ending)-(this->beginning))/(double)CLOCKS_PER_SEC;
     }

@@ -78,3 +78,9 @@ Node* Stack::pop(){
         return NULL;
     }
 }
+
+//tutaj trzeba napisac cala funkcje przeszukujaca stos w poszukiwaniu danego elementu
+void Stack::do_algorithm(const int v){
+
+
+}

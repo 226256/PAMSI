@@ -17,7 +17,7 @@ public:
     bool enqueue(Node* element);        //metoda dodajaca wezel do kolejki na sam koniec(wezel podany przez uzytkownika, ktory na nic nie wskazuje, moze miec tylko element
     Node* dequeue();                     //metoda zabierajaca pierwszy element z kolejki(czyli ten ktory zostal dodany do kolejki przed wszystkimi innymi)
 
-//    void do_algorithm();
+    void do_algorithm(const int);
 };
 
 #endif
