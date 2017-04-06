@@ -24,7 +24,7 @@ int main(){
 
 
     unsigned int pos=1;
-    for(int k=0;k<7;k++) {
+    int k=7;
         cout <<size_of_problem[k] << " elementow do przeszuania" << endl;
         for (unsigned int i = 0; i < size_of_problem[k]; i++) {
             mojalista.add(pos, 0);
@@ -34,7 +34,6 @@ int main(){
 
 
         working(stoper, mojalista);
-    }
 
 
     return 0;
