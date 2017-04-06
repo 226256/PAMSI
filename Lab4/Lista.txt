@@ -1,4 +1,4 @@
-
+10
 New serie!
  Times of algorithm: 
 2e-05 s
@@ -12,6 +12,8 @@ New serie!
 8e-06 s
 7e-06 s
 Mean time of this serie: 9e-06
+
+100
 New serie!
  Times of algorithm: 
 1.4e-05 s
@@ -25,6 +27,8 @@ New serie!
 9e-06 s
 1e-05 s
 Mean time of this serie: 9.2e-06
+
+1000
 New serie!
  Times of algorithm: 
 3.8e-05 s
@@ -38,6 +42,8 @@ New serie!
 2.7e-05 s
 2.8e-05 s
 Mean time of this serie: 2.9e-05
+
+10 000
 New serie!
  Times of algorithm: 
 0.000267 s
@@ -51,6 +57,8 @@ New serie!
 0.000146 s
 0.000145 s
 Mean time of this serie: 0.0001899
+
+100 000
 New serie!
  Times of algorithm: 
 0.001579 s
@@ -64,6 +72,8 @@ New serie!
 0.001557 s
 0.001539 s
 Mean time of this serie: 0.0015876
+
+1 000 000
 New serie!
  Times of algorithm: 
 0.014525 s
@@ -77,6 +87,8 @@ New serie!
 0.014706 s
 0.015273 s
 Mean time of this serie: 0.0149279
+
+10 000 000
 New serie!
  Times of algorithm: 
 0.142792 s
