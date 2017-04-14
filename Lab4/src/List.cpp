@@ -119,23 +119,23 @@ bool List::rm(unsigned int& position){
     unsigned int firstelem=1;
     if(position==firstelem){
         unsigned int temp = position+1;
-        Node* nextRm=this->get(temp);       //tutaj tworze sobie wskaznik na element nastepujacy po usuwanym
-        this->head->~Node();                //a tutaj robie master of disaster dla elementu wskazywanego przez glowe
-        this->head=nextRm;                  //no i glowka teraz juz wie na co ma wskazywac, badz jak glowka!
-        this->amount--;                     //biedny amount, lista ma o 1 mniej element wiec on tez obrywa :(
+        Node* nextRm=this->get(temp);
+        this->head->~Node();
+        this->head=nextRm;
+        this->amount--;
 
         //dziekuje dobranoc
         return true;
     }
     else if(position != 0 && position <= this->amount){
         unsigned int temp=position-1;
-        Node* prevRemove=this->get(temp);       //no tutaj nie wiemy co poprzedza element usuwany wiec musimy to znalezc
+        Node* prevRemove=this->get(temp);
         temp=position+1;
-        Node* nextRemove=this->get(temp);       //nihil novi sub solar, tak samo bylo wyzej
-        Node* removed=prevRemove->getNext();    //no wstawiamy sobie do jakiejs tymczasowej zmiennej wskaznik na nasz element ktoremu zaraz zrobimy aborcje
-        removed->~Node();                       //no i jedziemy z frajerem jak Arnold Schwarzenneger w drugim terminatorze!
-        prevRemove->setNext(nextRemove);        //wiadomo zamiatamy zabojstwo pod dywan, a poprzedzajacemu usuwanego dajemy wskaznik na nastepujacego
-        this->amount--;                         //tylko amount wie o wszystkim i sie sypie tracac na wartosci
+        Node* nextRemove=this->get(temp);
+        Node* removed=prevRemove->getNext();
+        removed->~Node();
+        prevRemove->setNext(nextRemove);
+        this->amount--;
 
         //system rozwalony
         return true;
@@ -155,7 +155,6 @@ unsigned int List::size(){
 }
 
 
-//oooooo a tutaj bedzie fajny okaz, ta funkcja ma mi szukac ktory wezel posiada to czego szukam
 //oczywiscie poda mi namiary na pierwszego znalezionego po co bedzie szukac dalej
 Node* List::find(int& identifier){
     Node *temp = this->head;      //no to tak, towrzymy sobie wskaznik na element typu wezel

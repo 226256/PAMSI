@@ -1,58 +1,52 @@
 #ifndef ARRAY_HH
-
 #define ARRAY_HH
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
+
+#include "wykonywalny.hh"
+#include "wariant.h"
 
 
 typedef int T;
 
 
-class array{
+class tablica : public wykonywalny{
+
     private:
+
         T* a;
         unsigned int asize;
 
-        bool more(unsigned int rozmiar);
-        bool fewer(unsigned int as);
+         bool more(unsigned int rozmiar);
+        
+
 
     public:
-        array(){
-                asize=0;
-                a=NULL;
-        //tutaj konstruktor bezparametryczny
-            }
-
-
-        array(unsigned int as){
-        /*
-        Tutaj konstruktor, ktory jako parametr przyjmuje rozmiar tablicy ktora potrzebujemy
-        Tworzymy wskaznik na nowa tablice, adres ze wskaznika przypisuje do tab
-        */
-                asize=as;
-                T* temp=new T [asize];
-                a=temp;
-            }
-        ~array(){
-        delete [] a;
-        asize=0;
-        }
+        tablica();
+        tablica(unsigned int rozmiar);
+        ~tablica();
+  
         unsigned int sizeofarray(){
                 return asize;
             }
 
 
-        void saveinarray(unsigned int index,T val);
+         void saveinarray(unsigned int index,T val);
         T loadfromarray(unsigned int index);
+         void reset();
+         bool more1();
+         bool more2n();
 
-        bool more1();
-        bool more2n();
 
-        unsigned int point(unsigned int l, unsigned int r);
-        void quicksort(unsigned int l, unsigned int r);
-        unsigned int divide_the_array(unsigned int l, unsigned int r);
-        void change_places(unsigned int i2, unsigned int i1);
+
+        virtual void wykonaj_algorytm(unsigned int& rozmiar_problemu,wariant wybor);
+       unsigned int point(unsigned int l, unsigned int r);
+      void quicksort(unsigned int l, unsigned int r);
+      unsigned int divide_the_array(unsigned int l, unsigned int r);
+      void change_places(unsigned int i2, unsigned int i1);
 };
 
 

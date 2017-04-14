@@ -5,7 +5,9 @@
 #include <ctime>
 
 #include "array.hh"
-
+#include "wykonywalny.hh"
+#include "timer.hh"
+#include "funkcje.hh"
 
 using namespace std;
 
@@ -13,31 +15,27 @@ using namespace std;
 typedef int T;
 
 
+/********************************************************/
+/*   wszystkie potrzebne parametry zmienia sie          */
+/*   manualnie w pliku wykonywalny.hh                   */                                                
+/*   ROZMIAR,ROZMIAR_PROBLEMU oraz ILOSC_POWTORZEN      */
+/********************************************************/
+
+
 
 int main(){
-    array mojatab(30);
-    unsigned int rozm=mojatab.sizeofarray();
-    for(unsigned int i=0;i<rozm;i++){
-        T val=rand()%100;
-        mojatab.saveinarray(i,val);
-    }
-    cout << rozm << endl;
+  stoper Miernik;
+  tablica obiekt(ROZMIAR);
 
-    for(unsigned int i=0;i<rozm;i++) {
-        T val=mojatab.loadfromarray(i);
-        cout << val << endl;
-    }
-cout << endl << endl;
+  unsigned int problem=ROZMIARPROBLEMU;
+  int ilerazy=POWTORZENIA;
 
-    unsigned int lewy=0;
-    unsigned int prawy=rozm-1;
-    mojatab.quicksort(lewy,prawy);
-
-    for(unsigned int i=0;i<rozm;i++) {
-        T val=mojatab.loadfromarray(i);
-        cout << val << endl;
-    }
+  
+  //funkcja ktorej definicja znajduje sie w pliku funkcje.cpp
+//  zawody(Miernik,obiekt,problem,ilerazy);
 
 
-        return 0;
+
+
+return 0;
 }

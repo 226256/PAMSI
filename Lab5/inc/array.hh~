@@ -1,70 +1,58 @@
 #ifndef ARRAY_HH
-
 #define ARRAY_HH
 
 #include <iostream>
-
+#include "wykonywalny.hh"
 
 
 typedef int T;
 
 
-class array{
+class tablica : public wykonywalny{
 
     private:
 
         T* a;
         unsigned int asize;
 
-
-        void more(unsigned int rozmiar);
-        bool fewer(unsigned int as);
-
-
+        bool more(unsigned int rozmiar);
+        
 
 
     public:
+  /*
+    tablica():wykonywalny(){
+      this->a=NULL;
+      this->asize=0;
+    }
 
+ 
 
+  virtual ~tablica(){
+     delete [] a;
+     }
 
-        array(){
-                asize=0;
-                a=NULL;
-        //tutaj konstruktor bezparametryczny
-            }
-
-
-        array(unsigned int as){
-        /*
-        Tutaj konstruktor, ktory jako parametr przyjmuje rozmiar tablicy ktora potrzebujemy
-
-        Tworzymy wskaznik na nowa tablice, adres ze wskaznika przypisuje do tab
-
-        */
-                asize=as;
-                T* temp=new T [asize];
-                a=temp;
-            }
-
-        ~array(){
-        delete [] a;
-        asize=0;
-        }
-
-
+  tablica(unsigned int rozmiar):wykonywalny(){
+    T* tab=new T [rozmiar];
+    this->asize=rozmiar;
+    this->a=tab;
+  }
+  */
+  
         unsigned int sizeofarray(){
                 return asize;
             }
 
 
-
-
         void saveinarray(unsigned int index,T val);
         T loadfromarray(unsigned int index);
 
-        void more1();
-        void more2n();
+        bool more1();
+        bool more2n();
 
+
+
+        void wykonaj_algorytm(int& rozmiar_problemu);
 };
 
 

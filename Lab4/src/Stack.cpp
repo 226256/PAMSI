@@ -11,10 +11,10 @@ Stack::Stack(){
 
 
 Stack::~Stack(){
-    Node* temp=this->first->getNext();
-    while(this->first->getNext()!=NULL){
+    Node* temp;
+    while(this->first!=NULL){
         temp=this->first->getNext();
-        this->first->~Node();
+        delete this->first;
         this->first=temp;
     }
     this->amount=0;
@@ -87,7 +87,8 @@ void Stack::do_algorithm(const int v,Node** temp){
     int w=v;
 
 unsigned int k=0;
-    for(unsigned int i=1;i<this->size();i++) {
+    unsigned int s=this->size();
+    for(unsigned int i=1;i<s;i++) {
         temp[i] = this->pop();
         if(temp[i]->getElem()==w){
             k=i;
