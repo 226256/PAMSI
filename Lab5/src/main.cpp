@@ -59,4 +59,5 @@ int main(){
         cin >> wybor;
     }
     return 0;
+
 }
