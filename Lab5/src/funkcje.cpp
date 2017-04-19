@@ -78,14 +78,13 @@ void zapisywanie_quicksortu(stoper& Miernik,tablica& moja,int& ilosc_powtorzen,w
     Miernik.sprawdz_algorytm(moja,ilosc_powtorzen,wybor);
     std::ofstream plik;
 
-    std::cout << "Tu jestem" << std::endl;
     if(wybor==losowy) plik.open("Losowy.txt",std::ios::app);
     else if(wybor==rosnacy) plik.open("Rosnacy.txt",std::ios::app);
     else if(wybor==malejacy) plik.open("Malejacy.txt",std::ios::app);
 
 
     if(plik.good()){
-        plik << "\nNowa seria!\n Poszczegolne czasy algorytmu: \n";
+        plik << "\n\nNowa seria!\n Poszczegolne czasy algorytmu: \n Ilosc elementow do sortowania: " << ROZMIAR << '\n';
         for(int i=0;i<ilosc_powtorzen;i++){
             plik << Miernik.gCzasy(i) << " s\n";
         }

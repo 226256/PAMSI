@@ -1,7 +1,7 @@
 #ifndef WARIANT_H
 #define WARIANT_H
 
-const int ROZMIAR=1000;
+const int ROZMIAR=1000000;
 //zdefiniuje tutaj podstawowy rozmiar tablicy
 
 const int ROZMIARPROBLEMU=10;
