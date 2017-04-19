@@ -1,7 +1,7 @@
 #ifndef WARIANT_H
 #define WARIANT_H
 
-const int ROZMIAR=1000000000 ;
+const int ROZMIAR=1000 ;
 //zdefiniuje tutaj podstawowy rozmiar tablicy
 
 const int ROZMIARPROBLEMU=10;
@@ -14,7 +14,7 @@ const int POWTORZENIA=20;
   mozna wybrac jeden z dwoch wariantow
   ktore okreslimy jako typ wyliczeniowy */
 
-enum wariant{pierwszy,drugi};
+enum wariant{pierwszy,drugi,losowy,rosnacy,malejacy};
 
 
 

@@ -19,8 +19,9 @@ void zawody(stoper& Miernik,
 void zapis_do_pliku(stoper& Dane,wariant& wybor);
 
 
-
 void quicksort(tablica& obiekt,  int lewy, int prawy);
+
+void zapisywanie_quicksortu(stoper& Miernik,tablica& moja,int& ilosc_powtorzen,wariant& wybor);
 
 
 #endif

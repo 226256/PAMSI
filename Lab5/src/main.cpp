@@ -27,24 +27,36 @@ int main(){
     stoper Miernik;
     tablica obiekt(ROZMIAR);
 
-     int problem=ROZMIARPROBLEMU;
-    int ilerazy=POWTORZENIA;
+    int ilosc_powtorzen=POWTORZENIA;
 
+    wariant zmienna;
 
-    cout << "Tablica z elementami: " << obiekt.sizeofarray() << endl;
-
-    for( int i=0;i<ROZMIAR;i++){
-        T temp=rand()%ROZMIAR;
-        obiekt.saveinarray(i,temp);
+    bool pomoc;
+    char wybor;
+    cout << "1.losowy" << endl << "2.rosnacy" << endl << "3.malejacy" << endl << "0.zakoncz" <<endl;
+    cin >> wybor;
+    while(wybor!='0') {
+        if(wybor=='1'){
+            zmienna=losowy;
+            pomoc=true;
+        }
+        else if(wybor=='2'){
+            zmienna=rosnacy;
+            pomoc=true;
+        }
+        else if(wybor=='3'){
+            zmienna=malejacy;
+            pomoc=true;
+        }
+        else{
+            cout << "Zla opcja, sprobuj jeszcze raz" << endl;
+            pomoc=false;
+        }
+        if(pomoc==true){
+            zapisywanie_quicksortu(Miernik,obiekt,ilosc_powtorzen,zmienna);
+        }
+        cout << "1.losowy" << endl << "2.rosnacy" << endl << "3.malejacy" << endl << "0.zakoncz" << endl;
+        cin >> wybor;
     }
-//    for( int i=0;i<ROZMIAR;i++){
-//        cout << obiekt.loadfromarray(i) << '\t';
-//    }
-
-    obiekt.quicksort(0,ROZMIAR-1);
-//    for( int i=0;i<ROZMIAR;i++){
-//        cout << obiekt.loadfromarray(i) << endl;
-//    }
-
     return 0;
 }

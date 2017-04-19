@@ -32,6 +32,7 @@ class stoper{
         double gSrednia(){return srednia;}
 
         void reset();//po wykonanych pomiarach trzeba zresetowac stoper
+        void sprawdz_algorytm(tablica& moja, int& ilosc_powtorzen, wariant& wybor);
 };
 
 

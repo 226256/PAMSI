@@ -14,6 +14,7 @@ class wykonywalny{
       po wykonaniu powiekszania, bo dla duzych powiekszen
       brak resetowania moze wplywac na czas lgorytmu*/
     virtual void reset()=0;
+    virtual void quicksort(int l,int p)=0;
 };
 
 
