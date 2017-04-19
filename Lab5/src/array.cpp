@@ -17,7 +17,7 @@ tablica::tablica(){
 }
 
 
-tablica::tablica(unsigned int rozmiar){
+tablica::tablica( int rozmiar){
     T* temp=new T [rozmiar];
     asize=rozmiar;
     a=temp;
@@ -39,7 +39,7 @@ tablica::~tablica(){
 
 
 
- void tablica::saveinarray(unsigned int index,T val){
+ void tablica::saveinarray( int index,T val){
     if(index<asize){
         a[index]=val;
     }
@@ -49,7 +49,7 @@ tablica::~tablica(){
 }
 
 
-T tablica::loadfromarray(unsigned int index){
+T tablica::loadfromarray( int index){
 
     T temp=0;
     if(index<asize) temp=a[index];
@@ -77,12 +77,12 @@ T tablica::loadfromarray(unsigned int index){
 
 
 
- void tablica::wykonaj_algorytm(unsigned int& rozmiar_problemu,wariant wybor){
+ void tablica::wykonaj_algorytm( int& rozmiar_problemu,wariant wybor){
 
 //funkcja sprawdza ktory wariant powiekszania ma wybrac
     if(wybor==pierwszy){
     //jesli pierwszy to powiekszanie "+1"
-        for(unsigned int i=0;i<rozmiar_problemu;i++){
+        for( int i=0;i<rozmiar_problemu;i++){
             if(more1()==false){
             //jesli jakis blad przy powiekszaniu to konczy wszystko bo to oznacza
             //ze algorytm nie dziala poprawnie
@@ -96,7 +96,7 @@ T tablica::loadfromarray(unsigned int index){
 
     else if(wybor==drugi){
     //analogicznie do pierwszego
-        unsigned int pierwszyrozm=asize;
+         int pierwszyrozm=asize;
         bool success=true;
         /*tylko ze tuaj nie uzupelnia sie tablicy od razu po powiekszeniu pojedynczym
           ale po skonczonej calej robocie, wiec zanim ja uzupelnie musze sprawdzic
@@ -113,7 +113,7 @@ T tablica::loadfromarray(unsigned int index){
 
 
         if(success==true){
-            for(unsigned int i=pierwszyrozm;i<pierwszyrozm+rozmiar_problemu;i++){
+            for( int i=pierwszyrozm;i<pierwszyrozm+rozmiar_problemu;i++){
             saveinarray(i,rand()%10);
             }
         }
@@ -134,12 +134,12 @@ T tablica::loadfromarray(unsigned int index){
 //-------------metody prywatne----------------
 
 
- bool tablica::more(unsigned int rozmiar){
+ bool tablica::more( int rozmiar){
 
   bool success;
   if(rozmiar>asize){
         T* temp=new T [rozmiar];
-        for(unsigned int i=0;i<asize;i++){
+        for( int i=0;i<asize;i++){
             temp[i]=a[i];
         }
         a=temp;
@@ -167,14 +167,14 @@ void tablica::reset(){
 
 
 //punkt podzialu bedzie na srodku tablicy
-unsigned int tablica::point(unsigned int l, unsigned int r){
-    return l+(r-l)/2;       //z dwoch podanych bierze srednia arytm i oddaje czesc calkowita
+ int tablica::indpiwota( int l,  int r){
+    return (l+r)/2;       //z dwoch podanych bierze srednia arytm i oddaje czesc calkowita
 }
 
 
 
 //taka funkcja swap dla naszej tablicy
-void tablica::change_places(unsigned int i1,unsigned int i2){
+void tablica::change_places( int i1, int i2){
     T temp;
     temp=a[i1];
     a[i1]=a[i2];
@@ -183,30 +183,35 @@ void tablica::change_places(unsigned int i1,unsigned int i2){
 
 
 
-void tablica::quicksort(unsigned int l, unsigned int r){
-    unsigned int i=this->point(l,r);
-    T val=a[i];
-    a[i]=a[r];      //piwot
-    unsigned int j=l;
-    i=l;
-    while(i!=r) {
-        if (i < r) {
-            if (a[i] < val) {
-                change_places(i,j);
-                j++;
-            }
-            i++;
+
+void tablica::quicksort( int lewy,  int prawy){
+    int i,j;
+    T piwot;
+
+    i=indpiwota(lewy,prawy);
+    piwot=a[i];
+    a[i]=a[prawy];
+    j=lewy;
+    for(i=lewy;i<prawy;i++){
+        if(a[i]<piwot){
+            T temp;
+            temp=a[i];
+            a[i]=a[j];
+            a[j]=temp;
+            j++;
         }
     }
+    a[prawy]=a[j];
+    a[j]=piwot;
 
-    a[r]=a[j];
-    a[j]=val;
-    if(l<j-1){
-        quicksort(l,j-1);
-    }
-    if(j+1<r){
-        quicksort(j+1,r);
-    }
-
+    if(lewy<j-1) quicksort(lewy,j-1);
+    if(j+1<prawy) quicksort(j+1,prawy);
 }
+
+
+
+
+
+
+
 

@@ -6,7 +6,7 @@
 
 
 
-void stoper::mierz_czas(wykonywalny& Obiekt,unsigned int& rozmiar_problemu,int& ilosc_powtorzen,wariant& wybor){
+void stoper::mierz_czas(wykonywalny& Obiekt, int& rozmiar_problemu,int& ilosc_powtorzen,wariant& wybor){
 
 //tworze tymczasowa tablice w ktorej bede zapisywal poszczegolne wyniki
     double* tab=new double [ilosc_powtorzen];

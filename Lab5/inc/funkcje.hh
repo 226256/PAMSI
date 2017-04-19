@@ -13,14 +13,14 @@
 
 void zawody(stoper& Miernik,
             wykonywalny& Obiekt,
-            unsigned int rozmiar_problemu,
+            int rozmiar_problemu,
             int ilosc_powtorzen);
             
 void zapis_do_pliku(stoper& Dane,wariant& wybor);
 
 
 
-
+void quicksort(tablica& obiekt,  int lewy, int prawy);
 
 
 #endif

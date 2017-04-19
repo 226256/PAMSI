@@ -17,25 +17,34 @@ typedef int T;
 
 /********************************************************/
 /*   wszystkie potrzebne parametry zmienia sie          */
-/*   manualnie w pliku wykonywalny.hh                   */                                                
+/*   manualnie w pliku wariant.hh                       */
 /*   ROZMIAR,ROZMIAR_PROBLEMU oraz ILOSC_POWTORZEN      */
 /********************************************************/
 
 
 
 int main(){
-  stoper Miernik;
-  tablica obiekt(ROZMIAR);
+    stoper Miernik;
+    tablica obiekt(ROZMIAR);
 
-  unsigned int problem=ROZMIARPROBLEMU;
-  int ilerazy=POWTORZENIA;
-
-  
-  //funkcja ktorej definicja znajduje sie w pliku funkcje.cpp
-//  zawody(Miernik,obiekt,problem,ilerazy);
+     int problem=ROZMIARPROBLEMU;
+    int ilerazy=POWTORZENIA;
 
 
+    cout << "Tablica z elementami: " << obiekt.sizeofarray() << endl;
 
+    for( int i=0;i<ROZMIAR;i++){
+        T temp=rand()%ROZMIAR;
+        obiekt.saveinarray(i,temp);
+    }
+//    for( int i=0;i<ROZMIAR;i++){
+//        cout << obiekt.loadfromarray(i) << '\t';
+//    }
 
-return 0;
+    obiekt.quicksort(0,ROZMIAR-1);
+//    for( int i=0;i<ROZMIAR;i++){
+//        cout << obiekt.loadfromarray(i) << endl;
+//    }
+
+    return 0;
 }

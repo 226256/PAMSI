@@ -4,6 +4,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <iomanip>
 
 
 #include "wykonywalny.hh"
@@ -18,35 +19,35 @@ class tablica : public wykonywalny{
     private:
 
         T* a;
-        unsigned int asize;
+         int asize;
 
-         bool more(unsigned int rozmiar);
+         bool more( int rozmiar);
         
 
 
     public:
         tablica();
-        tablica(unsigned int rozmiar);
+        tablica( int rozmiar);
         ~tablica();
   
-        unsigned int sizeofarray(){
+         int sizeofarray(){
                 return asize;
             }
 
 
-         void saveinarray(unsigned int index,T val);
-        T loadfromarray(unsigned int index);
+         void saveinarray( int index,T val);
+        T loadfromarray( int index);
          void reset();
          bool more1();
          bool more2n();
 
 
 
-        virtual void wykonaj_algorytm(unsigned int& rozmiar_problemu,wariant wybor);
-       unsigned int point(unsigned int l, unsigned int r);
-      void quicksort(unsigned int l, unsigned int r);
-      unsigned int divide_the_array(unsigned int l, unsigned int r);
-      void change_places(unsigned int i2, unsigned int i1);
+        virtual void wykonaj_algorytm( int& rozmiar_problemu,wariant wybor);
+       int indpiwota( int l,  int r);
+      void quicksort( int l,  int p);
+       int divide_the_array( int l,  int r);
+      void change_places( int i2,  int i1);
 };
 
 

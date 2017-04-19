@@ -3,6 +3,7 @@
 #include <fstream>
 
 
+typedef int T;
 
 void zapis_do_pliku(stoper& Dane,wariant& wybor){
     std::ofstream plik;
@@ -26,7 +27,7 @@ void zapis_do_pliku(stoper& Dane,wariant& wybor){
 
 
 
-void zawody(stoper& Miernik,wykonywalny& Obiekt,unsigned int rozmiar_pr,int powtorzenia){
+void zawody(stoper& Miernik,wykonywalny& Obiekt, int rozmiar_pr,int powtorzenia){
     wariant Alg1=pierwszy,Alg2=drugi;
 
 
@@ -48,3 +49,24 @@ void zawody(stoper& Miernik,wykonywalny& Obiekt,unsigned int rozmiar_pr,int powt
 
 
 
+void quicksort(tablica& obiekt,  int lewy, int prawy){
+     int i=((lewy+prawy)/2);
+    T piwot=obiekt.loadfromarray(i);
+    obiekt.saveinarray(i,obiekt.loadfromarray(prawy));
+     int j=lewy;
+
+    for(i=lewy;i<prawy;i++){
+        if(obiekt.loadfromarray(i) < piwot){
+            T temp=obiekt.loadfromarray(i);
+            obiekt.saveinarray(i,obiekt.loadfromarray(j));
+            obiekt.saveinarray(j,temp);
+            j++;
+        }
+    }
+    obiekt.saveinarray(prawy,obiekt.loadfromarray(j));
+    obiekt.saveinarray(j,piwot);
+
+    if(lewy<j-1) quicksort(obiekt,lewy,j-1);
+    if(j+1<prawy) quicksort(obiekt,j+1,prawy);
+
+}

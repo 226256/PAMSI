@@ -7,7 +7,7 @@
 class wykonywalny{
     public:
     virtual ~wykonywalny(){}
-    virtual void wykonaj_algorytm(unsigned int& rozmiar_problemu,wariant wybor)=0;
+    virtual void wykonaj_algorytm( int& rozmiar_problemu,wariant wybor)=0;
     
     /*potrzebna mi metoda ktora,np dla tablicy
       bedzie resetowala mi obiekt do stanu pierwotnego 

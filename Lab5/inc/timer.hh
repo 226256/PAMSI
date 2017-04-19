@@ -25,7 +25,7 @@ class stoper{
             czasy = NULL;
         }
 
-        void mierz_czas(wykonywalny& Obiekt,unsigned int& rozmiar_problemu,int& ilosc_powtorzen,wariant& wybor);
+        void mierz_czas(wykonywalny& Obiekt, int& rozmiar_problemu,int& ilosc_powtorzen,wariant& wybor);
         
         //metody get
         double gCzasy(int& index){return czasy[index];}

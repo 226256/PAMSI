@@ -1,12 +1,12 @@
 #ifndef WARIANT_H
 #define WARIANT_H
 
-#define ROZMIAR 10
+const int ROZMIAR=1000000000 ;
 //zdefiniuje tutaj podstawowy rozmiar tablicy
 
-#define ROZMIARPROBLEMU 10000
+const int ROZMIARPROBLEMU=10;
 
-#define POWTORZENIA 20
+const int POWTORZENIA=20;
 
 //oraz ile pomiarow dla jednego powiekszania trzeba przeprowadzic
 
