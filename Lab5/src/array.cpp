@@ -170,7 +170,8 @@ void tablica::reset(){
  int tablica::indpiwota( int l,  int r){
 //    return (l+r)/2;       //z dwoch podanych bierze srednia arytm i oddaje czesc calkowita
 //    return r;           //jako piwot oddaje ostatni element tablicy
-    return l;           //jako piwot oddaje pierwszy element
+//    return l;           //jako piwot oddaje pierwszy element
+    return rand()&(r-l);
 }
 
 

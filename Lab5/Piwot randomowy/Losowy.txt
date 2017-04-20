@@ -1,0 +1,126 @@
+
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10
+3e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+Średni czas tej serii: 1.6e-06
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100
+2.1e-05 s
+2e-05 s
+2e-05 s
+1.8e-05 s
+1.9e-05 s
+2e-05 s
+1.9e-05 s
+2.1e-05 s
+2e-05 s
+2.2e-05 s
+2.1e-05 s
+2.1e-05 s
+2e-05 s
+2e-05 s
+2e-05 s
+1.9e-05 s
+1.8e-05 s
+2e-05 s
+2e-05 s
+2e-05 s
+Średni czas tej serii: 1.995e-05
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 1000
+0.000361 s
+0.000379 s
+0.00045 s
+0.00039 s
+0.000386 s
+0.000358 s
+0.000392 s
+0.000446 s
+0.000415 s
+0.000412 s
+0.00037 s
+0.000304 s
+0.000337 s
+0.000275 s
+0.000337 s
+0.000274 s
+0.000307 s
+0.000273 s
+0.000295 s
+0.000286 s
+Średni czas tej serii: 0.00035235
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10000
+0.008855 s
+0.005369 s
+0.004031 s
+0.004777 s
+0.004443 s
+0.004759 s
+0.004634 s
+0.004427 s
+0.004079 s
+0.005506 s
+0.004332 s
+0.003954 s
+0.004188 s
+0.004051 s
+0.004318 s
+0.004344 s
+0.003924 s
+0.004252 s
+0.003961 s
+0.004413 s
+Średni czas tej serii: 0.00463085
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100000
+0.076985 s
+0.089429 s
+0.083204 s
+0.079741 s
+0.079142 s
+0.089503 s
+0.070933 s
+0.090057 s
+0.075448 s
+0.075105 s
+0.08213 s
+0.086759 s
+0.081198 s
+0.083788 s
+0.086668 s
+0.072956 s
+0.104045 s
+0.081566 s
+0.088355 s
+0.080708 s
+Średni czas tej serii: 0.082886
