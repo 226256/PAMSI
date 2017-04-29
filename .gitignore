@@ -1,3 +1,7 @@
 #pliki .o
 *.o
 obj/
+
+#pliki tworzone przez CLion
+CMakeLists.txt
+cmake-build-debug/
