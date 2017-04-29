@@ -1,4 +1,0 @@
-/home/maciek/Dokumenty/clion-2016.3.5/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/maciek/Pulpit/PAMSI/lAB7
--- Configuring done
--- Generating done
--- Build files have been written to: /home/maciek/Pulpit/PAMSI/lAB7/cmake-build-debug
