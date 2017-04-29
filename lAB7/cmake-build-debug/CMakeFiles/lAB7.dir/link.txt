@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/lAB7.dir/src/main.cpp.o CMakeFiles/lAB7.dir/src/Node.cpp.o CMakeFiles/lAB7.dir/src/TabAso.cpp.o  -o lAB7 

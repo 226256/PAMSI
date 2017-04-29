@@ -1,0 +1,3 @@
+/home/maciek/Pulpit/PAMSI/lAB7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/maciek/Pulpit/PAMSI/lAB7/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/maciek/Pulpit/PAMSI/lAB7/cmake-build-debug/CMakeFiles/lAB7.dir
