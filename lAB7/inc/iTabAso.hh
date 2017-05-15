@@ -6,16 +6,20 @@
 #define LAB7_ITABASO_HH
 
 #include "zalaczniki.hh"
+#include "Node.hh"
 
 class iTabAso {
 public:
     iTabAso(){};
     virtual ~iTabAso(){};
 
-    const virtual int& operator[](std::string)const =0;
-    virtual void put(std::string,Wartosc)=0;
-
+    virtual const int operator[](std::string)=0;
+    virtual void put(std::string,Wartosc,Wariant)=0;
+    virtual Para* search(std::string)=0;
     virtual int rozm()=0;
+    virtual int ilewolnych()=0;
+
+
 
 //    cos mialo z tego byc ale nie ogarnalem
 //    virtual void print(std::ostream& gdzie)=0;

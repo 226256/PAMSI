@@ -17,14 +17,11 @@
 class Para{
     Wartosc war;
     std::string klucz_str;
-    int klucz_int;
 public:
     Para();
     Para(std::string,Wartosc);
     ~Para();
 
-    void UstawKlucz(int);
-    int WezKlucz_int();
     std::string WezKlucz_str();
     Wartosc WezWar();
 };

@@ -7,5 +7,23 @@
 
 #include "zalaczniki.hh"
 
+//W tym pliku defnicje wyjatkow rzucanych w programie
+
+class PustaTablica{
+public:
+    PustaTablica(){}
+};
+
+class BrakElementu{
+public:
+    BrakElementu(){}
+};
+
+class BrakMiejsca{
+public:
+    BrakMiejsca(){}
+};
+
+
 
 #endif //LAB7_EXCEPTIONS_HH

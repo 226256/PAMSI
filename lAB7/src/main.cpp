@@ -1,6 +1,10 @@
 #include "../inc/zalaczniki.hh"
-#include "../inc/Node.hh"
 #include "../inc/TabAso.hh"
+#include "../inc/Miernik.hh"
+
+
+
+
 
 /*Wplyw funkcje skrotu na zlozonosc odczytu
  * popatrzec na 2 funkcje skrotu:
@@ -15,13 +19,33 @@
  *
  */
 
-
-
+using namespace std;
 
 int main() {
-//    std::cout << "Tworze tablice!" << std::endl;
-//    TabAso moja;
-//    std::cout << "Jej rozmiar: " << moja.rozm() << std::endl;
+    TabAso* uchwyt;
+    bool mozna=true;
+    try{
+        uchwyt=new TabAso(10);
+    }
+    catch(bad_alloc){
+        cerr << "Problem z pamiecia" << endl;
+        mozna=false;
+    }
+
+    Miernik moj(ilepomiarow);
+
+//-----szukane:
+    string szukany="szukany";
+    int szukany2=100;
+
+    if(mozna) {
+        for (int i = 0; i < ilepomiarow; ++i) {
+
+            moj.mierzczas(*uchwyt, szukany,szukany2, i, pierwszy);
+
+        }
+        cout << moj.wezsredni() <<endl;
+    }
 
     return 0;
 }
