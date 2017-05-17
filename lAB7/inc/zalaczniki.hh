@@ -19,7 +19,7 @@ enum Wariant {pierwszy,drugi};
 
 
 const int ilepomiarow=30;
-const int rozmiartablicy[8]={10,100,1000,10000,100000,1000000,10000000,100000000};
-const int doktorejpozycjiwtablicywykonywac=8; //0 oznacza ze nie wykonywac wgl
+const int rozmiartablicy[6]={10,100,1000,10000,100000,1000000};
+const int doktorejpozycjiwtablicywykonywac=5; //0 oznacza ze nie wykonywac wgl
 
 #endif //LAB7_ZALACZNIKI_HH

@@ -25,7 +25,7 @@ int main() {
     TabAso* uchwyt;
     Miernik moj(ilepomiarow);
 
-    fglowna(tablicawyborow[0],uchwyt,moj);
-//    fglowna(tablicawyborow[1],uchwyt,moj);
+        fglowna(tablicawyborow[0],uchwyt,moj);
+    fglowna(tablicawyborow[1],uchwyt,moj);
     return 0;
 }

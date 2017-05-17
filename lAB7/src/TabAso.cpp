@@ -232,15 +232,20 @@ void TabAso::zbuduj(std::string szukane,int wartosc,Wariant hasz) {
     this->put(szukane,wartosc,hasz);
 
     for(int i=0;this->wolnemiejsca>0;++i){
-        //TODO zbudowac tablice z randomowych stringow ale tak zeby sie nie powtarzaly
-//        std::string tmp;
-        std::string tmp="optymistyczny";
-//        sprintf((char*)tmp.c_str(),"%d",i);
 //        std::cout << "moj klucz " << tmp << std::endl;
 
+        //TODO zbudowac tablice z randomowych stringow ale tak zeby sie nie powtarzaly
+//------------------------------------------------------
+//przypadek pesymistyczny
+//        std::string tmp;
+//        sprintf((char*)tmp.c_str(),"%d",i);
 //        this->put(tmp.c_str(),i,hasz);
-        this->put(tmp,i,hasz);
-        if(this->rozmiar>100000)std::cout << this->wolnemiejsca << std::endl;
+//------------------------------------------
+        //przypadek optymistyczny
+        std::string tmp="optymistyczny";
+	 this->put(tmp,i,hasz);
+// ------------------------------------------------------
+	if(this->rozmiar>100000)std::cout << this->wolnemiejsca << std::endl;
     }
 }
 
