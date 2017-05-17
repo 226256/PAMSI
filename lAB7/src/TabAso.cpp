@@ -169,11 +169,39 @@ int TabAso::h(std::string& Key) {
     return klucz % this->rozmiar;
 }
 
-int TabAso::h2(std::string &) {
-    int i=0;
+int TabAso::h2(std::string &Key) {
+    //funkcja haszujaca klucz
+    int pierwsza=Key[0];
+    int druga,trzecia;
+    int klucz;
+    klucz=pierwsza;
+    if(Key.length()==2){
+        druga=Key[1];
+        klucz=pierwsza+druga;
+    }
+    if(Key.length()>2){
+        druga=Key[1];
+        trzecia=Key[2];
+        klucz=pierwsza+druga+trzecia;
+    }
 
+    //haszowanie przez mnozenie
+    /*
+     * za rada Knutha bierzemy A=s/2^i gdzie i=15 a s = 2^5
+     */
 
-    return i;
+    float A=0.226256;
+    //potrzebuje uzyskac czesc ulamkowa z mnozenia
+    float temp=klucz*A;
+//    std::cout << "moj klucz razy A " << temp << std::endl;
+
+    int temp1=(int)temp;
+    temp-=temp1;
+//    std::cout << "moja czesc ulamkowa " << temp << std::endl;
+//
+//    std::cout << "moj zwracany " << (int)(this->rozmiar*temp) << std::endl << std::endl << std::endl;
+
+    return this->rozmiar*temp;
 }
 
 //metody ktore wykorzystam do testowania metody search, moga sie nie przydac nigdzie indziej
@@ -183,13 +211,26 @@ void TabAso::zbuduj(std::string szukane,int wartosc,Wariant hasz) {
         //TODO zbudowac tablice z randomowych stringow ale tak zeby sie nie powtarzaly
         std::string tmp;
         sprintf((char*)tmp.c_str(),"%d",i);
+//        std::cout << "moj klucz " << tmp << std::endl;
+
         this->put(tmp.c_str(),i,hasz);
+//        this->put(tmp,i,hasz);
+//        std::cout << this->wolnemiejsca << std::endl;
     }
 }
 
 void TabAso::zadanie(std::string szukane) {
     Para* temp=this->search(szukane);
-    if(temp== nullptr){
+    if(temp== nullptr){//tak na wszelki wypadek zebym wiedzial czy cos nie gra
         std::cerr << "Nie znaleziono" << std::endl;
     }
+//    else std::cout << temp->WezWar() << std::endl;
+}
+
+void TabAso::reset() {
+    delete[] this->tablica;
+    int rozm=this->rozmiar;
+    Para** temp=new Para*[rozm];
+    this->tablica=temp;
+    this->wolnemiejsca=this->rozmiar;
 }

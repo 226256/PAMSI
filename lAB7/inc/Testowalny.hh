@@ -11,6 +11,7 @@ class Testowalny {
 public:
     virtual void zbuduj(std::string,int wartosc,Wariant hasz)=0;
     virtual void zadanie(std::string)=0;
+    virtual void reset()=0;
 };
 
 

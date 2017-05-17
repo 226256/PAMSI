@@ -19,7 +19,7 @@ Miernik::Miernik():poczatek(0),koniec(0),srednia(0){
 }
 
 Miernik::Miernik(int ilepomiarow):poczatek(0),koniec(0),srednia(0){
-    this->czasy=new double [ilepomiarow];
+    this->czasy=new long double [ilepomiarow];
     for(int i=0;i<ilepomiarow;++i){
         czasy[i]=0;
     }
@@ -33,7 +33,7 @@ Miernik::~Miernik() {
     this->czasy = nullptr;
 }
 
-void Miernik::resetuj(int ilepomiarow) {
+void Miernik::resetuj(int iloscpomiarow) {
     for(int i=0;i<ilepomiarow;++i){
         czasy[i]=0;
     }
@@ -44,20 +44,14 @@ void Miernik::resetuj(int ilepomiarow) {
 
 
 void Miernik::mierzczas(Testowalny & Arg,std::string stringdotestow,int wartoscdotestow,int nrokrazenia,Wariant hasz) {
-    try {
-        Arg.zbuduj(stringdotestow, wartoscdotestow, hasz);
-    }
-    catch(BrakMiejsca){
-        std::cerr << "To tutaj " << std::endl;
-    }
     this->start();
     Arg.zadanie(stringdotestow);
     this->stop();
-    czasy[nrokrazenia]=(this->koniec-this->poczatek)/(double)CLOCKS_PER_SEC;
+    czasy[nrokrazenia]=(this->koniec-this->poczatek)/(long double)CLOCKS_PER_SEC;
 }
 
 
-double Miernik::wezsredni() {
+long double Miernik::wezsredni() {
     if (rozm != 0) {
         double suma = 0;
         for (int i = 0; i < this->rozm; ++i) {
@@ -69,5 +63,38 @@ double Miernik::wezsredni() {
     else if(rozm<=0){
         std::cerr << "Brak czasow" << std::endl;
         return 1;
+    }
+}
+
+void Miernik::zapis_do_pliku(Wariant& wybor) {
+    char znak;
+
+    std::cout << "Czy zapisac do pliku?[T/n] ";
+    std::cin >> znak;
+    std::cout << znak << std::endl;
+    int proby=0;
+    while(znak!='n'&& znak!='T'){
+        ++proby;
+        if(proby==5){ return;}
+        std::cout << "Bledna odpowiedz.Czy zapisac do pliku?[T/n] ";
+        std::cin >> znak;
+    }
+    if(znak=='n'){return;}
+    else{
+        std::ofstream plik;
+        std::cout << "Tu jestem" << std::endl;
+        if(wybor==pierwszy) plik.open("Haszowanie_modularne.txt",std::ios::app);
+        else if(wybor==drugi) plik.open("Haszowanie przez mnozenie.txt",std::ios::app);
+
+
+        if(plik.good()){
+            plik << "\nNowa seria!\n Poszczegolne czasy algorytmu: \n";
+            for(int i=0;i<ilepomiarow;++i){
+                plik << this->czasy[i] << " s\n";
+            }
+            plik << "Średni czas tej serii: " << this->wezsredni();
+        }
+        else std::cerr << "Nie mozna zapisac do pliku" << std::endl;
+        plik.close();
     }
 }

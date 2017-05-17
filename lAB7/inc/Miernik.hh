@@ -11,21 +11,22 @@
 class Miernik {
     clock_t poczatek;
     clock_t koniec;
-    double* czasy;
-    double srednia;
+    long double* czasy;
+    long double srednia;
     int rozm;
 
     void start();
     void stop();
 public:
     Miernik();
-    Miernik(int ilepomiarow);
+    Miernik(int);
     ~Miernik();
-    void resetuj(int ilepomiarow);
+    void resetuj(int);
 
-    double wezsredni();
+    long double wezsredni();
 
     void mierzczas(Testowalny&,std::string stringdotestow,int wartoscdotestu,int nrokrazenia,Wariant);
+    void zapis_do_pliku(Wariant&);
 };
 
 

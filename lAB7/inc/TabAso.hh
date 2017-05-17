@@ -51,6 +51,7 @@ public:
 
     void zbuduj(std::string,int wartosc,Wariant hasz);
     void zadanie(std::string);
+    void reset();
 };
 
 

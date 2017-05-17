@@ -1,7 +1,4 @@
-#include "../inc/zalaczniki.hh"
-#include "../inc/TabAso.hh"
-#include "../inc/Miernik.hh"
-
+#include "../inc/work.hh"
 
 
 
@@ -20,32 +17,15 @@
  */
 
 using namespace std;
+Wariant tablicawyborow[2]={pierwszy,drugi};
+
 
 int main() {
-    TabAso* uchwyt;
-    bool mozna=true;
-    try{
-        uchwyt=new TabAso(10);
-    }
-    catch(bad_alloc){
-        cerr << "Problem z pamiecia" << endl;
-        mozna=false;
-    }
 
+    TabAso* uchwyt;
     Miernik moj(ilepomiarow);
 
-//-----szukane:
-    string szukany="szukany";
-    int szukany2=100;
-
-    if(mozna) {
-        for (int i = 0; i < ilepomiarow; ++i) {
-
-            moj.mierzczas(*uchwyt, szukany,szukany2, i, pierwszy);
-
-        }
-        cout << moj.wezsredni() <<endl;
-    }
-
+    fglowna(tablicawyborow[0],uchwyt,moj);
+//    fglowna(opcja[1],uchwyt,moj);
     return 0;
 }
