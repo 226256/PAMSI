@@ -27,17 +27,20 @@ void fglowna(Wariant& hasz,TabAso* uchwyt,Miernik& moj) {
         catch (BrakMiejsca) {
             std::cerr << "Brakuje miejsca w tablicy" << std::endl;
         }
+        catch (NieZnalezionoMiejsca){
+            std::cerr << "Gdzies zly pointer" << std::endl;
+        }
         if (mozna) {
             for (int i = 0; i < ilepomiarow; ++i) {
 
                 moj.mierzczas(*uchwyt, szukany, szukany2, i, hasz);
-                std::cout << "kolko " << i <<endl;
             }
-            cout << moj.wezsredni() << endl;
+            cout << "Czas dla ilosci elementow:"<< rozmiartablicy[i] << ' ' << moj.wezsredni() << endl;
             moj.zapis_do_pliku(hasz);
             moj.resetuj(ilepomiarow);
         }
         cout << endl << endl;
+        delete uchwyt;
     }
 
 }

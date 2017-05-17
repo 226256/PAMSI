@@ -24,6 +24,11 @@ public:
     BrakMiejsca(){}
 };
 
+class NieZnalezionoMiejsca{
+public:
+    NieZnalezionoMiejsca(){}
+};
+
 
 
 #endif //LAB7_EXCEPTIONS_HH

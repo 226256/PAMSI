@@ -26,6 +26,7 @@ class TabAso:
     int wolnemiejsca;
     int h(std::string&);
     int h2(std::string&);
+    int zamianaklucza(std::string&);
 public:
     TabAso();
     TabAso(int rozm);
@@ -45,7 +46,6 @@ public:
     void put(std::string,Wartosc,Wariant);
 
     Para* search(std::string);
-
     //przeblysk mysli ale nie wiedzialem jak rozwiazac
     //void print(std::ostream&);
 

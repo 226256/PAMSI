@@ -47,7 +47,8 @@ void Miernik::mierzczas(Testowalny & Arg,std::string stringdotestow,int wartoscd
     this->start();
     Arg.zadanie(stringdotestow);
     this->stop();
-    czasy[nrokrazenia]=(this->koniec-this->poczatek)/(long double)CLOCKS_PER_SEC;
+    this->czasy[nrokrazenia]=(this->koniec-this->poczatek)/(long double)CLOCKS_PER_SEC;
+    std::cout << this->czasy[nrokrazenia]<< std::endl;
 }
 
 
@@ -67,22 +68,21 @@ long double Miernik::wezsredni() {
 }
 
 void Miernik::zapis_do_pliku(Wariant& wybor) {
-    char znak;
+    char znak='T';
 
-    std::cout << "Czy zapisac do pliku?[T/n] ";
-    std::cin >> znak;
-    std::cout << znak << std::endl;
-    int proby=0;
-    while(znak!='n'&& znak!='T'){
-        ++proby;
-        if(proby==5){ return;}
-        std::cout << "Bledna odpowiedz.Czy zapisac do pliku?[T/n] ";
-        std::cin >> znak;
-    }
+//    std::cout << "Czy zapisac do pliku?[T/n] ";
+//    std::cin >> znak;
+//    std::cout << znak << std::endl;
+//    int proby=0;
+//    while(znak!='n'&& znak!='T'){
+//        ++proby;
+//        if(proby==5){ return;}
+//        std::cout << "Bledna odpowiedz.Czy zapisac do pliku?[T/n] ";
+//        std::cin >> znak;
+//    }
     if(znak=='n'){return;}
     else{
         std::ofstream plik;
-        std::cout << "Tu jestem" << std::endl;
         if(wybor==pierwszy) plik.open("Haszowanie_modularne.txt",std::ios::app);
         else if(wybor==drugi) plik.open("Haszowanie przez mnozenie.txt",std::ios::app);
 
