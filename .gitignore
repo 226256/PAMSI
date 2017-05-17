@@ -1,7 +1,11 @@
 #pliki .o
 *.o
 obj/
+*.cbp
+*.exe
+*.out
 
 #pliki tworzone przez CLion
 CMakeLists.txt
-cmake-build-debug/
+CMakeFiles/
+*.cmake
