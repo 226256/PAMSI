@@ -9,3 +9,4 @@ obj/
 CMakeLists.txt
 CMakeFiles/
 *.cmake
+.idea/
