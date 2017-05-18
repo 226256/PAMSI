@@ -1,5 +1,6 @@
 #include "../inc/work.hh"
 
+//      Makefile w folderze cmake-build-debug poniewaz automatycznie stworzony przez program CLion, uruchamiac go stamtad
 
 
 
