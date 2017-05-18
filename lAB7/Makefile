@@ -1,4 +1,4 @@
-CPPFLAGS= -c -g -Iinc -Wall -Wextra -pedantic -ggdb -std=c++11
+CPPFLAGS= -c -g -Iinc -Wall -ggdb -std=c++11
 
 
 Lab7: obj/main.o obj/exceptions.o obj/iTabAso.o obj/Miernik.o obj/Node.o obj/TabAso.o obj/Testowalny.o obj/work.o obj/zalaczniki.o

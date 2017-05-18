@@ -65,6 +65,7 @@ long double Miernik::wezsredni() {
         std::cerr << "Brak czasow" << std::endl;
         return 1;
     }
+	else return 0;
 }
 
 void Miernik::zapis_do_pliku(Wariant& wybor) {
