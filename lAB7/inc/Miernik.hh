@@ -2,8 +2,8 @@
 // Created by maciek on 06.05.17.
 //
 
-#ifndef LAB7_MIERNIK_HH
-#define LAB7_MIERNIK_HH
+#ifndef MIERNIK_HH
+#define MIERNIK_HH
 
 #include "zalaczniki.hh"
 #include "TabAso.hh"

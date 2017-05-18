@@ -2,8 +2,8 @@
 // Created by Maciek on 27.04.17.
 //
 
-#ifndef LAB7_TABASO_HH
-#define LAB7_TABASO_HH
+#ifndef TABASO_HH
+#define TABASO_HH
 
 #include "iTabAso.hh"
 #include "Testowalny.hh"

@@ -11,3 +11,4 @@ CMakeLists.txt
 CMakeFiles/
 *.cmake
 .idea/
+cmake-build-debug/

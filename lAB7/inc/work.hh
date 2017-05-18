@@ -2,8 +2,8 @@
 // Created by maciek on 17.05.17.
 //
 
-#ifndef LAB7_WORK_HH
-#define LAB7_WORK_HH
+#ifndef WORK_HH
+#define WORK_HH
 
 #include "zalaczniki.hh"
 #include "TabAso.hh"

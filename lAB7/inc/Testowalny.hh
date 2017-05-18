@@ -2,8 +2,8 @@
 // Created by maciek on 08.05.17.
 //
 
-#ifndef LAB7_TESTOWALNY_HH
-#define LAB7_TESTOWALNY_HH
+#ifndef TESTOWALNY_HH
+#define TESTOWALNY_HH
 
 #include "zalaczniki.hh"
 

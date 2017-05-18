@@ -2,8 +2,8 @@
 // Created by maciek on 27.04.17.
 //
 
-#ifndef LAB7_NODE_HH
-#define LAB7_NODE_HH
+#ifndef NODE_HH
+#define NODE_HH
 #include <iostream>
 #include <string>
 #include "zalaczniki.hh"

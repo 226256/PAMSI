@@ -2,8 +2,8 @@
 // Created by maciek on 27.04.17.
 //
 
-#ifndef LAB7_ITABASO_HH
-#define LAB7_ITABASO_HH
+#ifndef ITABASO_HH
+#define ITABASO_HH
 
 #include "zalaczniki.hh"
 #include "Node.hh"
