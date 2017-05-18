@@ -4,6 +4,7 @@ obj/
 *.cbp
 *.exe
 *.out
+*.txt
 
 #pliki tworzone przez CLion
 CMakeLists.txt
