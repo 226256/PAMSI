@@ -59,18 +59,12 @@ Wartosc tablica::loadfromarray(unsigned int index){
 
 
  bool tablica::more1(){
-  if(more(asize+1)==true){
-    return true;
-  }
-  else return false;
+     return more(asize + 1);
 }
 
 
  bool tablica::more2n(){
-  if(more(2*asize)==true){
-    return true;
-  }
-  else return false;
+     return more(2 * asize);
 }
 
 

@@ -45,7 +45,7 @@ void Miernik::resetuj(int iloscpomiarow) {
 
 void Miernik::mierzczas(Testowalny & Arg,std::string stringdotestow,int wartoscdotestow,int nrokrazenia,Wariant hasz) {
     this->start();
-    Arg.zadanie(stringdotestow);
+    Arg.zadanie(stringdotestow,wartoscdotestow);
     this->stop();
     this->czasy[nrokrazenia]=(this->koniec-this->poczatek)/(long double)CLOCKS_PER_SEC;
     std::cout << this->czasy[nrokrazenia]<< std::endl;
@@ -70,7 +70,7 @@ long double Miernik::wezsredni() {
 
 void Miernik::zapis_do_pliku(Wariant& wybor) {
     char znak='T';
-
+//
 //    std::cout << "Czy zapisac do pliku?[T/n] ";
 //    std::cin >> znak;
 //    std::cout << znak << std::endl;
@@ -86,7 +86,9 @@ void Miernik::zapis_do_pliku(Wariant& wybor) {
         std::ofstream plik;
         if(wybor==haszpierwszy) plik.open("Haszowanie_modularne.txt",std::ios::app);
         else if(wybor==haszdrugi) plik.open("Haszowanie przez mnozenie.txt",std::ios::app);
-
+        else if(wybor==poczatekdrzewa) plik.open("Przeszukiwanie drzewa-element na poczatku.txt",std::ios::app);
+        else if(wybor==srodekdrzewa) plik.open("Przeszukiwanie drzewa-element w srodku.txt",std::ios::app);
+        else if(wybor==koniecdrzewa) plik.open("Przeszukiwanie drzewa-element na koncu.txt",std::ios::app);
 
         if(plik.good()){
             plik << "\nNowa seria!\n Poszczegolne czasy algorytmu: \n";

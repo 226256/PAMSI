@@ -215,10 +215,10 @@ int TabAso::h2(std::string &Key) {
     int temp1=(int)temp;
     temp-=temp1;
 
-    return this->rozmiar*temp;
+    return (int) (this->rozmiar * temp);
 }
 
-//metody ktore wykorzystam do testowania metody search, moga sie nie przydac nigdzie indziej
+//metody ktore wykorzystamw do testowania metody search, moga sie nie przydac nigdzie indziej
 
 
 
@@ -249,7 +249,7 @@ void TabAso::zbuduj(std::string szukane,int wartosc,Wariant hasz) {
     }
 }
 
-void TabAso::zadanie(std::string szukane) {
+void TabAso::zadanie(std::string szukane,int) {
     Para* temp=this->search(szukane);
     if(temp== nullptr){//tak na wszelki wypadek zebym wiedzial czy cos nie gra
         std::cerr << "Nie znaleziono" << std::endl;
@@ -257,10 +257,3 @@ void TabAso::zadanie(std::string szukane) {
     else std::cout << temp->WezWar() << std::endl;
 }
 
-void TabAso::reset() {
-    delete[] this->tablica;
-    int rozm=this->rozmiar;
-    Para** temp=new Para*[rozm];
-    this->tablica=temp;
-    this->wolnemiejsca=this->rozmiar;
-}

@@ -45,8 +45,7 @@ public:
     //void print(std::ostream&);
 
     void zbuduj(std::string,int wartosc,Wariant hasz);
-    void zadanie(std::string);
-    void reset();
+    void zadanie(std::string,int);
 };
 
 

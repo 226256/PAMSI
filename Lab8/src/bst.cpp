@@ -16,6 +16,13 @@ bst::~bst() {
     delete this->root;
 }
 
+TreeNode *bst::getRoot() const {
+    return root;
+}
+
+void bst::setRoot(TreeNode *root) {
+    bst::root = root;
+}
 
 
 int bst::size() {
@@ -85,7 +92,17 @@ void bst::TreeAdd(int &klucz) {
     }
 }
 
-void bst::TreeRemove(int &klucz) {
+
+//usuwanie na razie niepotrzebne wiec z braku czasu wstrzymam sie z implementacja
+void bst::TreeRemove(TreeNode* wezel) {
+//    TreeNode* wyzszy=wezel->Ancestor();
+//    TreeNode* lewy=wezel->LeftSon();
+//    TreeNode* prawy=wezel->RightSon();
+//    if(lewy== nullptr && prawy== nullptr){
+//        if(wyzszy->RightSon()==wezel) wyzszy->setRightSon(nullptr);
+//        else wyzszy->setLeftSon(nullptr);
+//    }
+//
 
 }
 
@@ -110,10 +127,29 @@ TreeNode* bst::TreeSearch(int &klucz) {
     return temp;
 }
 
-TreeNode *bst::getRoot() const {
-    return root;
+
+
+
+
+//---------metody potrzebne do testowania zlozonosci obliczeniowej-----------
+void bst::zbuduj(std::string string, int wartosc, Wariant hasz) {
+    int dane=0;
+//    this->TreeAdd(wartosc);
+
+    for(int i=0;i<wartosc-1;++i){
+        dane=rand()%wartosc;
+//        if(i==wartosc/2)this->TreeAdd(wartosc);
+        this->TreeAdd(dane);
+    }
+    this->TreeAdd(wartosc);
+    //------------------------------------------------
+    std::cout << "Wielkosc drzewa: " << this->size() << std::endl;
 }
 
-void bst::setRoot(TreeNode *root) {
-    bst::root = root;
+void bst::zadanie(std::string string,int wart) {
+    TreeNode* temp = nullptr;
+    temp=this->TreeSearch(wart);
+    if(temp== nullptr) std::cerr << "Powinien znalezc a nie znalazl" << std::endl;
+    else std::cout << temp->Key() << std::endl;
 }
+//--------------------------------------------------------------------------

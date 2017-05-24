@@ -1,8 +1,8 @@
 CPPFLAGS= -c -g -Iinc -Wall -ggdb -std=c++11
 
 
-Lab7: obj/main.o obj/exceptions.o obj/iTabAso.o obj/Miernik.o obj/Node.o obj/TabAso.o obj/Testowalny.o obj/work.o obj/zalaczniki.o
-	g++ -Wall -pedantic -ggdb -o Lab7 obj/main.o  obj/iTabAso.o obj/Miernik.o obj/Node.o obj/TabAso.o obj/Testowalny.o obj/work.o obj/zalaczniki.o obj/exceptions.o
+Lab7: obj/main.o obj/exceptions.o obj/iTabAso.o obj/Miernik.o obj/Node.o obj/TabAso.o obj/Testowalny.o obj/work.o obj/zalaczniki.o obj/array.o obj/bst.o obj/iTree.o obj/TreeNode.o 
+	g++ -Wall -pedantic -ggdb -o Lab7 obj/main.o  obj/iTabAso.o obj/Miernik.o obj/Node.o obj/TabAso.o obj/Testowalny.o obj/work.o obj/zalaczniki.o obj/exceptions.o obj/array.o obj/bst.o obj/iTree.o obj/TreeNode.o
 
 
 
@@ -37,7 +37,17 @@ obj/Testowalny.o: inc/Testowalny.hh inc/zalaczniki.hh
 obj/TabAso.o: inc/TabAso.hh inc/exceptions.hh inc/Node.hh inc/iTabAso.hh inc/Testowalny.hh
 	g++ ${CPPFLAGS} -o obj/TabAso.o src/TabAso.cpp
 
+obj/array.o: inc/array.hh inc/zalaczniki.hh
+	g++ ${CPPFLAGS} -o obj/array.o src/array.cpp
 
+obj/TreeNode.o:inc/TreeNode.hh inc/zalaczniki.hh
+	g++ ${CPPFLAGS} -o obj/TreeNode.o src/TreeNode.cpp
+
+obj/iTree.o: inc/iTree.hh inc/zalaczniki.hh inc/TreeNode.hh
+	g++ ${CPPFLAGS} -o obj/iTree.o src/iTree.cpp
+
+obj/bst.o: inc/bst.hh inc/Testowalny.hh inc/iTree.hh inc/TreeNode.hh
+	g++ ${CPPFLAGS} -o obj/bst.o src/bst.cpp
 
 
 clean:

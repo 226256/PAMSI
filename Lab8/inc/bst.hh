@@ -24,11 +24,12 @@ public:
 
     void TreeAdd(int &klucz) override;
 
-    void TreeRemove(int& klucz);
+    void TreeRemove(TreeNode*);
     TreeNode *getRoot() const;
     void setRoot(TreeNode *root);
 
-
+    void zbuduj(std::string string, int wartosc, Wariant hasz) override;
+    void zadanie(std::string string,int) override;
 };
 
 

@@ -11,6 +11,8 @@
 #include "Miernik.hh"
 
 
-void fglowna(Wariant& hasz,TabAso*,Miernik&);
+void fglowna(Wariant&,TabAso*,Miernik&);
+void fglowna(Wariant& miejsceszukanego,Testowalny* uchwyt, Miernik& mojmiernik);
+
 
 #endif //LAB7_WORK_HH

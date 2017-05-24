@@ -3,9 +3,13 @@
 
 
 using namespace std;
-Wariant tablicawyborow[2]={haszpierwszy,haszdrugi};
-
 
 int main() {
-    bst mojedrzewo;
+
+    Wariant miejsce[3]={poczatekdrzewa,srodekdrzewa,koniecdrzewa};
+    bst* uchwyt= nullptr;
+    Miernik moj(ilepomiarow);
+
+    for(int i=0;i<3;i++)fglowna(miejsce[i],uchwyt,moj);
+
 }

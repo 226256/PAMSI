@@ -18,7 +18,7 @@ public:
     virtual TreeNode* TreeSearch(int& klucz)=0;
     virtual void TreeAdd(int& klucz)=0;
     virtual void TreeAdd(int& klucz,Wartosc& Dane)=0;
-    virtual void TreeRemove(int& klucz)=0;
+    virtual void TreeRemove(TreeNode*)=0;
 
 };
 
