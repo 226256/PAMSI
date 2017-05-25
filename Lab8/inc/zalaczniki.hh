@@ -19,8 +19,8 @@ enum Wariant {haszpierwszy,haszdrugi,poczatekdrzewa,srodekdrzewa,koniecdrzewa};
 
 
 const int ilepomiarow=30;
-const int rozmiardotestow[6]={10,100,1000,10000,100000,1000000};
-const int doktorejpozycjiwtablicywykonywac=6; //0 oznacza ze nie wykonywac wgl
+const int rozmiardotestow[7]={10,100,1000,10000,100000,1000000,10000000};
+const int doktorejpozycjiwtablicywykonywac=7; //0 oznacza ze nie wykonywac wgl
 
 
 #endif //LAB7_ZALACZNIKI_HH

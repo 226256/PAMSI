@@ -134,14 +134,14 @@ TreeNode* bst::TreeSearch(int &klucz) {
 //---------metody potrzebne do testowania zlozonosci obliczeniowej-----------
 void bst::zbuduj(std::string string, int wartosc, Wariant hasz) {
     int dane=0;
-//    this->TreeAdd(wartosc);
+    if(hasz==poczatekdrzewa)this->TreeAdd(wartosc);
 
     for(int i=0;i<wartosc-1;++i){
         dane=rand()%wartosc;
-//        if(i==wartosc/2)this->TreeAdd(wartosc);
+        if(hasz==srodekdrzewa){if(i==wartosc/2)this->TreeAdd(wartosc);}
         this->TreeAdd(dane);
     }
-    this->TreeAdd(wartosc);
+    if(hasz==koniecdrzewa)this->TreeAdd(wartosc);
     //------------------------------------------------
     std::cout << "Wielkosc drzewa: " << this->size() << std::endl;
 }
