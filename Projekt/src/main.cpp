@@ -1,7 +1,8 @@
 #include <iostream>
-
+#include "../inc/Rozklad.hh"
+#include "../inc/Siec.hh"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     return 0;
 }

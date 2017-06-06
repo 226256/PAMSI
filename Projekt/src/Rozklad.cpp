@@ -15,3 +15,24 @@ int *Rozklad::getId_nastepnych() const {
 int *Rozklad::getCzas() const {
     return czas;
 }
+
+bool Rozklad::operator==(const int &rhs) const {
+    return rhs==this->linia;
+}
+
+bool Rozklad::operator!=(const int &rhs) const {
+    return rhs != this->linia;
+}
+
+Rozklad::Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas) : linia(linia), wariant(wariant),
+                                                                                         id_nastepnych(id_nastepnych),
+                                                                                         czas(czas) {}
+
+Rozklad::~Rozklad() {
+    delete [] this->id_nastepnych;
+    delete [] this->czas;
+}
+
+const std::string &Rozklad::getWariant() const {
+    return wariant;
+}
