@@ -40,23 +40,17 @@ void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
         std::getline(spisprzystankow,bufor);                        //pomijam pierwsza linei pliku po prostu wczytujac dwa razy
         std::getline(spisprzystankow,bufor);
         while(!spisprzystankow.eof()){
-            strumien << temp;
+            strumien << bufor;
             strumien >> tymczasoweId;
             size_t found=bufor.find_first_of("\"");                 //szukam pierwszego wystapienia "
             size_t secondfound=bufor.find_first_of("\"",found+1);   //szukam drugiego wystapienia
             tymczasowaNazwa=new std::string(bufor,found+1,secondfound-found-1);  //oddzielam sobie nazwe przystanku
-
-
-//            std::cout << *tymczasowaNazwa << " id: " << tymczasoweId << std::endl << std::endl;
-
-
             temp=new Przystanek(*tymczasowaNazwa,tymczasoweId);                              //tworze przystanek
             listaPrzystankow.push_back(temp);
-            temp= nullptr;
-            tymczasowaNazwa= nullptr;
+            strumien.str("");
             strumien.clear();
             std::getline(spisprzystankow,bufor);                    //pobieram linie z pliku
-//            std::cout <<"Lista ma juz " << listaPrzystankow.size() << " elementow" << std::endl;
+
         }
 
         //tutaj zajmuje sie Tworzeniem sieci
