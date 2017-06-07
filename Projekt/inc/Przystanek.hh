@@ -10,23 +10,29 @@
 
 class Przystanek {
 private:
+    int id;
     std::string nazwa;
     int ilosc_linii;
     int* numery_linii;
     Rozklad** TablicaPoszczegolnychRozkladow;
 
 public:
+    //------konstruktory i destruktor---------
+    Przystanek(const std::string &nazwa,int& idNowego);
     Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_linii, Rozklad **TablicaPoszczegolnychRozkladow);
-
-    //tylko konstruktor tworzacy pelny przystanek
     virtual ~Przystanek();
+    //----------------------------------------
 
+
+    //----metody get-------------------
     const std::string &getNazwa() const;
-    Rozklad* ZnajdzLinie(int&)const ;
-
     int *getNumery_linii() const;
+    int getId() const;
+    //---------------------------------
+    void wypisz();
 
-
+    Rozklad* ZnajdzLinie(int)const ;
+    Rozklad* ZnajdzLinie(std::string)const;
 };
 
 

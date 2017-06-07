@@ -5,9 +5,9 @@ obj/
 *.exe
 *.out
 *.txt
+*.xml
 
 
-XML-20170603-1/
 #pliki tworzone przez CLion
 CMakeLists.txt
 CMakeFiles/

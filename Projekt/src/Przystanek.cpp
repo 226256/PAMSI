@@ -11,6 +11,8 @@ Przystanek::Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_li
                                                                    TablicaPoszczegolnychRozkladow(
                                                                            TablicaPoszczegolnychRozkladow) {}
 
+Przystanek::Przystanek(const std::string &nazwaNowego,int& idNowego) : nazwa(nazwaNowego), id(idNowego){}
+
 Przystanek::~Przystanek() {
     this->ilosc_linii=0;
     delete this->numery_linii;
@@ -32,14 +34,17 @@ const std::string &Przystanek::getNazwa() const {
 int *Przystanek::getNumery_linii() const {
     return numery_linii;
 }
+//----------------------------------------------------------------
 
-Rozklad *Przystanek::ZnajdzLinie(int& szukana_linia) const{
+
+
+Rozklad *Przystanek::ZnajdzLinie(int szukana_linia) const{
     int i=0;
     bool CzyZnaleziona=false;
     Rozklad* temp= nullptr;
     while (i!=this->ilosc_linii && !CzyZnaleziona){
         if(this->numery_linii[i]==szukana_linia){CzyZnaleziona = true;}
-        ++i;
+        else ++i;
     }
     if(CzyZnaleziona){
         int j=0;
@@ -49,6 +54,28 @@ Rozklad *Przystanek::ZnajdzLinie(int& szukana_linia) const{
         }
     }
     return temp;
+}
+
+Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
+    int i=0;
+    bool CzyZnaleziona=false;
+    Rozklad* temp= nullptr;
+    while (i!=this->ilosc_linii && !CzyZnaleziona){
+        if(this->TablicaPoszczegolnychRozkladow[i]->getWariant()==Arg){CzyZnaleziona = true;}
+        else ++i;
+    }
+    if(CzyZnaleziona){
+        temp=this->TablicaPoszczegolnychRozkladow[i];
+    }
+    return temp;
+}
+
+int Przystanek::getId() const {
+    return id;
+}
+
+void Przystanek::wypisz() {
+    std::cout << "Przystanek " << this->nazwa << " jego id: " << this->id << std::endl << std::endl;
 }
 
 

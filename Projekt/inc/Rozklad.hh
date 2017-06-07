@@ -7,6 +7,7 @@
 
 #include "zalaczniki.hh"
 
+
 class Rozklad {
 private:
     int linia;

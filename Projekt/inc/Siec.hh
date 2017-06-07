@@ -10,13 +10,21 @@
 
 class Siec {
 private:
-    Przystanek* SpisPrzystankow;
-    unsigned iloscprzystankow;
+
+    //Robie z tablica bo wydaje mi sie najszybszy dostep a niestety nie ogarnalem kontenera map
+    Przystanek** SpisPrzystankow;
+    int IloscPrzystankow;
+
 public:
     Siec();
     virtual ~Siec();
 
-    Przystanek* ZnajdzNajkrotszaDroge(std::string& Poczatek,std::string& Koniec) const;
+    void setSpisPrzystankow(Przystanek **SpisPrzystankow);
+    void setIloscprzystankow(int iloscprzystankow);
+    void wypisz();
+
+    Przystanek* ZnajdzPrzystanek(std::string)const;
+    Przystanek** ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
 
 };
 
