@@ -9,5 +9,6 @@ int main() {
     Siec MPK;
     PracownikMPK::TworzTablicePrzystankow(MPK);
     MPK.wypisz();
+    cout << "Ilosc Przystankow we Wroclawiu: " << MPK.getIloscPrzystankow() << endl;
     return 0;
 }

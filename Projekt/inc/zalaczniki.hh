@@ -11,6 +11,7 @@
 #include <fstream>
 #include <istream>
 #include <list>
+#include <map>
 #include <algorithm>
 #include <string>
 

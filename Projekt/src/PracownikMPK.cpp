@@ -6,22 +6,7 @@
 
 
 void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
-    /*
-     * Trzeba zrobic cos w ten desen
-     * wczytujesz po kolei kazdy folder tymczasoweId kazdy plik
-     * sa w nim tam po kolei kazde przystanki wiec najpierw trzeba sprawdzic czy takiego przystanku jeszcze nie ma
-     * pierwsza przystanek na trasie ma zapisane wszystkie pozostale wiec mozna sobie od razu utwprzyc tablice
-     * Przystanek* tablica z odpowiednio przeliczona liczba elementow
-     *
-     * Kazdy przystanek mozesz tworzyc na dwa sposoby, albo najpierw przystanek ma sama nazwe a potem ustawiasz reszte
-     * albo od razu wszystko
-     * tymczasoweId na przyklad mozesz sobie przechowywac kolejne przystanki w liscie zeby na koniec wszystko po kolei wrzucic do grafu
-     * wczesniej po kolei tworzac ze wskaznikow do nich wielka tablice
-     *
-     *  Przyklad tego co wymyslilem na dole(moze byc slabe, jesli masz lepszy pomysl dobrze bedzie zmienic)
-     *  Trzeba tylko wymyslic jakis sposob jak to wczytywac z pliku
-     *
-     */
+
     std::list<Przystanek*> listaPrzystankow;    //lista w ktorej bede przechowywal wczytane nazwy
     Przystanek* temp = nullptr;                 //wskaznik na tymczasowy przystanek ktory zostanie dodany do listy
 

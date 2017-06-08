@@ -29,7 +29,8 @@ Siec::~Siec() {
  */
 Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
     //TODO tutaj stowrzyc algorytm wyszukiwania najkrotszej sciezki i zwracania tablicy z przystankami jakie trzeba odwiedzic
-
+        Przystanek** przejrzane=new Przystanek* [this->IloscPrzystankow];
+//        przejrzane[0]=
 }
 
 /*
@@ -76,4 +77,8 @@ void Siec::wypisz() {
         std::cout << "Przystanek " << this->SpisPrzystankow[i]->getNazwa() << " jego id: " << this->SpisPrzystankow[i]->getId() << std::endl;
     }
 
+}
+
+int Siec::getIloscPrzystankow() const {
+    return IloscPrzystankow;
 }

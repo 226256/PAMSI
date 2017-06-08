@@ -8,6 +8,12 @@
 #include "Przystanek.hh"
 
 
+/*
+ * Film na yt Patrick Winston
+ *
+ *
+ */
+
 class Siec {
 private:
 
@@ -22,6 +28,8 @@ public:
     void setSpisPrzystankow(Przystanek **SpisPrzystankow);
     void setIloscprzystankow(int iloscprzystankow);
     void wypisz();
+
+    int getIloscPrzystankow() const;
 
     Przystanek* ZnajdzPrzystanek(std::string)const;
     Przystanek** ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
