@@ -8,13 +8,38 @@
 #include "zalaczniki.hh"
 
 
+/*
+ *  Kazdy rozklad wyglada tak ze jest numer linii
+ *  wariant to nazwa trasy(np BISKUPIN, OPOROW,ZAJEZDNIA OŁBIN)
+ *  id to tablica 2-elementkwa w ktorym jest id pierwszej znalezionej trasy w pliku,
+ *
+ *  idspec to jest tak ze sa linie typu K,C czy 900a wiec trzeba cos wymyslic:
+ *      -jesli jest normalna linia(10,33,114) to numer to id a idspec to srednik(;)
+ *      -jesli linia typu K,C itd to numer id to 1111, idspec to wlasnie litera z linia
+ *      -jesli linia 0p no to wiadomo jak, 0 w idnum a p w idspec
+ *      -jesli linia 900p to analogicznie do powyzszego
+ *
+ *  tylko po to zeby zebrac jakiekolwiek informacje o trasie
+ *  id nastepnych to juz do wyszukiwania nastepnych przystankow
+ *  czas to samo
+ *
+ */
+
+
 class Rozklad {
 private:
     int linia;
     std::string wariant;
+    int idnum;
+    char idspec;
     int* id_nastepnych;
     int* czas;
+
 public:
+    Rozklad(int idtab,int lin,char znak);
+
+    Rozklad(int linia, char *idspec);
+
     Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas);
     virtual ~Rozklad();
 

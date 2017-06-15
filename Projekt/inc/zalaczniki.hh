@@ -10,9 +10,8 @@
 #include <sstream>
 #include <fstream>
 #include <istream>
+#include <iomanip>
 #include <list>
-#include <map>
-#include <algorithm>
 #include <string>
 
 

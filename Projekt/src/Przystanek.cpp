@@ -19,6 +19,8 @@ Przystanek::~Przystanek() {
 
 }
 
+Przystanek::Przystanek(int id, const std::string &nazwa, double lat, double lon) : id(id), nazwa(nazwa), lat(lat),
+                                                                                   lon(lon) {}
 //-----------------------------------------------------------------------------------------------------
 
 
@@ -34,6 +36,20 @@ const std::string &Przystanek::getNazwa() const {
 int *Przystanek::getNumery_linii() const {
     return numery_linii;
 }
+
+int Przystanek::getId() const {
+    return id;
+}
+
+
+double Przystanek::getLat() const {
+    return lat;
+}
+
+double Przystanek::getLon() const {
+    return lon;
+}
+
 //----------------------------------------------------------------
 
 
@@ -70,12 +86,5 @@ Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
     return temp;
 }
 
-int Przystanek::getId() const {
-    return id;
-}
-
-void Przystanek::wypisz() {
-    std::cout << "Przystanek " << this->nazwa << " jego id: " << this->id << std::endl << std::endl;
-}
 
 

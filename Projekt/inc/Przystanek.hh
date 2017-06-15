@@ -12,6 +12,9 @@ class Przystanek {
 private:
     int id;
     std::string nazwa;
+    double lat;
+    double lon;
+
     int ilosc_linii;
     int* numery_linii;
     Rozklad** TablicaPoszczegolnychRozkladow;
@@ -19,6 +22,9 @@ private:
 public:
     //------konstruktory i destruktor---------
     Przystanek(const std::string &nazwa,int& idNowego);
+
+    Przystanek(int id, const std::string &nazwa, double lat, double lon);
+
     Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_linii, Rozklad **TablicaPoszczegolnychRozkladow);
     virtual ~Przystanek();
     //----------------------------------------
@@ -28,6 +34,11 @@ public:
     const std::string &getNazwa() const;
     int *getNumery_linii() const;
     int getId() const;
+
+    double getLat() const;
+
+    double getLon() const;
+
     //---------------------------------
     void wypisz();
 

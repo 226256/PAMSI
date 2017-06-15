@@ -19,6 +19,7 @@ private:
 
     //Robie z tablica bo wydaje mi sie najszybszy dostep a niestety nie ogarnalem kontenera map
     Przystanek** SpisPrzystankow;
+    Rozklad** SpisLinii;
     int IloscPrzystankow;
 
 public:
@@ -27,11 +28,15 @@ public:
 
     void setSpisPrzystankow(Przystanek **SpisPrzystankow);
     void setIloscprzystankow(int iloscprzystankow);
+
+    void setSpisLinii(Rozklad **SpisLinii);
+
     void wypisz();
 
     int getIloscPrzystankow() const;
 
     Przystanek* ZnajdzPrzystanek(std::string)const;
+    Przystanek* ZnajdzPrzystanek(int id) const;
     Przystanek** ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
 
 };

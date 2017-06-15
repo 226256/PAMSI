@@ -74,11 +74,36 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg) const {
 
 void Siec::wypisz() {
     for(int i=0;i<this->IloscPrzystankow;++i){
-        std::cout << "Przystanek " << this->SpisPrzystankow[i]->getNazwa() << " jego id: " << this->SpisPrzystankow[i]->getId() << std::endl;
+        std::cout << "Przystanek " << this->SpisPrzystankow[i]->getNazwa() << " jego id: " << this->SpisPrzystankow[i]->getId();
+        std::cout << " lat: " << std::setprecision(10) << this->SpisPrzystankow[i]->getLat() << " lon: " << std::setprecision(10)<<this->SpisPrzystankow[i]->getLon() << std::endl;
     }
 
 }
 
 int Siec::getIloscPrzystankow() const {
     return IloscPrzystankow;
+}
+
+
+/*
+ * Metoda szukajaca przystanku o danym id
+ *
+ * Parametry:
+ *  -id przystanku szukanego
+ *
+ * Zwraca:
+ *  -wskaznik do przystanku jesli znaleziony
+ *  -nullptr jesli nieznaleziony
+ *
+ */
+Przystanek *Siec::ZnajdzPrzystanek(int id) const {
+    int i=0;
+    while(i!=this->IloscPrzystankow){
+        if(this->SpisPrzystankow[i]->getId()==id) return this->SpisPrzystankow[i];
+    }
+    return nullptr;
+}
+
+void Siec::setSpisLinii(Rozklad **SpisLinii) {
+    Siec::SpisLinii = SpisLinii;
 }

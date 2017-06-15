@@ -15,6 +15,7 @@ class PracownikMPK {
 public:
     class BladPrzyOdczycieDanych{};
     static void TworzTablicePrzystankow(Siec& Arg);
+    static Rozklad** StworzLinie(Siec&);
 };
 
 
