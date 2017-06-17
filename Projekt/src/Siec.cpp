@@ -44,10 +44,14 @@ void Siec::setSpisPrzystankow(Przystanek **SpisPrzystankow) {
 /*
  * Metoda ustawiajaca ilosc przystankow w sieci
  */
-void Siec::setIloscprzystankow(int iloscprzystankow) {
-    Siec::IloscPrzystankow = iloscprzystankow;
+
+void Siec::setSpisLinii(Rozklad **SpisLinii) {
+    Siec::SpisLinii = SpisLinii;
 }
 
+void Siec::setIloscPrzystankow(int IloscPrzystankow) {
+    Siec::IloscPrzystankow = IloscPrzystankow;
+}
 
 
 /*Metoda szukajaca czy w sieci jest przystanek o podanej nazwie
@@ -104,6 +108,6 @@ Przystanek *Siec::ZnajdzPrzystanek(int id) const {
     return nullptr;
 }
 
-void Siec::setSpisLinii(Rozklad **SpisLinii) {
-    Siec::SpisLinii = SpisLinii;
+Rozklad **Siec::getSpisLinii() const {
+    return SpisLinii;
 }

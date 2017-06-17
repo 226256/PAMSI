@@ -29,30 +29,40 @@
 class Rozklad {
 private:
     int linia;
-    std::string wariant;
-    int idnum;
     char idspec;
+
+    std::string wariant;
+    int* idnum;
     int* id_nastepnych;
     int* czas;
 
 public:
-    Rozklad(int idtab,int lin,char znak);
+    Rozklad(int* idtab,int lin,char znak,std::string Arg);
 
-    Rozklad(int linia, char *idspec);
+    Rozklad(int linia, char idspec);
 
     Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas);
     virtual ~Rozklad();
 
     //----metody get---
-    int getLinia() const;
-    const std::string &getWariant() const;
-    int *getId_nastepnych() const;
-    int *getCzas() const;
+
     //-----------------
 
 
     bool operator==(const int  &rhs) const;
     bool operator!=(const int &rhs) const;
+
+    int getLinia() const;
+
+    char getIdspec() const;
+
+    const std::string &getWariant() const;
+
+    int *getIdnum() const;
+
+    int *getId_nastepnych() const;
+
+    int *getCzas() const;
 };
 
 

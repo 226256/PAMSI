@@ -3,7 +3,12 @@
 //
 
 #include "../inc/PracownikMPK.hh"
-
+/*
+ * Pierwsza funkcja wczytuje do sieci wszystkie mozliwe przystanki
+ *
+ * Druga funkcja wczytuje wszystkie linie we wroclawiu
+ *
+ */
 
 void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
 
@@ -61,7 +66,7 @@ void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
 
         //tutaj zajmuje sie Tworzeniem sieci
         size_t dlugosclisty=listaPrzystankow.size();
-        Arg.setIloscprzystankow((int) dlugosclisty);
+        Arg.setIloscPrzystankow((int) dlugosclisty);
         Przystanek** tablica=new Przystanek* [dlugosclisty];
         for(size_t i=0;i<dlugosclisty;++i){
             tablica[i]=listaPrzystankow.front();
@@ -75,8 +80,13 @@ void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
 
 }
 
-Rozklad **PracownikMPK::StworzLinie(Siec& Arg) {
+
+
+void PracownikMPK::StworzLinie(Siec& Arg) {
     Rozklad** TablicaLinii=new Rozklad* [469];
+    for(int i=0;i<469;++i){
+        TablicaLinii[i] = nullptr;
+    }
     std::fstream plik;
     int intdolinii;
     char chardolinii;
@@ -85,10 +95,10 @@ Rozklad **PracownikMPK::StworzLinie(Siec& Arg) {
     std::stringstream strumien;
     std::string bufor;
     std::string *temp;
+    std::string *nazwaLinii;
     int doid;
-    size_t pierwszyPrzecinek;
-    size_t drugiPrzecinek;
-    size_t podkreslnik;
+    size_t pierwszyPrzecinek,drugiPrzecinek,pierwszyCudzyslow,drugiCudzyslow;
+
     int* id=new int[2];
 
     std::string nazwy[]={
@@ -98,17 +108,22 @@ Rozklad **PracownikMPK::StworzLinie(Siec& Arg) {
             "../Pliki/TripsOnlyLetters.txt"
     };
 
+    int i = 0;
+
     for (int j = 0; j < 4; ++j) {
         plik.open(nazwy[j], std::ios::in);
-        int i = 0;
         while (!plik.eof()) {
             std::getline(plik, bufor);
             pierwszyPrzecinek = bufor.find_first_of(",");
             drugiPrzecinek = bufor.find_first_of(",", pierwszyPrzecinek + 1);
+            pierwszyCudzyslow=bufor.find_first_of("\"");
+            drugiCudzyslow=bufor.find_last_of("\"");
             if(j==0){
                 tmpdolinii=new std::string(bufor, 0, pierwszyPrzecinek);
                 strumien << *tmpdolinii;
                 strumien >> intdolinii;
+                strumien.str("");
+                strumien.clear();
                 chardolinii = ';';
             }
             else if(j==1){
@@ -119,6 +134,8 @@ Rozklad **PracownikMPK::StworzLinie(Siec& Arg) {
                 tmpdolinii=new std::string(bufor,0,3);
                 strumien << *tmpdolinii;
                 strumien >> intdolinii;
+                strumien.str("");
+                strumien.clear();
                 chardolinii = bufor[3];
             }
             else{
@@ -128,25 +145,49 @@ Rozklad **PracownikMPK::StworzLinie(Siec& Arg) {
 
 
             temp = new std::string(bufor, drugiPrzecinek + 1, 1);
-            strumien << temp;
+            strumien << *temp;
             strumien >> doid;
             strumien.str("");
             strumien.clear();
             id[0] = doid;
 
             temp = new std::string(bufor, drugiPrzecinek + 3, 7);
-            strumien << temp;
+            strumien << *temp;
             strumien >> doid;
             id[1] = doid;
             strumien.str("");
             strumien.clear();
 
-            TablicaLinii[i] = new Rozklad(id,intdolinii,chardolinii);
+            nazwaLinii=new std::string(bufor,pierwszyCudzyslow+1,drugiCudzyslow-pierwszyCudzyslow-1);
+
+            TablicaLinii[i] = new Rozklad(id,intdolinii,chardolinii,*nazwaLinii);
             ++i;
         }
         plik.close();
     }
 
 
+    Arg.setSpisLinii(TablicaLinii);
+}
+
+void PracownikMPK::PobierzNastepne(Rozklad **) {
+    int obecne[2];
+
+
+    for(int i=0;i<469;++i){
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 }
+

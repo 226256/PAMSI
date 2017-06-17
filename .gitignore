@@ -7,6 +7,11 @@ obj/
 *.txt
 *.xml
 
+!Trips0.txt
+!Trips900.txt
+!TripsOnlyLetters.txt
+!TripsOnlyNumbers.txt
+!stops.txt
 
 #pliki tworzone przez CLion
 CMakeLists.txt

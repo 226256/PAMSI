@@ -40,7 +40,6 @@ public:
     double getLon() const;
 
     //---------------------------------
-    void wypisz();
 
     Rozklad* ZnajdzLinie(int)const ;
     Rozklad* ZnajdzLinie(std::string)const;

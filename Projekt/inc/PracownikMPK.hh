@@ -11,11 +11,13 @@
 #include "Siec.hh"
 
 class PracownikMPK {
+private:
+    void PobierzNastepne(Rozklad**);
 
 public:
     class BladPrzyOdczycieDanych{};
     static void TworzTablicePrzystankow(Siec& Arg);
-    static Rozklad** StworzLinie(Siec&);
+    static void StworzLinie(Siec&);
 };
 
 

@@ -27,13 +27,14 @@ public:
     virtual ~Siec();
 
     void setSpisPrzystankow(Przystanek **SpisPrzystankow);
-    void setIloscprzystankow(int iloscprzystankow);
-
+    void setIloscPrzystankow(int IloscPrzystankow);
     void setSpisLinii(Rozklad **SpisLinii);
 
     void wypisz();
 
     int getIloscPrzystankow() const;
+
+    Rozklad **getSpisLinii() const;
 
     Przystanek* ZnajdzPrzystanek(std::string)const;
     Przystanek* ZnajdzPrzystanek(int id) const;
