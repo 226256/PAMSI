@@ -7,14 +7,14 @@
 Rozklad::Rozklad(int* idtab, int lin, char znak,std::string Naz) : idnum(idtab),linia(lin),idspec(znak),wariant(Naz) {}
 
 
-Rozklad::Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas) : linia(linia), wariant(wariant),
-                                                                                         id_nastepnych(id_nastepnych),
-                                                                                         czas(czas) {}
+//Rozklad::Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas) : linia(linia), wariant(wariant),
+//                                                                                         id_nastepnych(id_nastepnych),
+//                                                                                         czas(czas) {}
 Rozklad::Rozklad(int linia, char idspec) : linia(linia), idspec(idspec) {}
 
 Rozklad::~Rozklad() {
     delete [] this->id_nastepnych;
-    delete [] this->czas;
+//    delete [] this->czas;
 }
 
 //--------metody get---------------------------------
@@ -37,19 +37,19 @@ int *Rozklad::getIdnum() const {
 int *Rozklad::getId_nastepnych() const {
     return id_nastepnych;
 }
-
-int *Rozklad::getCzas() const {
-    return czas;
-}
+//
+//int *Rozklad::getCzas() const {
+//    return czas;
+//}
 //----------------------------------------------------
 
 
-
-bool Rozklad::operator==(const int &rhs) const {
-    return rhs==this->linia;
-}
-
-bool Rozklad::operator!=(const int &rhs) const {
-    return rhs != this->linia;
-}
-
+//
+//bool Rozklad::operator==(const int &rhs) const {
+//    return rhs==this->linia;
+//}
+//
+//bool Rozklad::operator!=(const int &rhs) const {
+//    return rhs != this->linia;
+//}
+//

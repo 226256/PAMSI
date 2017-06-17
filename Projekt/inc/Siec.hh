@@ -21,6 +21,7 @@ private:
     Przystanek** SpisPrzystankow;
     Rozklad** SpisLinii;
     int IloscPrzystankow;
+    int** macierz;
 
 public:
     Siec();

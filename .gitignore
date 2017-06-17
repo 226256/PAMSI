@@ -12,6 +12,7 @@ obj/
 !TripsOnlyLetters.txt
 !TripsOnlyNumbers.txt
 !stops.txt
+!stop_timesNew.txt
 
 #pliki tworzone przez CLion
 CMakeLists.txt

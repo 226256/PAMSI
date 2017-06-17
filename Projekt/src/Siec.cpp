@@ -51,6 +51,10 @@ void Siec::setSpisLinii(Rozklad **SpisLinii) {
 
 void Siec::setIloscPrzystankow(int IloscPrzystankow) {
     Siec::IloscPrzystankow = IloscPrzystankow;
+    this->macierz=new int* [IloscPrzystankow];
+    for (int i = 0; i < IloscPrzystankow; ++i) {
+        this->macierz[i]=new int [IloscPrzystankow];
+    }
 }
 
 

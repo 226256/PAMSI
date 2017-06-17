@@ -170,24 +170,25 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
     Arg.setSpisLinii(TablicaLinii);
 }
 
-void PracownikMPK::PobierzNastepne(Rozklad **) {
-    int obecne[2];
+void PracownikMPK::PobierzNastepne(std::string& ajdi) {
+    /*
+     * tutaj bede dodawal do kazdego rozkladu spis z nastepnymi przystankami
+     * potrzebne mi jest id(bo sa w formacie np. 3_7292018)
+     * oraz cos dzieki czemu nie bede szukal dalej jak juz wszystko znalazlem czyli:
+     * fazy szukania:
+     * fazyszukania=1;----zaczynam szukac;
+     * fazyszukania=2;----znalazlem pierwsze wystapienie;
+     * fazyszukania=3;----wystapienie bylo ale sie skonczylo(juz wiecej nie wystapi) koncze szukanie, biore kolejne id
+     *
+     *
+     */
+
+    int fazyszukania=0;
+
+    std::fstream plik;
+    plik.open("Pliki/stop_timesNew.txt",std::ios::in);
 
 
-    for(int i=0;i<469;++i){
-
-
-
-
-
-
-
-
-
-
-
-
-    }
 
 }
 

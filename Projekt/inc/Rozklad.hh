@@ -34,14 +34,14 @@ private:
     std::string wariant;
     int* idnum;
     int* id_nastepnych;
-    int* czas;
+//    int* czas;
 
 public:
     Rozklad(int* idtab,int lin,char znak,std::string Arg);
 
     Rozklad(int linia, char idspec);
 
-    Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas);
+//    Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas);
     virtual ~Rozklad();
 
     //----metody get---
@@ -49,8 +49,8 @@ public:
     //-----------------
 
 
-    bool operator==(const int  &rhs) const;
-    bool operator!=(const int &rhs) const;
+//    bool operator==(const int  &rhs) const;
+//    bool operator!=(const int &rhs) const;
 
     int getLinia() const;
 
