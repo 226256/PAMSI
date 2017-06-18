@@ -20,17 +20,19 @@ private:
     //Robie z tablica bo wydaje mi sie najszybszy dostep a niestety nie ogarnalem kontenera map
     Przystanek** SpisPrzystankow;
     Rozklad** SpisLinii;
+    int liczbaLinii;
     int IloscPrzystankow;
     int** macierz;
 
 public:
     Siec();
     virtual ~Siec();
-
+    void OrganizujSiec();
 
     void setSpisPrzystankow(Przystanek **SpisPrzystankow);
     void setIloscPrzystankow(int IloscPrzystankow);
     void setSpisLinii(Rozklad **SpisLinii);
+    void setLiczbaLinii(int liczbaLinii);
 
     void wypisz();
 

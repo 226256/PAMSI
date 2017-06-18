@@ -83,8 +83,9 @@ void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
 
 
 void PracownikMPK::StworzLinie(Siec& Arg) {
-    Rozklad** TablicaLinii=new Rozklad* [469];
-    for(int i=0;i<469;++i){
+    int iloscLinii=469;
+    Rozklad** TablicaLinii=new Rozklad* [iloscLinii];
+    for(int i=0;i<iloscLinii;++i){
         TablicaLinii[i] = nullptr;
     }
     std::fstream plik;
@@ -171,6 +172,7 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
 
 
     Arg.setSpisLinii(TablicaLinii);
+    Arg.setLiczbaLinii(iloscLinii);
 }
 
 int* PracownikMPK::PobierzNastepne(std::string& ajdi) {

@@ -60,7 +60,7 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     }
 //Wczytanie do listy wszystkich przystankow o nazwie "Koniec"
     KoniecID.push_back(ZnajdzPrzystanek(Koniec));
-    bool CzyWszystkie = false;
+    CzyWszystkie = false;
     while(!CzyWszystkie) {
         Przystanek *temp;
         temp = ZnajdzPrzystanek(Koniec, KoniecID);
@@ -112,6 +112,10 @@ void Siec::setIloscPrzystankow(int IloscPrzystankow) {
     for (int i = 0; i < IloscPrzystankow; ++i) {
         this->macierz[i]=new int [IloscPrzystankow];
     }
+}
+
+void Siec::setLiczbaLinii(int liczbaLinii) {
+    Siec::liczbaLinii = liczbaLinii;
 }
 
 
@@ -192,7 +196,7 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
         if (this->SpisPrzystankow[i]->getNazwa() == Arg) {
             bool CzyNowy = true;
             for (it = listID.begin(); it != listID.end(); ++it) {
-                if (this->SpisPrzystankow[i]->getId() == it->getId()) {
+                if (this->SpisPrzystankow[i]->getId() == it.operator*()->getId()) {
                     CzyNowy = false;
                 }
             }
@@ -202,4 +206,9 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
         }
         return nullptr;
     }
+}
+
+
+void Siec::OrganizujSiec() {
+
 }
