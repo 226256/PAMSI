@@ -5,11 +5,11 @@
 #include "../inc/Przystanek.hh"
 
 //---------------------konstruktory i destruktory------------------------------------------------------
-Przystanek::Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_linii,
-                       Rozklad **TablicaPoszczegolnychRozkladow) : nazwa(nazwa), ilosc_linii(ilosc_linii),
-                                                                   numery_linii(numery_linii),
-                                                                   TablicaPoszczegolnychRozkladow(
-                                                                           TablicaPoszczegolnychRozkladow) {}
+//Przystanek::Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_linii,
+//                       Rozklad **TablicaPoszczegolnychRozkladow) : nazwa(nazwa), ilosc_linii(ilosc_linii),
+//                                                                   numery_linii(numery_linii),
+//                                                                   TablicaPoszczegolnychRozkladow(
+//                                                                           TablicaPoszczegolnychRozkladow) {}
 
 Przystanek::Przystanek(const std::string &nazwaNowego,int& idNowego) : nazwa(nazwaNowego), id(idNowego){}
 
@@ -115,6 +115,13 @@ void Przystanek::WyliczKoszt(double szerokosc, double dlugosc) {
 	G = sqrt((lat - rodzic->getLat())*(lat - rodzic->getLat()) + (lon - rodzic->getLon())*(lon - rodzic->getLon()));
 	//calosc funkcji F
 	koszt = H + G;
+}
+
+void Przystanek::DodajSasiada(Przystanek *Arg) {
+    if (Arg!= nullptr){
+        this->Sasiedzi.push_back(Arg);
+    } else std::cerr << "Brak Przystanku" << std::endl;
+
 }
 
 
