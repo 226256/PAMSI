@@ -27,7 +27,7 @@ Przystanek::Przystanek(int id, const std::string &nazwa, double lat, double lon)
 
 
 
-//-----------------------metody get------------
+//-----------------------metody get i set------------
 
 const std::string &Przystanek::getNazwa() const {
     return this->nazwa;
@@ -48,6 +48,19 @@ double Przystanek::getLat() const {
 
 double Przystanek::getLon() const {
     return lon;
+}
+
+double Przystanek::getHeurystyka() const {
+	return heurystyka;
+}
+
+Przystanek *Przystanek::getRodzic() const {
+	return rodzic;
+}
+
+
+void Przystanek::setRodzic(Przystanek *Rodzic) {
+	rodzic = Rodzic;
 }
 
 //----------------------------------------------------------------
@@ -86,5 +99,9 @@ Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
     return temp;
 }
 
+
+void Przystanek::WyliczHeurystyke(double szerokosc, double dlugosc) {
+	heurystyka = sqrt((lat-szerokosc)*(lat-szerokosc) + (lon-dlugosc)*(lon-dlugosc));
+}
 
 

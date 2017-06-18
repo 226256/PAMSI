@@ -7,6 +7,7 @@
 
 
 #include "Rozklad.hh"
+#include <cmath>
 
 class Przystanek {
 private:
@@ -19,6 +20,9 @@ private:
     int* numery_linii;
     Rozklad** TablicaPoszczegolnychRozkladow;
 
+    double heurystyka;
+    Przystanek* rodzic;
+
 public:
     //------konstruktory i destruktor---------
     Przystanek(const std::string &nazwa,int& idNowego);
@@ -30,7 +34,7 @@ public:
     //----------------------------------------
 
 
-    //----metody get-------------------
+    //----metody get i set-------------------
     const std::string &getNazwa() const;
     int *getNumery_linii() const;
     int getId() const;
@@ -39,10 +43,17 @@ public:
 
     double getLon() const;
 
+    double getHeurystyka() const;
+    Przystanek *getRodzic() const;
+
+    void setRodzic(Przystanek *Rodzic);
+
     //---------------------------------
 
     Rozklad* ZnajdzLinie(int)const ;
     Rozklad* ZnajdzLinie(std::string)const;
+    void WyliczHeurystyke(double szerokosc, double dlugosc);
+
 };
 
 

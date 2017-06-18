@@ -33,13 +33,13 @@ Siec::~Siec() {
 Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
     //TODO tutaj stowrzyc algorytm wyszukiwania najkrotszej sciezki i zwracania tablicy z przystankami jakie trzeba odwiedzic
 
-    list<Przystanek*> DoPrzejrzenia;
-    list<Przystanek*> Przejrzane;
-    list<Przystanek*> PoczatekID;
-    list<Przystanek*> KoniecID;
-    list<Przystanek*> Trasa;
-    list<std::string> SpisTrasy;
-    list<Przystanek*>iterator it;
+    std::list<Przystanek*> DoPrzejrzenia;
+    std::list<Przystanek*> Przejrzane;
+    std::list<Przystanek*> PoczatekID;
+    std::list<Przystanek*> KoniecID;
+    std::list<Przystanek*> Trasa;
+    std::list<std::string> SpisTrasy;
+    std::list<Przystanek*>iterator it;
     double lat = ZnajdzPrzystanek(Koniec)->getLat;
     double lon = ZnajdzPrzystanek(Koniec)->getLon;
     int i = 0;
@@ -70,11 +70,16 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
             CzyWszystkie = true;
         }
     }
-//Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow
+/*
+//Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-    	DoPrzejrzenia.push_back(it->)
-	
-    }
+	   	DoPrzejrzenia.push_back(it->);
+	}
+//Ustawienie pola rodzica
+	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
+		it->UstawRodzica()
+	}
+*/
 
 }
 
@@ -174,9 +179,9 @@ Rozklad **Siec::getSpisLinii() const {
  *  -nullptr jesli nie znaleziony
  *
  */
-Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, list<Przystanek*> listID) const {
+Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listID) const {
     int i = 0;
-    list<Przystanek*>iterator it;
+    std::list<Przystanek*>iterator it;
     while(i < this->IloscPrzystankow) {
         if(this->SpisPrzystankow[i]->getNazwa()==Arg) {
             bool CzyNowy = true;
