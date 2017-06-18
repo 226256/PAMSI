@@ -39,6 +39,7 @@ public:
 
     Przystanek* ZnajdzPrzystanek(std::string)const;
     Przystanek* ZnajdzPrzystanek(int id) const;
+    Przystanek* ZnajdzPrzystanek(std::string Arg, int tabID) const;
     Przystanek** ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
 
 };

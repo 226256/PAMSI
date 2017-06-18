@@ -29,9 +29,47 @@ Siec::~Siec() {
  */
 Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
     //TODO tutaj stowrzyc algorytm wyszukiwania najkrotszej sciezki i zwracania tablicy z przystankami jakie trzeba odwiedzic
-        Przystanek** przejrzane=new Przystanek* [this->IloscPrzystankow];
-//        przejrzane[0]=
+
+    Przystanek** DoPrzejrzenia = new Przystanek* [this->IloscPrzystankow];
+    Przystanek** Przejrzane = new Przystanek* [this->IloscPrzystankow];
+    std::string Trasa[ROZMIAR];
+    int PoczatekID[ROZMIAR] = {0};
+    int KoniecID[ROZMIAR] = {0};
+    double lat = ZnajdzPrzystanek(Koniec)->getLat;
+    double lon = ZnajdzPrzystanek(Koniec)->getLon;
+    int i = 0;
+
+//Wczytanie do tablicy wszystkich ID przystankow o nazwie "Poczatek"
+    PoczatekID[0] = ZnajdzPrzystanek(Poczatek)->getId();
+    bool CzyWszystkie = false;
+    while(!CzyWszystkie) {
+        Przystanek *temp;
+        temp = ZnajdzPrzystanek(Poczatek, PoczatekID);
+        if(temp != nullptr) {
+            ++i;
+            PoczatekID[i] = temp->getId();
+        }
+        else {
+            CzyWszystkie = true;
+        }
+    }
+//Wczytanie do tablicy wszystkich ID przystankow o nazwie "Koniec"
+    KoniecID[0] = ZnajdzPrzystanek(Koniec)->getId();
+    bool CzyWszystkie = false;
+    while(!CzyWszystkie) {
+        Przystanek *temp;
+        temp = ZnajdzPrzystanek(Koniec, KoniecID);
+        if(temp != nullptr) {
+            ++i;
+            KoniecID[i] = temp->getId();
+        }
+        else {
+            CzyWszystkie = true;
+        }
+    }
+
 }
+
 
 /*
  * Metoda wstawiajaca tablice ze wskaznikami do Przystankow(ich spis)
@@ -114,4 +152,34 @@ Przystanek *Siec::ZnajdzPrzystanek(int id) const {
 
 Rozklad **Siec::getSpisLinii() const {
     return SpisLinii;
+}
+
+
+/*Metoda szukajaca czy w sieci jest przystanek o podanej nazwie rozny od juz znalezionych
+ *
+ * Parametry:
+ *  -nazwa przystanku szukanego (string)
+ *  -tablica ID juz znalezionych przystankow (int)
+ *
+ * Zwraca:
+ *  -wskaznik do przystanku jesli znaleziony
+ *  -nullptr jesli nie znaleziony
+ *
+ */
+Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, int tabID) const {
+    int i = 0;
+    while(i < this->IloscPrzystankow) {
+        if(this->SpisPrzystankow[i]->getNazwa()==Arg) {
+            bool CzyNowy = true;
+            for(int j = 0; j < ROZMIAR; ++j) {
+                if(this->SpisPrzystankow[i]->getId()==tabID[j]) {
+                    CzyNowy = false;
+                }
+            }
+            if(CzyNowy) {
+                return this->SpisPrzystankow[i];
+            }
+        else ++i;
+    }
+    return nullptr;
 }
