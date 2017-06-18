@@ -39,10 +39,10 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     std::list<Przystanek*> KoniecID;
     std::list<Przystanek*> Trasa;
     std::list<std::string> SpisTrasy;
-    std::list<Przystanek*>iterator it, jt;
+    std::list<Przystanek*>::iterator it, jt;
     Przystanek* Nastepny;
-    double lat = ZnajdzPrzystanek(Koniec)->getLat;
-    double lon = ZnajdzPrzystanek(Koniec)->getLon;
+    double lat = ZnajdzPrzystanek(Koniec)->getLat();
+    double lon = ZnajdzPrzystanek(Koniec)->getLon();
     int pom = 1000;
 
 //Wczytanie do listy wszystkich przystankow o nazwie "Poczatek"
@@ -187,19 +187,19 @@ Rozklad **Siec::getSpisLinii() const {
  */
 Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listID) const {
     int i = 0;
-    std::list<Przystanek*>iterator it;
-    while(i < this->IloscPrzystankow) {
-        if(this->SpisPrzystankow[i]->getNazwa()==Arg) {
+    std::list<Przystanek *>::iterator it;
+    while (i < this->IloscPrzystankow) {
+        if (this->SpisPrzystankow[i]->getNazwa() == Arg) {
             bool CzyNowy = true;
-            for(it = listID.begin(); it != listID.end(); ++it) {
-                if(this->SpisPrzystankow[i]->getId() == it->getId()) {
+            for (it = listID.begin(); it != listID.end(); ++it) {
+                if (this->SpisPrzystankow[i]->getId() == it->getId()) {
                     CzyNowy = false;
                 }
             }
-            if(CzyNowy) {
+            if (CzyNowy) {
                 return this->SpisPrzystankow[i];
-            }
-        else ++i;
+            } else ++i;
+        }
+        return nullptr;
     }
-    return nullptr;
 }
