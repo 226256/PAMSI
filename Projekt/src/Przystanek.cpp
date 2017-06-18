@@ -107,4 +107,11 @@ void Przystanek::WyliczKoszt(double szerokosc, double dlugosc) {
 	koszt += sqrt((lat - rodzic->getLat())*(lat - rodzic->getLat()) + (lon - rodzic->getLon())*(lon - rodzic->getLon()));
 }
 
+void Przystanek::DodajSasiada(Przystanek *Arg) {
+    if (Arg!= nullptr){
+        this->Sasiedzi.push_back(Arg);
+    } else std::cerr << "Brak Przystanku" << std::endl;
+
+}
+
 

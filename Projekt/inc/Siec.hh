@@ -27,6 +27,7 @@ public:
     Siec();
     virtual ~Siec();
 
+
     void setSpisPrzystankow(Przystanek **SpisPrzystankow);
     void setIloscPrzystankow(int IloscPrzystankow);
     void setSpisLinii(Rozklad **SpisLinii);

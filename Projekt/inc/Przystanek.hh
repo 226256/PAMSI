@@ -20,6 +20,7 @@ private:
     int* numery_linii;
     Rozklad** TablicaPoszczegolnychRozkladow;
 
+    std::list<Przystanek*> Sasiedzi;
     double koszt;
     Przystanek* rodzic;
 
@@ -53,7 +54,7 @@ public:
     Rozklad* ZnajdzLinie(int)const ;
     Rozklad* ZnajdzLinie(std::string)const;
     void WyliczKoszt(double szerokosc, double dlugosc);
-
+    void DodajSasiada(Przystanek* Arg);
 };
 
 
