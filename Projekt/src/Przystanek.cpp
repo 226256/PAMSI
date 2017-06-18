@@ -27,7 +27,7 @@ Przystanek::Przystanek(int id, const std::string &nazwa, double lat, double lon)
 
 
 
-//-----------------------metody get i set------------
+//-----------------------metody get------------
 
 const std::string &Przystanek::getNazwa() const {
     return this->nazwa;
@@ -67,9 +67,6 @@ Przystanek *Przystanek::getRodzic() const {
 }
 
 
-void Przystanek::setRodzic(Przystanek *Rodzic) {
-	rodzic = Rodzic;
-}
 
 //----------------------------------------------------------------
 
@@ -124,4 +121,6 @@ void Przystanek::DodajSasiada(Przystanek *Arg) {
 
 }
 
-
+void Przystanek::DodajRodzica(Przystanek *Rodzic) {
+	rodzic = Rodzic;
+}

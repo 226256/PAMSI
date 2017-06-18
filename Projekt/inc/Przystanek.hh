@@ -37,7 +37,7 @@ public:
     //----------------------------------------
 
 
-    //----metody get i set-------------------
+    //----metody get-------------------
     const std::string &getNazwa() const;
     int *getNumery_linii() const;
     int getId() const;
@@ -51,14 +51,14 @@ public:
     double getH() const;
     Przystanek *getRodzic() const;
 
-    void setRodzic(Przystanek *Rodzic);
-
     //---------------------------------
 
     Rozklad* ZnajdzLinie(int)const ;
     Rozklad* ZnajdzLinie(std::string)const;
     void WyliczKoszt(double szerokosc, double dlugosc);
     void DodajSasiada(Przystanek* Arg);
+    void DodajRodzica(Przystanek *Rodzic);
+
 };
 
 

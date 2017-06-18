@@ -75,11 +75,12 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
             CzyWszystkie = true;
         }
     }
-
+/*
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-	   	DoPrzejrzenia.push_front(it->);        //!!!DODAC!!!  POTRZEBA NASTEPNYCH PRZYSTANKOW
-	   	it->UstawRodzica(Obecny);
+	   	for(jt = it->)
+	   	DoPrzejrzenia.push_front(it->);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
+	   	it->DodajRodzica(Obecny);
 	}
 //Sprawdzenie czy nie mamy juz pola docelowego
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
@@ -109,10 +110,10 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 		}
 	}
 //Sprawdzenie przyleglych pol
-	for(it) {  //!!!DODAC!!! - POTRZEBA NASTEPNYCH PRZYSTANKOW
+	for(it = ;; ++it) {  //!!!DODAC!!! - POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
 
 	}
-
+*/
 
 
 }
