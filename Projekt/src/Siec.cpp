@@ -2,7 +2,10 @@
 // Created by maciek on 31.05.17.
 //
 
+#include <list>
 #include "../inc/Siec.hh"
+#define ROZMIAR 40     // ilosc powtorzen przystankow
+
 
 //------------konstrukory i destruktory--------
 
@@ -30,43 +33,44 @@ Siec::~Siec() {
 Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
     //TODO tutaj stowrzyc algorytm wyszukiwania najkrotszej sciezki i zwracania tablicy z przystankami jakie trzeba odwiedzic
 
-    Przystanek** DoPrzejrzenia = new Przystanek* [this->IloscPrzystankow];
-    Przystanek** Przejrzane = new Przystanek* [this->IloscPrzystankow];
-    std::string Trasa[ROZMIAR];
-    int PoczatekID[ROZMIAR] = {0};
-    int KoniecID[ROZMIAR] = {0};
+    list<Przystanek*> DoPrzejrzenia;
+    list<Przystanek*> Przejrzane;
+    list<Przystanek*> PoczatekID;
+    list<Przystanek*> KoniecID;
+    list<Przystanek*> Trasa;
+    list<std::string> SpisTrasy;
+    list<Przystanek*>iterator it;
     double lat = ZnajdzPrzystanek(Koniec)->getLat;
     double lon = ZnajdzPrzystanek(Koniec)->getLon;
     int i = 0;
 
 //Wczytanie do tablicy wszystkich ID przystankow o nazwie "Poczatek"
-    PoczatekID[0] = ZnajdzPrzystanek(Poczatek)->getId();
+    PoczatekID.push_back(ZnajdzPrzystanek(Poczatek));
     bool CzyWszystkie = false;
     while(!CzyWszystkie) {
         Przystanek *temp;
         temp = ZnajdzPrzystanek(Poczatek, PoczatekID);
         if(temp != nullptr) {
-            ++i;
-            PoczatekID[i] = temp->getId();
+            PoczatekID.push_back(temp);
         }
         else {
             CzyWszystkie = true;
         }
     }
 //Wczytanie do tablicy wszystkich ID przystankow o nazwie "Koniec"
-    KoniecID[0] = ZnajdzPrzystanek(Koniec)->getId();
+    KoniecID.push_back(ZnajdzPrzystanek(Koniec));
     bool CzyWszystkie = false;
     while(!CzyWszystkie) {
         Przystanek *temp;
         temp = ZnajdzPrzystanek(Koniec, KoniecID);
         if(temp != nullptr) {
-            ++i;
-            KoniecID[i] = temp->getId();
+            KoniecID.push_back(temp);
         }
         else {
             CzyWszystkie = true;
         }
     }
+
 
 }
 
@@ -159,20 +163,21 @@ Rozklad **Siec::getSpisLinii() const {
  *
  * Parametry:
  *  -nazwa przystanku szukanego (string)
- *  -tablica ID juz znalezionych przystankow (int)
+ *  -lista juz znalezionych przystankow (list<Przystanek*>)
  *
  * Zwraca:
  *  -wskaznik do przystanku jesli znaleziony
  *  -nullptr jesli nie znaleziony
  *
  */
-Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, int tabID) const {
+Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, list<Przystanek*> listID) const {
     int i = 0;
+    list<Przystanek*>iterator it;
     while(i < this->IloscPrzystankow) {
         if(this->SpisPrzystankow[i]->getNazwa()==Arg) {
             bool CzyNowy = true;
-            for(int j = 0; j < ROZMIAR; ++j) {
-                if(this->SpisPrzystankow[i]->getId()==tabID[j]) {
+            for(it = listID.begin(); it != listID.end(); ++it) {
+                if(this->SpisPrzystankow[i]->getId() == it->getId()) {
                     CzyNowy = false;
                 }
             }
