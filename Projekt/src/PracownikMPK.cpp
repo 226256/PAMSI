@@ -90,7 +90,8 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
     std::fstream plik;
     int intdolinii;
     char chardolinii;
-    std::string *tmpdolinii;
+    std::string *tmpdolinii,*stringdofunkcji;
+
 
     std::stringstream strumien;
     std::string bufor;
@@ -158,9 +159,11 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
             strumien.str("");
             strumien.clear();
 
-            nazwaLinii=new std::string(bufor,pierwszyCudzyslow+1,drugiCudzyslow-pierwszyCudzyslow-1);
+            stringdofunkcji=new std::string(bufor,drugiPrzecinek+1,9);
 
-            TablicaLinii[i] = new Rozklad(id,intdolinii,chardolinii,*nazwaLinii);
+            nazwaLinii=new std::string(bufor,pierwszyCudzyslow+1,drugiCudzyslow-pierwszyCudzyslow-1);
+            int* tab=PobierzNastepne(*stringdofunkcji);
+            TablicaLinii[i] = new Rozklad(id,intdolinii,chardolinii,*nazwaLinii,tab);
             ++i;
         }
         plik.close();
@@ -170,7 +173,8 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
     Arg.setSpisLinii(TablicaLinii);
 }
 
-void PracownikMPK::PobierzNastepne(std::string& ajdi) {
+int* PracownikMPK::PobierzNastepne(std::string& ajdi) {
+
     /*
      * tutaj bede dodawal do kazdego rozkladu spis z nastepnymi przystankami
      * potrzebne mi jest id(bo sa w formacie np. 3_7292018)
@@ -184,11 +188,43 @@ void PracownikMPK::PobierzNastepne(std::string& ajdi) {
      */
 
     int fazyszukania=0;
-
+    std::list<int> numerynastepnych;
     std::fstream plik;
-    plik.open("Pliki/stop_timesNew.txt",std::ios::in);
+    std::string bufor;
+    std::string* tempid,*tmpdostrumienia;
+    std::stringstream nanumer;
+    int ostatecznynrprzystanku;
+    size_t pierwszyprzecinek,przecinekprzedidprzystankow,przecinekpoidprzystankow;
 
+    std::cout << "Szukam dla: " << ajdi << std::endl;
+    plik.open("../Pliki/stop_timesNew.txt",std::ios::in);
+    while(fazyszukania!=3 && !plik.eof()){
+        fazyszukania=1;
+        std::getline(plik,bufor);
+        pierwszyprzecinek=bufor.find_first_of(",");
+        przecinekprzedidprzystankow=bufor.find_first_of(",",pierwszyprzecinek+15);
+        przecinekpoidprzystankow=bufor.find_first_of(",",przecinekprzedidprzystankow+1);
+        tempid=new std::string(bufor,0,pierwszyprzecinek);
+        if(ajdi==(*tempid) && fazyszukania==1) fazyszukania=2;
+        if(ajdi==(*tempid)){
+            tmpdostrumienia=new std::string(bufor,przecinekprzedidprzystankow+1,przecinekpoidprzystankow-przecinekprzedidprzystankow);
+            nanumer << *tmpdostrumienia;
+            nanumer >> ostatecznynrprzystanku;
+            nanumer.str("");
+            nanumer.clear();
+            std::cout << "wpisuje nry: " << ostatecznynrprzystanku << std::endl;
+            numerynastepnych.push_back(ostatecznynrprzystanku);
+        }
+        if (ajdi!=(*tempid) && fazyszukania==2) fazyszukania=3;
+    }
 
-
+    size_t dlugosclisty=numerynastepnych.size();
+    int* tablica=new int [dlugosclisty];
+    for(int i=0;i<dlugosclisty;++i){
+        tablica[i]=numerynastepnych.front();
+        numerynastepnych.pop_front();
+    }
+    plik.close();
+    return tablica;
 }
 

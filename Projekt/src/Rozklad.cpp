@@ -4,7 +4,7 @@
 
 #include "../inc/Rozklad.hh"
 
-Rozklad::Rozklad(int* idtab, int lin, char znak,std::string Naz) : idnum(idtab),linia(lin),idspec(znak),wariant(Naz) {}
+Rozklad::Rozklad(int* idtab, int lin, char znak,std::string Naz,int* tab) : idnum(idtab),linia(lin),idspec(znak),wariant(Naz),id_nastepnych(tab) {}
 
 
 //Rozklad::Rozklad(int linia, const std::string &wariant, int *id_nastepnych, int *czas) : linia(linia), wariant(wariant),

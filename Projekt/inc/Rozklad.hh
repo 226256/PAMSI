@@ -37,7 +37,7 @@ private:
 //    int* czas;
 
 public:
-    Rozklad(int* idtab,int lin,char znak,std::string Arg);
+    Rozklad(int* idtab,int lin,char znak,std::string Arg,int* tab);
 
     Rozklad(int linia, char idspec);
 

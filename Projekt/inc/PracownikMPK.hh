@@ -12,7 +12,7 @@
 
 class PracownikMPK {
 private:
-    void PobierzNastepne(std::string& Arg);
+    static int* PobierzNastepne(std::string& Arg);
 
 public:
     class BladPrzyOdczycieDanych{};
