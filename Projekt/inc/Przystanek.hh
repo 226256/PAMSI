@@ -22,6 +22,8 @@ private:
 
     std::list<Przystanek*> Sasiedzi;
     double koszt;
+    double H;
+    double G;
     Przystanek* rodzic;
 
 public:
@@ -35,7 +37,7 @@ public:
     //----------------------------------------
 
 
-    //----metody get i set-------------------
+    //----metody get-------------------
     const std::string &getNazwa() const;
     int *getNumery_linii() const;
     int getId() const;
@@ -45,9 +47,9 @@ public:
     double getLon() const;
 
     double getKoszt() const;
+    double getG() const;
+    double getH() const;
     Przystanek *getRodzic() const;
-
-    void setRodzic(Przystanek *Rodzic);
 
     //---------------------------------
 
@@ -55,6 +57,8 @@ public:
     Rozklad* ZnajdzLinie(std::string)const;
     void WyliczKoszt(double szerokosc, double dlugosc);
     void DodajSasiada(Przystanek* Arg);
+    void DodajRodzica(Przystanek *Rodzic);
+
 };
 
 

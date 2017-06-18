@@ -43,7 +43,7 @@ public:
     Przystanek* ZnajdzPrzystanek(std::string)const;
     Przystanek* ZnajdzPrzystanek(int id) const;
     Przystanek* ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listID) const;
-    Przystanek** ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
+    std::list<std::string> ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
 
 };
 

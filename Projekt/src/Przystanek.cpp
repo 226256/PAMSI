@@ -27,7 +27,7 @@ Przystanek::Przystanek(int id, const std::string &nazwa, double lat, double lon)
 
 
 
-//-----------------------metody get i set------------
+//-----------------------metody get------------
 
 const std::string &Przystanek::getNazwa() const {
     return this->nazwa;
@@ -54,14 +54,19 @@ double Przystanek::getKoszt() const {
 	return koszt;
 }
 
+double Przystanek::getG() const {
+	return G;
+}
+
+double Przystanek::getH() const {
+	return H;
+}
+
 Przystanek *Przystanek::getRodzic() const {
 	return rodzic;
 }
 
 
-void Przystanek::setRodzic(Przystanek *Rodzic) {
-	rodzic = Rodzic;
-}
 
 //----------------------------------------------------------------
 
@@ -102,9 +107,11 @@ Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
 
 void Przystanek::WyliczKoszt(double szerokosc, double dlugosc) {
 	//heurystyka
-	koszt = sqrt((lat - szerokosc)*(lat - szerokosc) + (lon - dlugosc)*(lon - dlugosc));
+	H = sqrt((lat - szerokosc)*(lat - szerokosc) + (lon - dlugosc)*(lon - dlugosc));
 	//koszt przejścia od rodzica
-	koszt += sqrt((lat - rodzic->getLat())*(lat - rodzic->getLat()) + (lon - rodzic->getLon())*(lon - rodzic->getLon()));
+	G = sqrt((lat - rodzic->getLat())*(lat - rodzic->getLat()) + (lon - rodzic->getLon())*(lon - rodzic->getLon()));
+	//calosc funkcji F
+	koszt = H + G;
 }
 
 void Przystanek::DodajSasiada(Przystanek *Arg) {
@@ -114,4 +121,6 @@ void Przystanek::DodajSasiada(Przystanek *Arg) {
 
 }
 
-
+void Przystanek::DodajRodzica(Przystanek *Rodzic) {
+	rodzic = Rodzic;
+}
