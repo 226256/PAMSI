@@ -21,6 +21,8 @@ private:
     Rozklad** TablicaPoszczegolnychRozkladow;
 
     double koszt;
+    double H;
+    double G;
     Przystanek* rodzic;
 
 public:
@@ -44,6 +46,8 @@ public:
     double getLon() const;
 
     double getKoszt() const;
+    double getG() const;
+    double getH() const;
     Przystanek *getRodzic() const;
 
     void setRodzic(Przystanek *Rodzic);

@@ -26,11 +26,11 @@ Siec::~Siec() {
  *  -Nazwa przystanku koncowego(string)
  *
  * Zwraca:
- *  -Wskaznik do tablicy przechowujacej spis przystankow przez ktore trzeba przejechac
+ *  -Wskaznik do tablicy przechowujacej nazwy przystankow przez ktore trzeba przejechac
  *  -nullptr jesli nie znaleziono jednego z przystankow podanych jako parametr
  *
  */
-Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
+std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
     //TODO tutaj stowrzyc algorytm wyszukiwania najkrotszej sciezki i zwracania tablicy z przystankami jakie trzeba odwiedzic
 
     std::list<Przystanek*> DoPrzejrzenia;
@@ -40,13 +40,17 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     std::list<Przystanek*> Trasa;
     std::list<std::string> SpisTrasy;
     std::list<Przystanek*>iterator it, jt;
+    Przystanek* Obecny;
     Przystanek* Nastepny;
     double lat = ZnajdzPrzystanek(Koniec)->getLat;
     double lon = ZnajdzPrzystanek(Koniec)->getLon;
-    int pom = 1000;
+    double pom;
+
+    Obecny = ZnajdzPrzystanek(Poczatek);
+    DoPrzejrzenia.push_front(Obecny);
 
 //Wczytanie do listy wszystkich przystankow o nazwie "Poczatek"
-    PoczatekID.push_back(ZnajdzPrzystanek(Poczatek));
+    PoczatekID.push_back(Obecny);
     bool CzyWszystkie = false;
     while(!CzyWszystkie) {
         Przystanek *temp;
@@ -71,21 +75,45 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
             CzyWszystkie = true;
         }
     }
-/*
+
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-	   	DoPrzejrzenia.push_back(it->);
+	   	DoPrzejrzenia.push_front(it->);        //!!!DODAC!!!  POTRZEBA NASTEPNYCH PRZYSTANKOW
+	   	it->UstawRodzica(Obecny);
 	}
-//Ustawienie pola rodzica, wyliczenie kosztu zrobienia kroku i wybranie nastepnego punktu
+//Sprawdzenie czy nie mamy juz pola docelowego
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		it->UstawRodzica(jt);
-		it->WyliczKoszt(lat, lon;
+		if(it->getNazwa() == Koniec) {
+			SpisTrasy.push_front(Koniec);
+			SpisTrasy.push_front(Start);
+			return SpisTrasy;
+		}
+	}
+
+//Wyliczenie kosztu zrobienia kroku i wybranie nastepnego punktu
+	pom = 10000;
+	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
+		it->WyliczKoszt(lat, lon);
 		if(pom > it->getKoszt()) {
 			pom = it->getKoszt();
 			Nastepny = it;
 		}
 	}
-*/
+//Zmiana statusu obecnego pola
+	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
+		if(it->getId() == Obecny->getId()) {
+			DoPrzejrzenia.erase(it);
+			Przejrzane.push_front(Obecny);
+			Obecny = Nastepny;
+			break;
+		}
+	}
+//Sprawdzenie przyleglych pol
+	for(it) {  //!!!DODAC!!! - POTRZEBA NASTEPNYCH PRZYSTANKOW
+
+	}
+
+
 
 }
 
