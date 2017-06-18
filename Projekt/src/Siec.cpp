@@ -44,7 +44,7 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     double lon = ZnajdzPrzystanek(Koniec)->getLon;
     int i = 0;
 
-//Wczytanie do tablicy wszystkich ID przystankow o nazwie "Poczatek"
+//Wczytanie do listy wszystkich przystankow o nazwie "Poczatek"
     PoczatekID.push_back(ZnajdzPrzystanek(Poczatek));
     bool CzyWszystkie = false;
     while(!CzyWszystkie) {
@@ -57,7 +57,7 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
             CzyWszystkie = true;
         }
     }
-//Wczytanie do tablicy wszystkich ID przystankow o nazwie "Koniec"
+//Wczytanie do listy wszystkich przystankow o nazwie "Koniec"
     KoniecID.push_back(ZnajdzPrzystanek(Koniec));
     bool CzyWszystkie = false;
     while(!CzyWszystkie) {
@@ -70,7 +70,11 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
             CzyWszystkie = true;
         }
     }
-
+//Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow
+    for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
+    	DoPrzejrzenia.push_back(it->)
+	
+    }
 
 }
 
