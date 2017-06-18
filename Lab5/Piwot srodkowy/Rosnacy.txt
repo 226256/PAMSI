@@ -1,0 +1,151 @@
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10
+3e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+Średni czas tej serii: 1.4e-06
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100
+1.2e-05 s
+1e-05 s
+1e-05 s
+4.9e-05 s
+9e-06 s
+1e-05 s
+9e-06 s
+8e-06 s
+9e-06 s
+9e-06 s
+8e-06 s
+9e-06 s
+9e-06 s
+9e-06 s
+9e-06 s
+8e-06 s
+9e-06 s
+9e-06 s
+8e-06 s
+9e-06 s
+Średni czas tej serii: 1.11e-05
+
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 1000
+0.000121 s
+0.000117 s
+0.000116 s
+0.000117 s
+0.000117 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000146 s
+0.000116 s
+0.000117 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000116 s
+0.000116 s
+Średni czas tej serii: 0.00011795
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10000
+0.00163 s
+0.001627 s
+0.001672 s
+0.001614 s
+0.001564 s
+0.001555 s
+0.001562 s
+0.001548 s
+0.001478 s
+0.001404 s
+0.001404 s
+0.000995 s
+0.0009 s
+0.000905 s
+0.000956 s
+0.000899 s
+0.001008 s
+0.001064 s
+0.000968 s
+0.000903 s
+Średni czas tej serii: 0.0012828
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100000
+0.012895 s
+0.012 s
+0.011645 s
+0.011512 s
+0.011383 s
+0.011368 s
+0.011371 s
+0.011341 s
+0.011523 s
+0.011296 s
+0.0113 s
+0.011305 s
+0.01131 s
+0.011318 s
+0.011397 s
+0.011338 s
+0.011323 s
+0.01136 s
+0.011477 s
+0.011335 s
+Średni czas tej serii: 0.0114899
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 1000000
+0.130821 s
+0.128936 s
+0.129252 s
+0.129357 s
+0.132825 s
+0.142248 s
+0.129357 s
+0.129087 s
+0.12946 s
+0.129107 s
+0.12898 s
+0.12906 s
+0.129801 s
+0.129362 s
+0.129051 s
+0.129013 s
+0.129438 s
+0.128975 s
+0.129288 s
+0.129342 s
+Średni czas tej serii: 0.130138

@@ -1,0 +1,26 @@
+#ifndef WYKONYWALNY_HH
+#define WYKONYWALNY_HH
+
+
+
+
+class wykonywalny{
+    public:
+    wykonywalny(){}
+    virtual void wykonaj_algorytm(int& rozmiar_problemu)=0;
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif

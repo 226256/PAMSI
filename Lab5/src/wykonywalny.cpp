@@ -1,0 +1,1 @@
+#include "wykonywalny.hh"

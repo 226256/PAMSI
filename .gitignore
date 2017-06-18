@@ -1,0 +1,22 @@
+#pliki .o
+*.o
+obj/
+*.cbp
+*.exe
+*.out
+*.txt
+*.xml
+
+!Trips0.txt
+!Trips900.txt
+!TripsOnlyLetters.txt
+!TripsOnlyNumbers.txt
+!stops.txt
+!stop_timesNew.txt
+
+#pliki tworzone przez CLion
+CMakeLists.txt
+CMakeFiles/
+*.cmake
+.idea/
+cmake-build-debug/

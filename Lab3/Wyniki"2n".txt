@@ -1,0 +1,102 @@
+Pomiary czasu dzialania algorytmu "2n" kolejno dla zwiekszania 10-elementowej tabliy o:
+10^1,10^2,10^3 i 10^4 elementów.
+
++10
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+5e-06 s
+1e-06 s
+1e-06 s
+0 s
+0 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+0 s
+0 s
+0 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+0 s
+0 s
+Średni czas tej serii: 8.5e-07
+
++100
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+6e-06 s
+4e-06 s
+4e-06 s
+3e-06 s
+4e-06 s
+4e-06 s
+4e-06 s
+3e-06 s
+4e-06 s
+4e-06 s
+8e-06 s
+3e-06 s
+4e-06 s
+4e-06 s
+4e-06 s
+3e-06 s
+6e-06 s
+4e-06 s
+3e-06 s
+4e-06 s
+Średni czas tej serii: 4.15e-06
+
++1000
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+4.1e-05 s
+4.8e-05 s
+3.4e-05 s
+3.4e-05 s
+3.7e-05 s
+3.6e-05 s
+3.4e-05 s
+4e-05 s
+3.5e-05 s
+3.5e-05 s
+3.5e-05 s
+3.7e-05 s
+3.4e-05 s
+3.4e-05 s
+3.4e-05 s
+3.7e-05 s
+3.4e-05 s
+3.5e-05 s
+3.4e-05 s
+3.8e-05 s
+Średni czas tej serii: 3.63e-05
+
++10000
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+0.000585 s
+0.000588 s
+0.000663 s
+0.000573 s
+0.000583 s
+0.000579 s
+0.000579 s
+0.00058 s
+0.000582 s
+0.000601 s
+0.000584 s
+0.000578 s
+0.000586 s
+0.000585 s
+0.000584 s
+0.000578 s
+0.000421 s
+0.000372 s
+0.000372 s
+0.000373 s
+Średni czas tej serii: 0.0005473

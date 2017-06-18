@@ -1,0 +1,104 @@
+
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10
+3e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+Średni czas tej serii: 1.8e-06
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100
+8.2e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.2e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.1e-05 s
+6.2e-05 s
+6.2e-05 s
+Średni czas tej serii: 6.22e-05
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 1000
+0.006599 s
+0.004899 s
+0.004473 s
+0.004282 s
+0.004197 s
+0.004451 s
+0.004554 s
+0.004203 s
+0.004208 s
+0.004195 s
+0.004215 s
+0.004195 s
+0.00415 s
+0.004171 s
+0.004163 s
+0.004144 s
+0.004147 s
+0.004144 s
+0.004174 s
+0.00416 s
+Średni czas tej serii: 0.0043862
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10000
+0.421484 s
+0.419671 s
+0.418621 s
+0.418124 s
+0.419154 s
+0.419526 s
+0.419243 s
+0.4203 s
+0.419798 s
+0.418314 s
+0.419226 s
+0.41887 s
+0.419091 s
+0.420541 s
+0.418749 s
+0.419465 s
+0.418147 s
+0.419001 s
+0.419663 s
+0.418205 s
+Średni czas tej serii: 0.41926
+
+
+Dla dalszych obliczen stos wywolan staje sie zbyt wielki.

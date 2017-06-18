@@ -1,0 +1,152 @@
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10
+3e-06 s
+2e-06 s
+4e-06 s
+1e-06 s
+2e-06 s
+2e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+2e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+1e-06 s
+Średni czas tej serii: 1.55e-06
+
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100
+1.8e-05 s
+1.4e-05 s
+1.2e-05 s
+1.2e-05 s
+1.1e-05 s
+1.1e-05 s
+1.2e-05 s
+1.2e-05 s
+1.3e-05 s
+1.3e-05 s
+1.2e-05 s
+1.2e-05 s
+1.2e-05 s
+1.2e-05 s
+1.3e-05 s
+1.1e-05 s
+1.1e-05 s
+1.1e-05 s
+1.1e-05 s
+1.1e-05 s
+Średni czas tej serii: 1.22e-05
+
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 1000
+0.000169 s
+0.000151 s
+0.00015 s
+0.000149 s
+0.000149 s
+0.000149 s
+0.000149 s
+0.000151 s
+0.000149 s
+0.000149 s
+0.00015 s
+0.000149 s
+0.000149 s
+0.00015 s
+0.00015 s
+0.000148 s
+0.000148 s
+0.000149 s
+0.00015 s
+0.000149 s
+Średni czas tej serii: 0.00015035
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 10000
+0.002002 s
+0.001896 s
+0.001955 s
+0.001896 s
+0.001064 s
+0.001175 s
+0.001144 s
+0.001099 s
+0.001063 s
+0.001063 s
+0.001063 s
+0.001063 s
+0.001062 s
+0.001118 s
+0.001062 s
+0.001062 s
+0.001115 s
+0.001155 s
+0.001229 s
+0.001146 s
+Średni czas tej serii: 0.0012716
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 100000
+0.015201 s
+0.013246 s
+0.012816 s
+0.012808 s
+0.012681 s
+0.012719 s
+0.012718 s
+0.012647 s
+0.012683 s
+0.012672 s
+0.012792 s
+0.01267 s
+0.012665 s
+0.012672 s
+0.012657 s
+0.012668 s
+0.012676 s
+0.012685 s
+0.012668 s
+0.012673 s
+Średni czas tej serii: 0.0128509
+
+Nowa seria!
+ Poszczegolne czasy algorytmu: 
+ Ilosc elementow do sortowania: 1000000
+0.14903 s
+0.148653 s
+0.147398 s
+0.147716 s
+0.14713 s
+0.147527 s
+0.147617 s
+0.147563 s
+0.147456 s
+0.147018 s
+0.147463 s
+0.147586 s
+0.147703 s
+0.147449 s
+0.147578 s
+0.147108 s
+0.147048 s
+0.147731 s
+0.148091 s
+0.147255 s
+Średni czas tej serii: 0.147606

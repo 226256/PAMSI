@@ -1,0 +1,118 @@
+10
+New serie!
+ Times of algorithm: 
+2e-05 s
+9e-06 s
+9e-06 s
+8e-06 s
+8e-06 s
+7e-06 s
+7e-06 s
+7e-06 s
+8e-06 s
+7e-06 s
+Mean time of this serie: 9e-06
+
+100
+New serie!
+ Times of algorithm: 
+1.4e-05 s
+8e-06 s
+8e-06 s
+9e-06 s
+7e-06 s
+9e-06 s
+9e-06 s
+9e-06 s
+9e-06 s
+1e-05 s
+Mean time of this serie: 9.2e-06
+
+1000
+New serie!
+ Times of algorithm: 
+3.8e-05 s
+2.9e-05 s
+2.8e-05 s
+2.7e-05 s
+2.8e-05 s
+3e-05 s
+2.8e-05 s
+2.7e-05 s
+2.7e-05 s
+2.8e-05 s
+Mean time of this serie: 2.9e-05
+
+10 000
+New serie!
+ Times of algorithm: 
+0.000267 s
+0.000277 s
+0.000147 s
+0.000193 s
+0.000193 s
+0.000192 s
+0.000193 s
+0.000146 s
+0.000146 s
+0.000145 s
+Mean time of this serie: 0.0001899
+
+100 000
+New serie!
+ Times of algorithm: 
+0.001579 s
+0.001792 s
+0.001567 s
+0.00168 s
+0.00155 s
+0.001476 s
+0.001477 s
+0.001659 s
+0.001557 s
+0.001539 s
+Mean time of this serie: 0.0015876
+
+1 000 000
+New serie!
+ Times of algorithm: 
+0.014525 s
+0.01496 s
+0.014746 s
+0.015256 s
+0.014596 s
+0.015214 s
+0.014713 s
+0.01529 s
+0.014706 s
+0.015273 s
+Mean time of this serie: 0.0149279
+
+10 000 000
+New serie!
+ Times of algorithm: 
+0.142792 s
+0.144185 s
+0.145708 s
+0.144931 s
+0.143798 s
+0.140091 s
+0.146011 s
+0.144467 s
+0.144474 s
+0.144702 s
+Mean time of this serie: 0.144116
+
+New serie!
+ Times of algorithm: 
+0.000263 s
+0.000208 s
+0.000233 s
+0.00015 s
+0.000195 s
+0.000196 s
+0.000196 s
+0.000196 s
+0.000149 s
+0.000149 s
+Mean time of this serie: 0.0001935
