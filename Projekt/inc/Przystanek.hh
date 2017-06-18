@@ -20,7 +20,7 @@ private:
     int* numery_linii;
     Rozklad** TablicaPoszczegolnychRozkladow;
 
-    int koszt;
+    double koszt;
     Przystanek* rodzic;
 
 public:
@@ -43,7 +43,7 @@ public:
 
     double getLon() const;
 
-    int getKoszt() const;
+    double getKoszt() const;
     Przystanek *getRodzic() const;
 
     void setRodzic(Przystanek *Rodzic);
@@ -52,7 +52,7 @@ public:
 
     Rozklad* ZnajdzLinie(int)const ;
     Rozklad* ZnajdzLinie(std::string)const;
-    void WyliczKoszt(double szerokosc, double dlugosc, int ID);
+    void WyliczKoszt(double szerokosc, double dlugosc);
 
 };
 

@@ -76,11 +76,10 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
 	   	DoPrzejrzenia.push_back(it->);
 	}
-//Ustawienie pola rodzica i wyliczenie kosztu zrobienia kroku
-	jt = PoczatekID.begin();
+//Ustawienie pola rodzica, wyliczenie kosztu zrobienia kroku i wybranie nastepnego punktu
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
 		it->UstawRodzica(jt);
-		it->WyliczKoszt(lat, lon, jt->getId());
+		it->WyliczKoszt(lat, lon;
 		if(pom > it->getKoszt()) {
 			pom = it->getKoszt();
 			Nastepny = it;
