@@ -50,8 +50,8 @@ double Przystanek::getLon() const {
     return lon;
 }
 
-double Przystanek::getHeurystyka() const {
-	return heurystyka;
+int Przystanek::getKoszt() const {
+	return koszt;
 }
 
 Przystanek *Przystanek::getRodzic() const {
@@ -100,8 +100,10 @@ Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
 }
 
 
-void Przystanek::WyliczHeurystyke(double szerokosc, double dlugosc) {
-	heurystyka = sqrt((lat-szerokosc)*(lat-szerokosc) + (lon-dlugosc)*(lon-dlugosc));
+void Przystanek::WyliczKoszt(double szerokosc, double dlugosc, int ID) {
+	koszt = (int)sqrt((lat-szerokosc)*(lat-szerokosc) + (lon-dlugosc)*(lon-dlugosc));
+//Dodajemy czas przejscia do tego punktu od rodzica
+//	koszt += ;
 }
 
 

@@ -39,10 +39,11 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     std::list<Przystanek*> KoniecID;
     std::list<Przystanek*> Trasa;
     std::list<std::string> SpisTrasy;
-    std::list<Przystanek*>iterator it;
+    std::list<Przystanek*>iterator it, jt;
+    Przystanek* Nastepny;
     double lat = ZnajdzPrzystanek(Koniec)->getLat;
     double lon = ZnajdzPrzystanek(Koniec)->getLon;
-    int i = 0;
+    int pom = 1000;
 
 //Wczytanie do listy wszystkich przystankow o nazwie "Poczatek"
     PoczatekID.push_back(ZnajdzPrzystanek(Poczatek));
@@ -75,9 +76,15 @@ Przystanek **Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Konie
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
 	   	DoPrzejrzenia.push_back(it->);
 	}
-//Ustawienie pola rodzica
+//Ustawienie pola rodzica i wyliczenie kosztu zrobienia kroku
+	jt = PoczatekID.begin();
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		it->UstawRodzica()
+		it->UstawRodzica(jt);
+		it->WyliczKoszt(lat, lon, jt->getId());
+		if(pom > it->getKoszt()) {
+			pom = it->getKoszt();
+			Nastepny = it;
+		}
 	}
 */
 
