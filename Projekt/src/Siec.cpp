@@ -55,12 +55,16 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 //Wczytanie do listy wszystkich przystankow o nazwie "Koniec"
     KoniecLista = ZnajdzPrzystankiOtakiejNazwie(Koniec);
 
+    if(PoczatekLista == nullptr || KoniecLista == nullptr) {
+    	return nullptr;
+    }
+
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek",
 //dadanie im pola "rodzic" i wyliczenie G, H, F
     for(it = PoczatekLista.begin(); it != PoczatekLista.end(); ++it) {
 	   	for(jt = it.operator*()->getSasiadow().begin(); jt != it.operator*()->getSasiadow().end(); ++jt) {
 		   	DoPrzejrzenia.push_front(*jt);
-		   	jt.operator*()->DodajRodzica(Obecny);
+		   	jt.operator*()->DodajRodzica(*it);
 	   		jt.operator*()->WyliczKoszt(lat, lon);
 	   	}
 	}
@@ -151,6 +155,19 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 	return SpisTrasy;
 
 }
+
+
+/*
+ * Metoda poszukujaca linii ktorymi mozna przejechac dana trase
+ *
+ * Parametry:
+ *  -lista prszystankow, ktore nalezy odwiedzic (list<Przystanek*>)
+ *
+ * Zwraca:
+ *  -wskaźnik na tablicę z numerami linii ktorymi nalezy sie poruszac
+ *
+ */
+
 
 
 /*
