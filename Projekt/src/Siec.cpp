@@ -39,7 +39,8 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
     std::list<Przystanek*> KoniecID;
     std::list<Przystanek*> Trasa;
     std::list<std::string> SpisTrasy;
-    std::list<Przystanek*>::iterator it, jt;
+    std::list<Przystanek *>::const_iterator it;
+    std::list<Przystanek *>::const_iterator jt;
     Przystanek* Obecny;
     Przystanek* Nastepny;
     double lat = ZnajdzPrzystanek(Koniec)->getLat();
@@ -78,7 +79,7 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-	   	for(jt = (it.operator*()->getSasiadow().begin(); jt != (it.operator*()->getSasiadow()).end(); ++jt) {
+	   	for(jt = (it.operator*()->getSasiadow().begin()); jt != (it.operator*()->getSasiadow()).end(); ++jt) {
 		   	DoPrzejrzenia.push_front(*jt);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
 		   	jt.operator*()->DodajRodzica(Obecny);
 	   		jt.operator*()->WyliczKoszt(lat, lon);
@@ -221,6 +222,7 @@ int Siec::getIloscPrzystankow() const {
  */
 Przystanek *Siec::ZnajdzPrzystanek(int id) const {
     int i=0;
+//    std::cout << "Szukam id: " << id << std::endl;
     while(i!=this->IloscPrzystankow){
         if(this->SpisPrzystankow[i]->getId()==id) return this->SpisPrzystankow[i];
         ++i;
@@ -267,13 +269,31 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
 void Siec::OrganizujSiec() {
     for(int i=0;i<this->liczbaLinii;++i){
         int* tempIds=this->SpisLinii[i]->getId_nastepnych();
+//        std::cout << this->SpisLinii[i]->getLinia() << ' ' << this->SpisLinii[i]->getWariant() << std::endl;
         int iloscNastepnych=tempIds[0];
         for(int j=1;j<iloscNastepnych-1;++j){
             Przystanek* uchwyt=this->ZnajdzPrzystanek(tempIds[j]);
             Przystanek* sasiad=this->ZnajdzPrzystanek(tempIds[j+1]);
             if(uchwyt!= nullptr && sasiad!= nullptr) {
+//                std::cout << "Do " << uchwyt->getNazwa() << " dodaje sasiada " << sasiad->getNazwa() << std::endl;
                 uchwyt->DodajSasiada(sasiad);
-            } else std::cerr << "Nie znajduje" << std::endl;
+            }
+            else{
+                std::cerr << "Nie znajduje" << std::endl;
+
+            }
         }
     }
+}
+
+std::list<Przystanek*> Siec::ZnajdzPrzystankiOtakiejNazwie(std::string Arg) const {
+    int i=0;
+    std::list<Przystanek*> temp;
+    while(i<this->IloscPrzystankow){
+        if(this->SpisPrzystankow[i]->getNazwa()==Arg) {
+            temp.push_back(this->SpisPrzystankow[i]);
+        }
+        ++i;
+    }
+    return temp;
 }
