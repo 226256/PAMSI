@@ -76,10 +76,11 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
         }
     }
 
-//Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
+//Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek",
+//dadanie im pola "rodzic" i wyliczenie G, H, F
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-	   	for(jt = (it.operator*()->getSasiadow().begin(); jt != (it.operator*()->getSasiadow()).end(); ++jt) {
-		   	DoPrzejrzenia.push_front(*jt);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
+	   	for(jt = it.operator*()->getSasiadow().begin(); jt != it.operator*()->getSasiadow().end(); ++jt) {
+		   	DoPrzejrzenia.push_front(*jt);
 		   	jt.operator*()->DodajRodzica(Obecny);
 	   		jt.operator*()->WyliczKoszt(lat, lon);
 	   	}
@@ -93,10 +94,9 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 		}
 	}
 
-//Wyliczenie kosztu zrobienia kroku i wybranie nastepnego punktu
+//Wybranie nastepnego punktu
 	pom = 10000;
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		
 		if(pom > it.operator*()->getKoszt()) {
 			pom = it.operator*()->getKoszt();
 			Nastepny = it.operator*();
@@ -112,7 +112,7 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 		}
 	}
 //Sprawdzenie przyleglych pol
-	for(it = (Obecny->getSasiadow()).begin(); it != (Obecny->getSasiadow()).end(); ++it) {  //!!!DODAC!!! - POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
+	for(it = Obecny->getSasiadow().begin(); it != Obecny->getSasiadow().end(); ++it) {
 		bool JuzPrzejrzane = false, JuzBylo = false;
 		for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
 			if(it.operator*()->getId() == jt.operator*()->getId()) {
@@ -128,7 +128,7 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 				}
 			}
 			if(JuzBylo) {
-				//TO DO
+				if()
 			}
 			else {
 				DoPrzejrzenia.push_front(*it);
