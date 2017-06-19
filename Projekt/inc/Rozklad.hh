@@ -33,6 +33,8 @@ private:
 
     std::string wariant;
     int* idnum;
+
+    //w tablicy z id nastepnych, w pierwszej komorce jest dlugosc calej tablicy
     int* id_nastepnych;
 //    int* czas;
 

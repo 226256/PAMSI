@@ -198,6 +198,7 @@ Przystanek *Siec::ZnajdzPrzystanek(int id) const {
     int i=0;
     while(i!=this->IloscPrzystankow){
         if(this->SpisPrzystankow[i]->getId()==id) return this->SpisPrzystankow[i];
+        ++i;
     }
     return nullptr;
 }
@@ -239,5 +240,15 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
 
 
 void Siec::OrganizujSiec() {
-
+    for(int i=0;i<this->liczbaLinii;++i){
+        int* tempIds=this->SpisLinii[i]->getId_nastepnych();
+        int iloscNastepnych=tempIds[0];
+        for(int j=1;j<iloscNastepnych-1;++j){
+            Przystanek* uchwyt=this->ZnajdzPrzystanek(tempIds[j]);
+            Przystanek* sasiad=this->ZnajdzPrzystanek(tempIds[j+1]);
+            if(uchwyt!= nullptr && sasiad!= nullptr) {
+                uchwyt->DodajSasiada(sasiad);
+            } else std::cerr << "Nie znajduje" << std::endl;
+        }
+    }
 }

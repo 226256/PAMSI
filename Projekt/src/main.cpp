@@ -9,7 +9,7 @@ int main() {
     Siec MPK;
     PracownikMPK::TworzTablicePrzystankow(MPK);
     PracownikMPK::StworzLinie(MPK);
-
+    MPK.OrganizujSiec();
 
     return 0;
 }

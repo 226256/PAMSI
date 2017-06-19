@@ -77,7 +77,7 @@ void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
     }
 
 
-
+    std::cout << "Wczytano przystanki" << std::endl;
 }
 
 
@@ -171,6 +171,7 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
     }
 
 
+    std::cout << "Wczytano linie" << std::endl;
     Arg.setSpisLinii(TablicaLinii);
     Arg.setLiczbaLinii(iloscLinii);
 }
@@ -198,7 +199,6 @@ int* PracownikMPK::PobierzNastepne(std::string& ajdi) {
     int ostatecznynrprzystanku;
     size_t pierwszyprzecinek,przecinekprzedidprzystankow,przecinekpoidprzystankow;
 
-    std::cout << "Szukam dla: " << ajdi << std::endl;
     plik.open("../Pliki/stop_timesNew.txt",std::ios::in);
     while(fazyszukania!=3 && !plik.eof()){
         fazyszukania=1;
@@ -214,18 +214,19 @@ int* PracownikMPK::PobierzNastepne(std::string& ajdi) {
             nanumer >> ostatecznynrprzystanku;
             nanumer.str("");
             nanumer.clear();
-            std::cout << "wpisuje nry: " << ostatecznynrprzystanku << std::endl;
             numerynastepnych.push_back(ostatecznynrprzystanku);
         }
         if (ajdi!=(*tempid) && fazyszukania==2) fazyszukania=3;
     }
 
     size_t dlugosclisty=numerynastepnych.size();
-    int* tablica=new int [dlugosclisty];
-    for(int i=0;i<dlugosclisty;++i){
+    int* tablica=new int [dlugosclisty+1];
+    tablica[0]= (int) (dlugosclisty + 1);
+    for(int i=1;i<dlugosclisty+1;++i){
         tablica[i]=numerynastepnych.front();
         numerynastepnych.pop_front();
     }
+
     plik.close();
     return tablica;
 }
