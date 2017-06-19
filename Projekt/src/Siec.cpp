@@ -79,7 +79,7 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
 	   	for(jt = (it.operator*()->getSasiadow().begin(); jt != (it.operator*()->getSasiadow()).end(); ++jt) {
-		   	DoPrzejrzenia.push_front(jt);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
+		   	DoPrzejrzenia.push_front(*jt);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
 		   	jt.operator*()->DodajRodzica(Obecny);
 	   		jt.operator*()->WyliczKoszt(lat, lon);
 	   	}
@@ -131,7 +131,7 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 				//TO DO
 			}
 			else {
-				DoPrzejrzenia.push_front(it);
+				DoPrzejrzenia.push_front(*it);
 				it.operator*()->DodajRodzica(Obecny);
 				it.operator*()->WyliczKoszt(lat, lon);
 				break;
