@@ -75,12 +75,14 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
             CzyWszystkie = true;
         }
     }
-/*
+
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-	   	for(jt = it->)
-	   	DoPrzejrzenia.push_front(it->);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
-	   	it->DodajRodzica(Obecny);
+	   	for(jt = (it->getSasiadow()).begin(); jt != (it->getSasiadow()).end(); ++jt) {
+		   	DoPrzejrzenia.push_front(jt);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
+		   	jt->DodajRodzica(Obecny);
+	   		jt->WyliczKoszt(lat, lon);
+	   	}
 	}
 //Sprawdzenie czy nie mamy juz pola docelowego
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
@@ -94,7 +96,7 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 //Wyliczenie kosztu zrobienia kroku i wybranie nastepnego punktu
 	pom = 10000;
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		it->WyliczKoszt(lat, lon);
+		
 		if(pom > it->getKoszt()) {
 			pom = it->getKoszt();
 			Nastepny = it;
@@ -110,10 +112,33 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 		}
 	}
 //Sprawdzenie przyleglych pol
-	for(it = ;; ++it) {  //!!!DODAC!!! - POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
-
+	for(it = (Obecny->getSasiadow()).begin(); it != (Obecny->getSasiadow()).end(); ++it) {  //!!!DODAC!!! - POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
+		bool JuzPrzejrzane = false, JuzBylo = false;
+		for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
+			if(it->getId() == jt->getId()) {
+				JuzPrzejrzane = true;
+				break;
+			}
+		}
+		if(!JuzPrzejrzane) {
+			for(jt = DoPrzejrzenia.begin(); jt != DoPrzejrzenia.end(); ++jt) {
+				if(it->getId() == jt->getId()) {
+					JuzBylo = true;
+					break;
+				}
+			}
+			if(JuzBylo) {
+				//TO DO
+			}
+			else {
+				DoPrzejrzenia.push_front(it);
+				it->DodajRodzica(Obecny);
+				it->WyliczKoszt(lat, lon);
+				break;
+			}
+		}
 	}
-*/
+
 
 
 }
