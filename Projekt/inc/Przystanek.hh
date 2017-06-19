@@ -51,6 +51,7 @@ public:
     double getH() const;
     Przystanek *getRodzic() const;
 
+    const std::list<Przystanek *> &getSasiadow() const;
     //---------------------------------
 
     Rozklad* ZnajdzLinie(int)const ;

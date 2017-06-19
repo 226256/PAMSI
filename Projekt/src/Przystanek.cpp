@@ -124,3 +124,7 @@ void Przystanek::DodajSasiada(Przystanek *Arg) {
 void Przystanek::DodajRodzica(Przystanek *Rodzic) {
 	rodzic = Rodzic;
 }
+
+const std::list<Przystanek *> &Przystanek::getSasiadow() const {
+    return Sasiedzi;
+}

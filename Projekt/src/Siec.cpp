@@ -78,17 +78,17 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek"
     for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
-	   	for(jt = (it->getSasiadow()).begin(); jt != (it->getSasiadow()).end(); ++jt) {
+	   	for(jt = (it.operator*()->getSasiadow().begin(); jt != (it.operator*()->getSasiadow()).end(); ++jt) {
 		   	DoPrzejrzenia.push_front(jt);        //!!!DODAC!!!  POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
-		   	jt->DodajRodzica(Obecny);
-	   		jt->WyliczKoszt(lat, lon);
+		   	jt.operator*()->DodajRodzica(Obecny);
+	   		jt.operator*()->WyliczKoszt(lat, lon);
 	   	}
 	}
 //Sprawdzenie czy nie mamy juz pola docelowego
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		if(it->getNazwa() == Koniec) {
+		if(it.operator*()->getNazwa() == Koniec) {
 			SpisTrasy.push_front(Koniec);
-			SpisTrasy.push_front(Start);
+			SpisTrasy.push_front(Poczatek);
 			return SpisTrasy;
 		}
 	}
@@ -97,14 +97,14 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 	pom = 10000;
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
 		
-		if(pom > it->getKoszt()) {
-			pom = it->getKoszt();
-			Nastepny = it;
+		if(pom > it.operator*()->getKoszt()) {
+			pom = it.operator*()->getKoszt();
+			Nastepny = it.operator*();
 		}
 	}
 //Zmiana statusu obecnego pola
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		if(it->getId() == Obecny->getId()) {
+		if(it.operator*()->getId() == Obecny->getId()) {
 			DoPrzejrzenia.erase(it);
 			Przejrzane.push_front(Obecny);
 			Obecny = Nastepny;
@@ -115,14 +115,14 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 	for(it = (Obecny->getSasiadow()).begin(); it != (Obecny->getSasiadow()).end(); ++it) {  //!!!DODAC!!! - POTRZEBA ODWOLANIA DO NASTEPNYCH PRZYSTANKOW
 		bool JuzPrzejrzane = false, JuzBylo = false;
 		for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
-			if(it->getId() == jt->getId()) {
+			if(it.operator*()->getId() == jt.operator*()->getId()) {
 				JuzPrzejrzane = true;
 				break;
 			}
 		}
 		if(!JuzPrzejrzane) {
 			for(jt = DoPrzejrzenia.begin(); jt != DoPrzejrzenia.end(); ++jt) {
-				if(it->getId() == jt->getId()) {
+				if(it.operator*()->getId() == jt.operator*()->getId()) {
 					JuzBylo = true;
 					break;
 				}
@@ -132,8 +132,8 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 			}
 			else {
 				DoPrzejrzenia.push_front(it);
-				it->DodajRodzica(Obecny);
-				it->WyliczKoszt(lat, lon);
+				it.operator*()->DodajRodzica(Obecny);
+				it.operator*()->WyliczKoszt(lat, lon);
 				break;
 			}
 		}
@@ -204,7 +204,7 @@ void Siec::wypisz() {
 }
 
 int Siec::getIloscPrzystankow() const {
-    return IloscPrzystankow;
+    return this->IloscPrzystankow;
 }
 
 
