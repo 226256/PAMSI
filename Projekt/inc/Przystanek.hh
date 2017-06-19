@@ -22,9 +22,9 @@ private:
 
     std::list<Przystanek*> Sasiedzi;
     double koszt;
-    double H;
-    double G;
-    Przystanek* rodzic;
+    double H;   //odleglosc od koncowego przystanku
+    double G;   //odleglosc od rodzica
+    Przystanek* rodzic = nullptr;
 
 public:
     //------konstruktory i destruktor---------

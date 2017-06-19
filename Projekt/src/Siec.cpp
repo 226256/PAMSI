@@ -35,50 +35,29 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 
     std::list<Przystanek*> DoPrzejrzenia;
     std::list<Przystanek*> Przejrzane;
-    std::list<Przystanek*> PoczatekID;
-    std::list<Przystanek*> KoniecID;
-    std::list<Przystanek*> Trasa;
+    std::list<Przystanek*> PoczatekLista;
+    std::list<Przystanek*> KoniecLista;
     std::list<std::string> SpisTrasy;
-    std::list<Przystanek*>::iterator it, jt;
+    std::list<Przystanek *>::const_iterator it;
+    std::list<Przystanek *>::const_iterator jt;
     Przystanek* Obecny;
-    Przystanek* Nastepny;
+    Przystanek* Koncowy;
     double lat = ZnajdzPrzystanek(Koniec)->getLat();
     double lon = ZnajdzPrzystanek(Koniec)->getLon();
     double pom;
+    bool CzyKoniec = false;
 
     Obecny = ZnajdzPrzystanek(Poczatek);
-    DoPrzejrzenia.push_front(Obecny);
 
 //Wczytanie do listy wszystkich przystankow o nazwie "Poczatek"
-    PoczatekID.push_back(Obecny);
-    bool CzyWszystkie = false;
-    while(!CzyWszystkie) {
-        Przystanek *temp;
-        temp = ZnajdzPrzystanek(Poczatek, PoczatekID);
-        if(temp != nullptr) {
-            PoczatekID.push_back(temp);
-        }
-        else {
-            CzyWszystkie = true;
-        }
-    }
+    PoczatekLista = ZnajdzPrzystankiOtakiejNazwie(Poczatek);
+
 //Wczytanie do listy wszystkich przystankow o nazwie "Koniec"
-    KoniecID.push_back(ZnajdzPrzystanek(Koniec));
-    CzyWszystkie = false;
-    while(!CzyWszystkie) {
-        Przystanek *temp;
-        temp = ZnajdzPrzystanek(Koniec, KoniecID);
-        if(temp != nullptr) {
-            KoniecID.push_back(temp);
-        }
-        else {
-            CzyWszystkie = true;
-        }
-    }
+    KoniecLista = ZnajdzPrzystankiOtakiejNazwie(Koniec);
 
 //Dodanie do listy DoPrzejrzenia wszystkich najbliższych przystankow dla wszystkich przystankow o nazwie "Poczatek",
 //dadanie im pola "rodzic" i wyliczenie G, H, F
-    for(it = PoczatekID.begin(); it != PoczatekID.end(); ++it) {
+    for(it = PoczatekLista.begin(); it != PoczatekLista.end(); ++it) {
 	   	for(jt = it.operator*()->getSasiadow().begin(); jt != it.operator*()->getSasiadow().end(); ++jt) {
 		   	DoPrzejrzenia.push_front(*jt);
 		   	jt.operator*()->DodajRodzica(Obecny);
@@ -93,53 +72,83 @@ std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 			return SpisTrasy;
 		}
 	}
+//Zmiana stanu pola poczatkowego
+	Przejrzane.push_front(Obecny);
 
-//Wybranie nastepnego punktu
-	pom = 10000;
-	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		if(pom > it.operator*()->getKoszt()) {
-			pom = it.operator*()->getKoszt();
-			Nastepny = it.operator*();
+
+//Glowna petla algorytmu
+	while(!CzyKoniec) {
+	//Wybranie nastepnego punktu
+		pom = 10000;
+		for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
+			if(pom > it.operator*()->getKoszt()) {
+				pom = it.operator*()->getKoszt();
+				Obecny = it.operator*();
+			}
 		}
-	}
-//Zmiana statusu obecnego pola
-	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
-		if(it.operator*()->getId() == Obecny->getId()) {
-			DoPrzejrzenia.erase(it);
-			Przejrzane.push_front(Obecny);
-			Obecny = Nastepny;
-			break;
-		}
-	}
-//Sprawdzenie przyleglych pol
-	for(it = Obecny->getSasiadow().begin(); it != Obecny->getSasiadow().end(); ++it) {
-		bool JuzPrzejrzane = false, JuzBylo = false;
-		for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
-			if(it.operator*()->getId() == jt.operator*()->getId()) {
-				JuzPrzejrzane = true;
+	//Zmiana statusu obecnego pola
+		for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
+			if(it.operator*()->getId() == Obecny->getId()) {
+				DoPrzejrzenia.erase(it);
+				Przejrzane.push_front(Obecny);
 				break;
 			}
 		}
-		if(!JuzPrzejrzane) {
-			for(jt = DoPrzejrzenia.begin(); jt != DoPrzejrzenia.end(); ++jt) {
+	//Sprawdzenie przyleglych pol
+		for(it = Obecny->getSasiadow().begin(); it != Obecny->getSasiadow().end(); ++it) {
+			bool JuzPrzejrzane = false, JuzBylo = false;
+			for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
 				if(it.operator*()->getId() == jt.operator*()->getId()) {
-					JuzBylo = true;
+					JuzPrzejrzane = true;
 					break;
 				}
 			}
-			if(JuzBylo) {
-				if()
+			if(!JuzPrzejrzane) {
+				for(jt = DoPrzejrzenia.begin(); jt != DoPrzejrzenia.end(); ++jt) {
+					if(it.operator*()->getId() == jt.operator*()->getId()) {
+						JuzBylo = true;
+						break;
+					}
+				}
+				if(JuzBylo) {
+					//obliczenie odleglosci sasiada od obecnego
+					double temp;
+					temp = (Obecny->getLat()-it.operator*()->getLat())*(Obecny->getLat()-it.operator*()->getLat());
+					temp += (obecny->getLon()-it.operator*()->getLon())*(obecny->getLon()-it.operator*()->getLon());
+					temp = sqrt(temp) + it.operator*()->getG();
+						if(it.operator*()->getG() < temp) {
+						it.operator*()->DodajRodzica(Obecny);
+						it.operator*()->WyliczKoszt(lat,lon);
+					}
+				}
+				else {
+					DoPrzejrzenia.push_front(*it);
+					it.operator*()->DodajRodzica(Obecny);
+					it.operator*()->WyliczKoszt(lat, lon);
+					break;
+				}
 			}
-			else {
-				DoPrzejrzenia.push_front(*it);
+		}
+	//Sprawdzenie czy nie mamy juz pola docelowego
+		for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
+			if(it.operator*()->getNazwa() == Koniec) {
 				it.operator*()->DodajRodzica(Obecny);
-				it.operator*()->WyliczKoszt(lat, lon);
-				break;
+				Koncowy = it;
+				CzyKoniec = true;
 			}
 		}
 	}
 
+//Wpisanie nazwy przystankow w dobrej kolejnosci
+	if(CzyKoniec) {
+		Przystanek *temp = Koncowy;
+		while(temp->getRodzic != nullptr) {
+			SpisTrasy.push_front(temp->getNazwa());
+			temp = temp->getRodzic();
+		}
+	}
 
+	return SpisTrasy;
 
 }
 
@@ -221,6 +230,7 @@ int Siec::getIloscPrzystankow() const {
  */
 Przystanek *Siec::ZnajdzPrzystanek(int id) const {
     int i=0;
+//    std::cout << "Szukam id: " << id << std::endl;
     while(i!=this->IloscPrzystankow){
         if(this->SpisPrzystankow[i]->getId()==id) return this->SpisPrzystankow[i];
         ++i;
@@ -267,13 +277,31 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
 void Siec::OrganizujSiec() {
     for(int i=0;i<this->liczbaLinii;++i){
         int* tempIds=this->SpisLinii[i]->getId_nastepnych();
+//        std::cout << this->SpisLinii[i]->getLinia() << ' ' << this->SpisLinii[i]->getWariant() << std::endl;
         int iloscNastepnych=tempIds[0];
         for(int j=1;j<iloscNastepnych-1;++j){
             Przystanek* uchwyt=this->ZnajdzPrzystanek(tempIds[j]);
             Przystanek* sasiad=this->ZnajdzPrzystanek(tempIds[j+1]);
             if(uchwyt!= nullptr && sasiad!= nullptr) {
+//                std::cout << "Do " << uchwyt->getNazwa() << " dodaje sasiada " << sasiad->getNazwa() << std::endl;
                 uchwyt->DodajSasiada(sasiad);
-            } else std::cerr << "Nie znajduje" << std::endl;
+            }
+            else{
+                std::cerr << "Nie znajduje" << std::endl;
+
+            }
         }
     }
+}
+
+std::list<Przystanek*> Siec::ZnajdzPrzystankiOtakiejNazwie(std::string Arg) const {
+    int i=0;
+    std::list<Przystanek*> temp;
+    while(i<this->IloscPrzystankow){
+        if(this->SpisPrzystankow[i]->getNazwa()==Arg) {
+            temp.push_back(this->SpisPrzystankow[i]);
+        }
+        ++i;
+    }
+    return temp;
 }

@@ -41,6 +41,7 @@ public:
     Rozklad **getSpisLinii() const;
 
     Przystanek* ZnajdzPrzystanek(std::string)const;
+    std::list<Przystanek*> ZnajdzPrzystankiOtakiejNazwie(std::string) const;
     Przystanek* ZnajdzPrzystanek(int id) const;
     Przystanek* ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listID) const;
     std::list<std::string> ZnajdzNajkrotszaDroge(std::string Poczatek,std::string Koniec) const;
