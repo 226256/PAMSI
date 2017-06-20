@@ -68,7 +68,7 @@ std::list<Przystanek*> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 	   		jt.operator*()->WyliczKoszt(lat, lon);
 	   	}
 	}
-		
+
 //Sprawdzenie czy nie mamy juz pola docelowego
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
 		if(it.operator*()->getNazwa() == Koniec) {
@@ -151,6 +151,7 @@ std::list<Przystanek*> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 			SpisTrasy.push_front(temp);
 			temp = temp->getRodzic();
 		}
+		SpisTrasy.push_front(temp);
 	}
 
 	return SpisTrasy;
