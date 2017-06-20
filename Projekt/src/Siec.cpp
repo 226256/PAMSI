@@ -51,7 +51,7 @@ std::list<Przystanek*> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 
 //Wczytanie do listy wszystkich przystankow o nazwie "Poczatek"
     PoczatekLista = ZnajdzPrzystankiOtakiejNazwie(Poczatek);
-
+    
 //Wczytanie do listy wszystkich przystankow o nazwie "Koniec"
     KoniecLista = ZnajdzPrzystankiOtakiejNazwie(Koniec);
 
@@ -68,6 +68,7 @@ std::list<Przystanek*> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 	   		jt.operator*()->WyliczKoszt(lat, lon);
 	   	}
 	}
+		
 //Sprawdzenie czy nie mamy juz pola docelowego
 	for(it = DoPrzejrzenia.begin(); it != DoPrzejrzenia.end(); ++it) {
 		if(it.operator*()->getNazwa() == Koniec) {
