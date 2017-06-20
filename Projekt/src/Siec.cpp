@@ -289,7 +289,7 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
     }
 }
 
-
+//Metoda wpisujaca dane wszedzie tam gdzie moga sie przydac
 void Siec::OrganizujSiec() {
     for(int i=0;i<this->liczbaLinii;++i){
         int* tempIds=this->SpisLinii[i]->getId_nastepnych();
