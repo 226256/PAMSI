@@ -31,6 +31,7 @@ Siec::~Siec() {
  *
  */
 std::list<std::string> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::string Koniec) const {
+    //TODO tutaj stowrzyc algorytm wyszukiwania najkrotszej sciezki i zwracania tablicy z przystankami jakie trzeba odwiedzic
 
     std::list<Przystanek*> DoPrzejrzenia;
     std::list<Przystanek*> Przejrzane;
@@ -289,7 +290,7 @@ Przystanek *Siec::ZnajdzPrzystanek(std::string Arg, std::list<Przystanek*> listI
     }
 }
 
-//Metoda wpisujaca dane wszedzie tam gdzie moga sie przydac
+
 void Siec::OrganizujSiec() {
     for(int i=0;i<this->liczbaLinii;++i){
         int* tempIds=this->SpisLinii[i]->getId_nastepnych();
@@ -306,10 +307,6 @@ void Siec::OrganizujSiec() {
                 std::cerr << "Nie znajduje" << std::endl;
 
             }
-        }
-        for(int k=1;k<iloscNastepnych;++k){
-            Przystanek* uchwyt=this->ZnajdzPrzystanek(tempIds[k]);
-            uchwyt->DodajLiniePrzejezdzajaca(this->SpisLinii[i]->getIdnum());
         }
     }
 }

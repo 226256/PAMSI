@@ -21,7 +21,7 @@ void PracownikMPK::TworzTablicePrzystankow(Siec& Arg) {
     std::string *tymczasowelat;
     std::string *tymczasowelon=0;
     double lat;
-    double lon;
+    double lon; 
 
 
     std::fstream spisprzystankow;               //strumien do pliku
