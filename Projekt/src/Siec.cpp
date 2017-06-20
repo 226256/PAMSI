@@ -330,3 +330,7 @@ std::list<Przystanek*> Siec::ZnajdzPrzystankiOtakiejNazwie(std::string Arg) cons
     }
     return temp;
 }
+
+int Siec::getLiczbaLinii() const {
+    return liczbaLinii;
+}

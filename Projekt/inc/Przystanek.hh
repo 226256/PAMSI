@@ -18,7 +18,7 @@ private:
 
     int ilosc_linii;
     int* numery_linii;
-    Rozklad** TablicaPoszczegolnychRozkladow;
+//    Rozklad** TablicaPoszczegolnychRozkladow;
 
     std::list<Przystanek*> Sasiedzi;
     std::list<int*> LinieJakiePrzejezdzajaPrzezPrzystanek;
@@ -56,8 +56,8 @@ public:
     const std::list<Przystanek *> &getSasiadow() const;
     //---------------------------------
 
-    Rozklad* ZnajdzLinie(int)const ;
-    Rozklad* ZnajdzLinie(std::string)const;
+//    Rozklad* ZnajdzLinie(int)const ;
+//    Rozklad* ZnajdzLinie(std::string)const;
     void WyliczKoszt(double szerokosc, double dlugosc);
     void DodajSasiada(Przystanek* Arg);
     void DodajRodzica(Przystanek *Rodzic);
