@@ -2,9 +2,8 @@
 // Created by maciek on 31.05.17.
 //
 
-#include <list>
+
 #include "../inc/Siec.hh"
-#define ROZMIAR 40     // ilosc powtorzen przystankow
 
 
 //------------konstrukory i destruktory--------
