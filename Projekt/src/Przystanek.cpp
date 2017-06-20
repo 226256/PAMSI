@@ -72,37 +72,37 @@ Przystanek *Przystanek::getRodzic() const {
 
 
 
-Rozklad *Przystanek::ZnajdzLinie(int szukana_linia) const{
-    int i=0;
-    bool CzyZnaleziona=false;
-    Rozklad* temp= nullptr;
-    while (i!=this->ilosc_linii && !CzyZnaleziona){
-        if(this->numery_linii[i]==szukana_linia){CzyZnaleziona = true;}
-        else ++i;
-    }
-    if(CzyZnaleziona){
-        int j=0;
-        while(temp== nullptr){
-            if(this->TablicaPoszczegolnychRozkladow[j]->getLinia()==szukana_linia) temp=this->TablicaPoszczegolnychRozkladow[j];
-            ++j;
-        }
-    }
-    return temp;
-}
-
-Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
-    int i=0;
-    bool CzyZnaleziona=false;
-    Rozklad* temp= nullptr;
-    while (i!=this->ilosc_linii && !CzyZnaleziona){
-        if(this->TablicaPoszczegolnychRozkladow[i]->getWariant()==Arg){CzyZnaleziona = true;}
-        else ++i;
-    }
-    if(CzyZnaleziona){
-        temp=this->TablicaPoszczegolnychRozkladow[i];
-    }
-    return temp;
-}
+//Rozklad *Przystanek::ZnajdzLinie(int szukana_linia) const{
+//    int i=0;
+//    bool CzyZnaleziona=false;
+//    Rozklad* temp= nullptr;
+//    while (i!=this->ilosc_linii && !CzyZnaleziona){
+//        if(this->numery_linii[i]==szukana_linia){CzyZnaleziona = true;}
+//        else ++i;
+//    }
+//    if(CzyZnaleziona){
+//        int j=0;
+//        while(temp== nullptr){
+//            if(this->TablicaPoszczegolnychRozkladow[j]->getLinia()==szukana_linia) temp=this->TablicaPoszczegolnychRozkladow[j];
+//            ++j;
+//        }
+//    }
+//    return temp;
+//}
+//
+//Rozklad *Przystanek::ZnajdzLinie(std::string Arg) const {
+//    int i=0;
+//    bool CzyZnaleziona=false;
+//    Rozklad* temp= nullptr;
+//    while (i!=this->ilosc_linii && !CzyZnaleziona){
+//        if(this->TablicaPoszczegolnychRozkladow[i]->getWariant()==Arg){CzyZnaleziona = true;}
+//        else ++i;
+//    }
+//    if(CzyZnaleziona){
+//        temp=this->TablicaPoszczegolnychRozkladow[i];
+//    }
+//    return temp;
+//}
 
 
 void Przystanek::WyliczKoszt(double szerokosc, double dlugosc) {
@@ -127,4 +127,9 @@ void Przystanek::DodajRodzica(Przystanek *Rodzic) {
 
 const std::list<Przystanek *> &Przystanek::getSasiadow() const {
     return Sasiedzi;
+}
+
+void Przystanek::DodajLiniePrzejezdzajaca(int *Arg) {
+    this->LinieJakiePrzejezdzajaPrzezPrzystanek.push_back(Arg);
+
 }

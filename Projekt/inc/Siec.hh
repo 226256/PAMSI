@@ -38,6 +38,8 @@ public:
 
     int getIloscPrzystankow() const;
 
+    int getLiczbaLinii() const;
+
     Rozklad **getSpisLinii() const;
 
     Przystanek* ZnajdzPrzystanek(std::string)const;

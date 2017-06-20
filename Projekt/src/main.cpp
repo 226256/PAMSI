@@ -13,7 +13,7 @@ int main() {
     MPK.OrganizujSiec();
 
 
-    auto lista = MPK.ZnajdzNajkrotszaDroge("Dubois", "GALERIA DOMINIKAŃSKA");
+    auto lista = MPK.ZnajdzNajkrotszaDroge("pl. Bema", "PL. GRUNWALDZKI");
 
     for(list<Przystanek *>::iterator it=lista.begin();it!=lista.end();++it) {
         cout << it.operator*()->getNazwa() << ' ' << it.operator*()->getId() << endl;
