@@ -36,10 +36,12 @@ std::list<Przystanek*> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
     std::list<Przystanek*> DoPrzejrzenia;
     std::list<Przystanek*> Przejrzane;
     std::list<Przystanek*> PoczatekLista;
+    std::list<Przystanek*> PomocLista;
     std::list<Przystanek*> KoniecLista;
     std::list<Przystanek*> SpisTrasy;
     std::list<Przystanek*>::const_iterator it;
     std::list<Przystanek*>::const_iterator jt;
+    std::list<Przystanek*>::const_iterator gt;
     Przystanek* Obecny;
     Przystanek* Koncowy;
     double lat = ZnajdzPrzystanek(Koniec)->getLat();
@@ -101,37 +103,40 @@ std::list<Przystanek*> Siec::ZnajdzNajkrotszaDroge(std::string Poczatek, std::st
 		}
 	//Sprawdzenie przyleglych pol
 		for(it = Obecny->getSasiadow().begin(); it != Obecny->getSasiadow().end(); ++it) {
-			bool JuzPrzejrzane = false, JuzBylo = false;
-			for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
-				if(it.operator*()->getId() == jt.operator*()->getId()) {
-					JuzPrzejrzane = true;
-					break;
-				}
-			}
-			if(!JuzPrzejrzane) {
-				for(jt = DoPrzejrzenia.begin(); jt != DoPrzejrzenia.end(); ++jt) {
-					if(it.operator*()->getId() == jt.operator*()->getId()) {
-						JuzBylo = true;
-						break;
+			PomocLista = ZnajdzPrzystankiOtakiejNazwie(it.operator*()->getNazwa());
+			for(gt = PomocLista.begin(); gt != PomocLista.end(); ++gt) {
+					bool JuzPrzejrzane = false, JuzBylo = false;
+					for(jt = Przejrzane.begin(); jt != Przejrzane.end(); ++jt) {
+						if(it.operator*()->getId() == jt.operator*()->getId()) {
+							JuzPrzejrzane = true;
+							break;
+						}
 					}
-				}
-				if(JuzBylo) {
-					//obliczenie odleglosci sasiada od obecnego
-					double temp;
-					temp = (Obecny->getLat()-it.operator*()->getLat())*(Obecny->getLat()-it.operator*()->getLat());
-					temp += (Obecny->getLon()-it.operator*()->getLon())*(Obecny->getLon()-it.operator*()->getLon());
-					temp = sqrt(temp) + it.operator*()->getG();
-						if(it.operator*()->getG() < temp) {
-						it.operator*()->DodajRodzica(Obecny);
-						it.operator*()->WyliczKoszt(lat,lon);
+					if(!JuzPrzejrzane) {
+						for(jt = DoPrzejrzenia.begin(); jt != DoPrzejrzenia.end(); ++jt) {
+							if(it.operator*()->getId() == jt.operator*()->getId()) {
+								JuzBylo = true;
+								break;
+							}
+						}
+						if(JuzBylo) {
+							//obliczenie odleglosci sasiada od obecnego
+							double temp;
+							temp = (Obecny->getLat()-it.operator*()->getLat())*(Obecny->getLat()-it.operator*()->getLat());
+							temp += (Obecny->getLon()-it.operator*()->getLon())*(Obecny->getLon()-it.operator*()->getLon());
+							temp = sqrt(temp) + it.operator*()->getG();
+								if(it.operator*()->getG() < temp) {
+									it.operator*()->DodajRodzica(Obecny);
+									it.operator*()->WyliczKoszt(lat,lon);
+								}
+							}
+						else {
+							DoPrzejrzenia.push_front(*it);
+							it.operator*()->DodajRodzica(Obecny);
+							it.operator*()->WyliczKoszt(lat, lon);
+							break;
+						}
 					}
-				}
-				else {
-					DoPrzejrzenia.push_front(*it);
-					it.operator*()->DodajRodzica(Obecny);
-					it.operator*()->WyliczKoszt(lat, lon);
-					break;
-				}
 			}
 		}
 	//Sprawdzenie czy nie mamy juz pola docelowego
