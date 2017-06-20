@@ -21,6 +21,8 @@ private:
     Rozklad** TablicaPoszczegolnychRozkladow;
 
     std::list<Przystanek*> Sasiedzi;
+    std::list<int*> LinieJakiePrzejezdzajaPrzezPrzystanek;
+
     double koszt;
     double H;   //odleglosc od koncowego przystanku
     double G;   //odleglosc od rodzica
@@ -32,7 +34,7 @@ public:
 
     Przystanek(int id, const std::string &nazwa, double lat, double lon);
 
-    Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_linii, Rozklad **TablicaPoszczegolnychRozkladow);
+//    Przystanek(const std::string &nazwa, int ilosc_linii, int *numery_linii, Rozklad **TablicaPoszczegolnychRozkladow);
     virtual ~Przystanek();
     //----------------------------------------
 
@@ -60,6 +62,7 @@ public:
     void DodajSasiada(Przystanek* Arg);
     void DodajRodzica(Przystanek *Rodzic);
 
+    void DodajLiniePrzejezdzajaca(int*);
 };
 
 

@@ -64,7 +64,7 @@ public:
 
     int *getId_nastepnych() const;
 
-    int *getCzas() const;
+//    int *getCzas() const;
 };
 
 

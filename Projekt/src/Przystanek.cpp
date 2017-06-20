@@ -128,3 +128,8 @@ void Przystanek::DodajRodzica(Przystanek *Rodzic) {
 const std::list<Przystanek *> &Przystanek::getSasiadow() const {
     return Sasiedzi;
 }
+
+void Przystanek::DodajLiniePrzejezdzajaca(int *Arg) {
+    this->LinieJakiePrzejezdzajaPrzezPrzystanek.push_back(Arg);
+
+}

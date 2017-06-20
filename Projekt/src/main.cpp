@@ -12,10 +12,5 @@ int main() {
     MPK.OrganizujSiec();
 
 
-    auto temp=MPK.ZnajdzPrzystankiOtakiejNazwie("GRABISZYŃSKA (Cmentarz)");
-
-    for(list<Przystanek *>::iterator it=temp.begin();it!=temp.end();++it) {
-        cout << it.operator*()->getNazwa() << ' ' << it.operator*()->getId() << endl;
-    }
     return 0;
 }
