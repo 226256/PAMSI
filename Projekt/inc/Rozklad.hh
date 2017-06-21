@@ -34,7 +34,7 @@ private:
     std::string wariant;
     int* idnum;
 
-    //w tablicy z id nastepnych, w pierwszej komorce jest dlugosc calej tablicy
+    //w tablicy z id nastepnych, w pierwszej komorce jest dlugosc calej tablicy(ilosc przystankow +1)
     int* id_nastepnych;
 //    int* czas;
 
@@ -63,6 +63,7 @@ public:
     int *getIdnum() const;
 
     int *getId_nastepnych() const;
+    int IloscPrzystankowWLinii() const;
 
 //    int *getCzas() const;
 };

@@ -88,7 +88,9 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
                 int *nastepne = tempRozklady[i]->getId_nastepnych();
                 int dlug = nastepne[0];
                 for (int j = 1; j < dlug; ++j) {
-                    if (nastepne[j]==idobecnego) listaprzydatnychrozkladow.push_back(tempRozklady[i]);
+                    if (nastepne[j]==idobecnego) {
+                        listaprzydatnychrozkladow.push_back(tempRozklady[i]);
+                    }
                 }
             }
             int rozm= (int) listaprzydatnychrozkladow.size();
@@ -97,20 +99,20 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
             for (int m = 0; m < rozm; ++m) {
                 oplacalnoscLinii[m]=0;
             }
-            for (int k = 0; k < listaprzydatnychrozkladow.size(); ++k) {
-                tabLiniiKtoreMajaMojPrzystanek[i]=listaprzydatnychrozkladow.front();
+            for (int k = 0; k < rozm; ++k) {
+                tabLiniiKtoreMajaMojPrzystanek[k]=listaprzydatnychrozkladow.front();
                 listaprzydatnychrozkladow.pop_front();
             }
 
             for (int l = 0; l < rozm; ++l) {//petla chodzenia po spisie przystankow ktore maja obecny przystanek
-                int* nastepne=tabLiniiKtoreMajaMojPrzystanek[l]->getId_nastepnych();
+                int* SprawdzanePrzystanki=tabLiniiKtoreMajaMojPrzystanek[l]->getId_nastepnych();
 
-//TUTAJ WYSKAKUJE SEGMENT, NIE WIEM JAK
+                int dopetli=tabLiniiKtoreMajaMojPrzystanek[l]->IloscPrzystankowWLinii();
+
                 for (auto it=obecny;it!=this->MojePrzystankiNaTrasie.end();++it) {//petla chodzenia po kolejnych przystankach do sprawdzania
-                    for (int j = 1; j < nastepne[0]; ++j) {//sprawdzanie kazdego przystanku na trasie czy jest rowny wlasnei szukanemu
-                        std::cout << "Nastepne nr " << j << " : " << nastepne[j] << std::endl;
+                    for (int j = 1; j < dopetli; ++j) {//sprawdzanie kazdego przystanku na trasie czy jest rowny wlasnei szukanemu
 
-                        if(it.operator*()->getId()==nastepne[j]) oplacalnoscLinii[l]+=1;
+                        if(it.operator*()->getId()==SprawdzanePrzystanki[j]) oplacalnoscLinii[l]+=1;
                     }
 
                 }
@@ -129,12 +131,18 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
                 Paratemp.liniaznak=tabLiniiKtoreMajaMojPrzystanek[najwyzszy]->getIdspec();
                 Paratemp.przystanek=obecny.operator*()->getNazwa();
                 Paratemp.linia=tabLiniiKtoreMajaMojPrzystanek[najwyzszy]->getLinia();
+                listaDanychWyjsciowych.push_back(Paratemp);
                 ++obecny;
             }
 
         }
 
-
+        int IloscDanychWyjsciowych= (int) listaDanychWyjsciowych.size();
+        temp=new ParaLiniaPrzystanek [IloscDanychWyjsciowych];
+        for (int i1 = 0; i1 < IloscDanychWyjsciowych; ++i1) {
+            temp[i1]=listaDanychWyjsciowych.front();
+            listaDanychWyjsciowych.pop_front();
+        }
 
 
         }

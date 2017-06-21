@@ -164,6 +164,7 @@ void PracownikMPK::StworzLinie(Siec& Arg) {
 
             nazwaLinii=new std::string(bufor,pierwszyCudzyslow+1,drugiCudzyslow-pierwszyCudzyslow-1);
             int* tab=PobierzNastepne(*stringdofunkcji);
+
             TablicaLinii[i] = new Rozklad(id,intdolinii,chardolinii,*nazwaLinii,tab);
             ++i;
         }
@@ -221,7 +222,7 @@ int* PracownikMPK::PobierzNastepne(std::string& ajdi) {
 
     size_t dlugosclisty=numerynastepnych.size();
     int* tablica=new int [dlugosclisty+1];
-    tablica[0]= (int) (dlugosclisty + 1);
+    tablica[0]= (int) (dlugosclisty+1);
     for(int i=1;i<dlugosclisty+1;++i){
         tablica[i]=numerynastepnych.front();
         numerynastepnych.pop_front();

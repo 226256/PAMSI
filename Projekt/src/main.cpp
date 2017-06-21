@@ -24,11 +24,17 @@ int main() {
         cout << it.operator*()->getNazwa() << ' ' << it.operator*()->getId() << endl;
     }
 
-    for (int i = 0; i < trasa->getLiczbaPrzystankowDoPrzejechania(); ++i) {
-        if(tablica->liniaznak==';')cout << "Linia " << tablica[i].linia << " Przystanek " << tablica[i].przystanek << endl;
-        else if(tablica->linia==1111) cout << "Linia " << tablica[i].liniaznak << " Przystanek " << tablica[i].przystanek << endl;
-        else cout << "Linia " << tablica[i].linia << tablica[i].liniaznak << " Przystanek " << tablica[i].przystanek << endl;
+    if(tablica!= nullptr) {
+        for (int i = 0; i < trasa->getLiczbaPrzystankowDoPrzejechania(); ++i) {
+            if (tablica->liniaznak == ';' && tablica->linia!=1111)
+                cout << "Linia " << tablica[i].linia << " Przystanek " << tablica[i].przystanek << endl;
+            else if (tablica->linia == 1111)
+                cout << "Linia " << tablica[i].liniaznak << " Przystanek " << tablica[i].przystanek << endl;
+            else
+                cout << "Linia " << tablica[i].linia << tablica[i].liniaznak << " Przystanek " << tablica[i].przystanek
+                     << endl;
+        }
     }
-
+    else cout << "Brak trasy" << endl;
 	return 0;
 }
