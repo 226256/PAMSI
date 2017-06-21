@@ -15,6 +15,7 @@ using namespace std;
 
 struct ParaLiniaPrzystanek{
     int linia;
+    char liniaznak;
     string przystanek;
 };
 
@@ -32,6 +33,7 @@ public:
     virtual ~MojaTrasa();
 
     int getLiczbaPrzystankowDoPrzejechania() const;
+
 
     ParaLiniaPrzystanek* WytyczTrase(Siec& Arg);
 };
