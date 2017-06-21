@@ -54,21 +54,20 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
     TablicaNazw[this->LiczbaPrzystankowDoPrzejechania-1]=this->MojePrzystankiNaTrasie.back()->getNazwa();
 
 
-    int i=0;
-//    std::cout << "Zapisze sobie nazwy do tablicy" << std::endl << std::endl;
+    int integer=0;
+    std::cout << "Zapisze sobie nazwy do tablicy" << std::endl << std::endl;
     for(auto it=this->MojePrzystankiNaTrasie.begin();it!=this->MojePrzystankiNaTrasie.end();++it){
-        std::cout << it.operator*()->getNazwa() << std::endl;
-        TablicaNazw[i]=it.operator*()->getNazwa();
-//        std::cout << "i= " << ++i<< std::endl;
+        TablicaNazw[integer]=it.operator*()->getNazwa();
+        ++integer;
     }
 
 //    std::cout << "Jesli znaleziony biore" << std::endl;
     if(MozeBezposredni != nullptr){
         temp=new ParaLiniaPrzystanek [this->LiczbaPrzystankowDoPrzejechania];
-        for (i = 0; i < this->LiczbaPrzystankowDoPrzejechania; ++i) {
-            temp[i].linia=MozeBezposredni->getLinia();
-            temp[i].liniaznak=MozeBezposredni->getIdspec();
-            temp[i].przystanek=TablicaNazw[i];
+        for (integer = 0; integer < this->LiczbaPrzystankowDoPrzejechania; ++integer) {
+            temp[integer].linia=MozeBezposredni->getLinia();
+            temp[integer].liniaznak=MozeBezposredni->getIdspec();
+            temp[integer].przystanek=TablicaNazw[integer];
         }
     }
 

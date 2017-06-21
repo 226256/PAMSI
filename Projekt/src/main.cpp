@@ -15,7 +15,7 @@ int main() {
     MPK.OrganizujSiec();
 
 
-    auto lista = MPK.ZnajdzNajkrotszaDroge("Park Zachodni", "PL. GRUNWALDZKI");
+    auto lista = MPK.ZnajdzNajkrotszaDroge("Park Zachodni", "Niedźwiedzia");
     MojaTrasa* trasa=new MojaTrasa(lista);
     ParaLiniaPrzystanek* tablica=trasa->WytyczTrase(MPK);
 
