@@ -7,7 +7,7 @@
 
 
 #include "Rozklad.hh"
-
+#include <cmath>
 
 class Przystanek {
 private:

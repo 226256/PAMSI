@@ -37,6 +37,10 @@ int *Rozklad::getIdnum() const {
 int *Rozklad::getId_nastepnych() const {
     return id_nastepnych;
 }
+
+int Rozklad::IloscPrzystankowWLinii() const {
+    return this->id_nastepnych[0];
+}
 //
 //int *Rozklad::getCzas() const {
 //    return czas;
