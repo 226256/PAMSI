@@ -19,21 +19,21 @@ Rozklad *MojaTrasa::SprawdzCzyNieMaBezposredniego(Siec &Arg) {
     int tempLiczbaRozkladow=Arg.getLiczbaLinii();
     for (int i = 0; i < tempLiczbaRozkladow; ++i) {
         int* nastepne=tempRozklady[i]->getId_nastepnych();
-        std::cout << "Sprawdzam linie " << tempRozklady[i]->getLinia() << " kierunek " << tempRozklady[i]->getWariant() << std::endl;
+//        std::cout << "Sprawdzam linie " << tempRozklady[i]->getLinia() << " kierunek " << tempRozklady[i]->getWariant() << std::endl;
         int dlug=nastepne[0];
         bool PoczatekZnalezionywTrasie=false;
         bool KoniecZnalezionywTrasie= false;
         for (int j = 1; j < dlug; ++j) {
             if(this->MojePrzystankiNaTrasie.front()->getId()==nastepne[j]) {
-                std::cout << "Pierwszy znaleziony" << std::endl;
+//                std::cout << "Pierwszy znaleziony" << std::endl;
                 PoczatekZnalezionywTrasie= true;
             }
-            if(this->MojePrzystankiNaTrasie.back()->getId()==nastepne[j]) {
-                std::cout << "Drugi znaleziony" << std::endl;
+            if(PoczatekZnalezionywTrasie && this->MojePrzystankiNaTrasie.back()->getId()==nastepne[j]) {
+//                std::cout << "Drugi znaleziony" << std::endl;
                 KoniecZnalezionywTrasie= true;
             }
             if(PoczatekZnalezionywTrasie && KoniecZnalezionywTrasie) {
-                std::cout << "Znalezione" << std::endl;
+//                std::cout << "Znalezione" << std::endl;
                 return tempRozklady[i];
             }
         }
@@ -67,6 +67,7 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
         temp=new ParaLiniaPrzystanek [this->LiczbaPrzystankowDoPrzejechania];
         for (i = 0; i < this->LiczbaPrzystankowDoPrzejechania; ++i) {
             temp[i].linia=MozeBezposredni->getLinia();
+            temp[i].liniaznak=MozeBezposredni->getIdspec();
             temp[i].przystanek=TablicaNazw[i];
         }
     }
@@ -103,8 +104,12 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
 
             for (int l = 0; l < rozm; ++l) {//petla chodzenia po spisie przystankow ktore maja obecny przystanek
                 int* nastepne=tabLiniiKtoreMajaMojPrzystanek[l]->getId_nastepnych();
+
+//TUTAJ WYSKAKUJE SEGMENT, NIE WIEM JAK
                 for (auto it=obecny;it!=this->MojePrzystankiNaTrasie.end();++it) {//petla chodzenia po kolejnych przystankach do sprawdzania
                     for (int j = 1; j < nastepne[0]; ++j) {//sprawdzanie kazdego przystanku na trasie czy jest rowny wlasnei szukanemu
+                        std::cout << "Nastepne nr " << j << " : " << nastepne[j] << std::endl;
+
                         if(it.operator*()->getId()==nastepne[j]) oplacalnoscLinii[l]+=1;
                     }
 
@@ -116,6 +121,16 @@ ParaLiniaPrzystanek *MojaTrasa::WytyczTrase(Siec &Arg) {
                 if(oplacalnoscLinii[n]>oplacalnoscLinii[najwyzszy])najwyzszy=n;
             }
 
+
+
+
+            for(int o=0;o < oplacalnoscLinii[najwyzszy];++o) {
+                ParaLiniaPrzystanek Paratemp;
+                Paratemp.liniaznak=tabLiniiKtoreMajaMojPrzystanek[najwyzszy]->getIdspec();
+                Paratemp.przystanek=obecny.operator*()->getNazwa();
+                Paratemp.linia=tabLiniiKtoreMajaMojPrzystanek[najwyzszy]->getLinia();
+                ++obecny;
+            }
 
         }
 
