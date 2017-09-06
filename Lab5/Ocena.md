@@ -1,3 +1,0 @@
-# Quicksort
-
-Ocena: 5
