@@ -7,10 +7,10 @@
 
 
 #include "Includes.h"
+#include "Drawable.h"
 
 
-
-class Food {
+class Food : my::Drawable{
 private:
     std::list<std::pair<int,int>>* food;
     int screenx,screeny;

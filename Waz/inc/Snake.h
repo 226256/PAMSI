@@ -6,11 +6,12 @@
 #define UNTITLED_SNAKE_H
 
 #include "Includes.h"
+#include "Drawable.h"
 
 
 enum Directions {Up,Down,Left,Right};
 
-class Snake {
+class Snake : my::Drawable{
 private:
     std::list<std::pair<int,int>> *snake;
 /*
